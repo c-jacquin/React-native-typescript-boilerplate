@@ -1,0 +1,10 @@
+{
+  "presets": ["react-native"],
+  "sourceMaps": true,
+  "plugins": [
+      "transform-decorators-legacy",
+      ["module-resolver", {
+        "root": ["./build"]
+      }]
+  ]
+}
