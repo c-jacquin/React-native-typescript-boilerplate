@@ -5,11 +5,7 @@ import { SlideProps, SlideState } from './types'
 import { getStyles } from './styles'
 
 class Slide extends PureComponent<SlideProps, SlideState> {
-    static defaultProps = {
-        paralaxFactor: 2
-    }
-
-    private translateX(animation: number) {
+    private translateX(animation: Animated.AnimatedDivision) {
         return {
             transform: [{
                 translateX: animation
@@ -18,18 +14,18 @@ class Slide extends PureComponent<SlideProps, SlideState> {
     }
 
     private posterTranslate(index: number) {
-        const { page, translate, width, paralaxFactor } = this.props
+        const { page, translate, width, paralaxFactor = 2 } = this.props
 
         if (index === page) {
-            return this.translateX(Animated.divide(translate, paralaxFactor))
+            return this.translateX(Animated.divide(translate, new Animated.Value(paralaxFactor)))
         }
 
         if(index === page + 1) {
-            return this.translateX(Animated.divide(Animated.add(translate, width), paralaxFactor))
+            return this.translateX(Animated.divide(Animated.add(translate, width), new Animated.Value(paralaxFactor)))
         }
 
         if (index === page -1) {
-            return this.translateX(Animated.divide(Animated.add(translate, width * -1), paralaxFactor))
+            return this.translateX(Animated.divide(Animated.add(translate, width * -1), new Animated.Value(paralaxFactor)))
         }
     }
 

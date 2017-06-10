@@ -1,5 +1,5 @@
 import React, { Component, PropTypes, StatelessComponent } from 'react'
-import { connect, MapStateToProps, MapDispatchToProps } from 'react-redux'
+import { connect } from 'react-redux'
 import { IntlProvider } from 'react-intl'
 import { selectLocale } from 'store/language/selectors'
 import { AppState } from 'store/reducer'
