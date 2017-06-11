@@ -1,0 +1,18 @@
+import React, { StatelessComponent } from 'react'
+{{#if wantMessages}}
+import { FormattedMessage } from 'react-intl'
+{{/if}}
+import { View } from 'react-native'
+
+{{#if wantMessages}}
+import messages from './messages'
+{{/if}}
+import { I{{ properCase name }}Props } from './types'
+
+const {{ properCase name }}: StatelessComponent<I{{ properCase name }}Props> = ({
+
+}) => (
+    <View/>
+)
+
+export default {{ properCase name }}
