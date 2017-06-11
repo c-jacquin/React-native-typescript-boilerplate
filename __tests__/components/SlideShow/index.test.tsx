@@ -3,11 +3,11 @@ import 'react-native'
 // Note: test renderer must be required after react-native.
 import * as renderer from 'react-test-renderer'
 
-import ArrowButton from '../../../src/components/Slideshow/ArrowButton/index'
+import SlideShow from '../../../src/components/Slideshow/index'
 
 it('renders correctly', () => {
   const tree = renderer.create(
-    <ArrowButton />,
+    <SlideShow items={[{ screen: { uri: '' }, poster: { uri: '' }, title: '' }]} />,
   )
   expect(tree).toBeDefined()
 })
