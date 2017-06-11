@@ -12,11 +12,13 @@
         "prebuild": "node node_modules/.bin/rimraf build && mkdir build && ncp src/translations build/translations",
         "build": "tsc",
         "pretest": "npm run build",
-        "test": "jest"
+        "test": "jest",
+        "gen": "plop --plopfile __generators__/index.js"
     },
     "dependencies": {
         "autobind-decorator": "^1.4.1",
         "intl": "^1.2.5",
+        "plop": "^1.8.0",
         "react": "16.0.0-alpha.6",
         "react-intl": "^2.3.0",
         "react-native": "0.44.0",
