@@ -9,5 +9,5 @@ export {
     FormattedMessage,
     FormattedNumber,
     FormattedPlural,
-    FormattedTime
+    FormattedTime,
 }
