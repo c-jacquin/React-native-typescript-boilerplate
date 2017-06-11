@@ -1,5 +1,5 @@
 {
-    "name": "ReactNativeTS",
+    "name": "ReactNativeTsBoilerplate",
     "version": "1.0.0",
     "private": true,
     "scripts": {
@@ -49,12 +49,19 @@
         "cz-conventional-changelog": "^2.0.0",
         "jest": "19.0.2",
         "ncp": "^2.0.0",
+        "react-native-device-info-mock": "0.0.2",
         "react-test-renderer": "16.0.0-alpha.6",
         "rimraf": "^2.6.1",
         "ts-jest": "^19.0.14",
+        "tslint": "^5.4.3",
+        "tslint-react": "^3.0.0",
         "typescript": "^2.3.2"
     },
     "jest": {
+        "moduleDirectories": [
+            "node_modules",
+            "src"
+        ],
         "preset": "react-native",
         "transform": {
             "^.+\\.js$": "<rootDir>/node_modules/babel-jest",

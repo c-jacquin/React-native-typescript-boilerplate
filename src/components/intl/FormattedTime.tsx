@@ -1,14 +1,13 @@
-import React, { PropTypes } from 'react'
+import React, { StatelessComponent } from 'react'
+import ReactIntl from 'react-intl'
 import { Text } from 'react-native'
-import { FormattedTime } from 'react-intl'
 
-interface Props {
-    style: string,
-    value: any
-}
+import { IFormattedTime } from './types'
 
-export default (props: Props) => (
-  <FormattedTime {...props}>
-    {(localized: string) => <Text style={props.style}>{localized}</Text>}
-  </FormattedTime>
+const FormattedTime: StatelessComponent<IFormattedTime> = (props) => (
+  <ReactIntl.FormattedTime {...props}>
+    { (localized: string) =>
+        <Text style={props.style}>{localized}</Text>
+    }
+  </ReactIntl.FormattedTime>
 )

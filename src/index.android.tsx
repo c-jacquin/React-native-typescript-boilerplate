@@ -1,10 +1,11 @@
 import React, { Component } from "react"
 import { Provider } from 'react-redux'
-import store from 'store/index'
+
 import { translationMessages } from 'i18n'
+import store from 'store/index'
 
 import LanguageProvider from 'containers/LanguageProvider'
-import Root from './containers/Root'
+import Root from 'containers/Root'
 
 class App extends Component<any, any> {
     render() {
@@ -14,7 +15,7 @@ class App extends Component<any, any> {
                     <Root />
                 </LanguageProvider>
             </Provider>
-        );
+        )
     }
 }
 

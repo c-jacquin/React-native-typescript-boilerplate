@@ -1,50 +1,22 @@
-import React, { Component } from "react";
-import { View, Text, StyleSheet, ViewStyle, TextStyle } from "react-native";
+import React, { Component } from "react"
+import { Provider } from 'react-redux'
 
-interface Props {
+import { translationMessages } from 'i18n'
+import store from 'store/index'
 
-}
+import LanguageProvider from 'containers/LanguageProvider'
+import Root from 'containers/Root'
 
-interface State {
-
-}
-
-export default class App extends Component<Props, State> {
+class App extends Component<any, any> {
     render() {
         return (
-            <View style={styles.container}>
-                <Text style={styles.welcome}>
-                    Welcome to React Native
-                </Text>
-                <Text style={styles.instructions}>
-                    To get started, edit index.ios.js
-                </Text>
-                <Text style={styles.instructions}>
-                    Press Cmd+R to reload, {"\n"}
-                    Cmd+D or shake for dev menu
-                </Text>
-            </View>
-        );
+            <Provider store={store}>
+                <LanguageProvider messages={translationMessages}>
+                    <Root />
+                </LanguageProvider>
+            </Provider>
+        )
     }
 }
 
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-        backgroundColor: "#F5FCFF",
-    } as ViewStyle,
-
-    welcome: {
-        fontSize: 20,
-        textAlign: "center",
-        margin: 10,
-    } as TextStyle,
-
-    instructions: {
-        textAlign: "center",
-        color: "#333333",
-        marginBottom: 5,
-    } as TextStyle,
-});
+export default App
