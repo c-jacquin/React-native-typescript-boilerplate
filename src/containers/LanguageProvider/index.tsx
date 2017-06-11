@@ -1,34 +1,26 @@
-import React, { Component, PropTypes } from 'react'
-import { connect } from 'react-redux'
+import React, { Component, PropTypes, StatelessComponent } from 'react'
 import { IntlProvider } from 'react-intl'
-import { createSelector } from 'reselect'
-import { selectLocale } from 'store/language/selectors'
-import { AppState } from 'store/reducer'
+import { connect } from 'react-redux'
+
 import config from 'config'
+import { selectLocale } from 'store/language/selectors'
+import { IAppState } from 'store/types'
 
-interface Props {
-    locale?: string,
-    messages?: any,
-    children?: any
-}
+import { ILanguageProviderProps } from './types'
 
-interface State {}
-
-const mapstateToProps = createSelector(
-  [selectLocale],
-  (locale) => ({
-      locale,
-  })
+const LanguageProvider: StatelessComponent<ILanguageProviderProps> = ({
+    locale = config.language.defaultLocale,
+    children,
+    messages,
+}) => (
+    <IntlProvider locale={locale} messages={messages[locale]}>
+      { children }
+    </IntlProvider>
 )
 
-export default class LanguageProvider extends Component<Props, State> {
-
-  render () {
-    const {locale = config.language.defaultLocale, messages, children} = this.props
-    return (
-      <IntlProvider locale={locale} messages={messages[locale]}>
-        { children }
-      </IntlProvider>
-    )
-  }
-}
+export default connect(
+    (state: IAppState, props: ILanguageProviderProps) => ({
+        ...props,
+        locale: selectLocale(state),
+    }),
+)(LanguageProvider)

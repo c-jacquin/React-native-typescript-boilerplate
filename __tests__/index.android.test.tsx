@@ -1,13 +1,13 @@
-import "react-native";
-import React from "react";
+import * as React from 'react'
+import 'react-native'
 // Note: test renderer must be required after react-native.
-import renderer from "react-test-renderer";
+import * as renderer from 'react-test-renderer'
 
-import App from "../src/index.android";
+import App from '../src/index.android'
 
-it("renders correctly", () => {
+it('renders correctly', () => {
   const tree = renderer.create(
-    <App />
-  );
-  expect(tree).toBeDefined();
-});
+    <App />,
+  )
+  expect(tree).toBeDefined()
+})

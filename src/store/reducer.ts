@@ -1,12 +1,9 @@
-import { combineReducers } from 'redux'
-import language, { LanguageState } from 'store/language/reducer'
+import { combineReducers, Reducer } from 'redux'
+import language from 'store/language/reducer'
+import { IAppState } from './types'
 
-export interface AppState {
-    language: LanguageState
-}
-
-const rootReducer = combineReducers({
-    language
+const rootReducer: Reducer<IAppState> = combineReducers<IAppState>({
+    language,
 })
 
 export default rootReducer
