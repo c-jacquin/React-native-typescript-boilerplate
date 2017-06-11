@@ -12,14 +12,21 @@ import { IAppState } from './types'
 
 const engine = createEngine(config.storeKey)
 
+const devEnhancer = composeWithDevTools(
+    applyMiddleware(
+        createEpicMiddleware(rootEpic),
+        storage.createMiddleware(engine, [], config.actionsToPersist),
+    ),
+)
+
+const prodEnhancer = applyMiddleware(
+    createEpicMiddleware(rootEpic),
+    storage.createMiddleware(engine, [], config.actionsToPersist),
+)
+
 const store = createStore<IAppState>(
     storage.reducer(rootReducer),
-    composeWithDevTools(
-        applyMiddleware(
-            createEpicMiddleware(rootEpic),
-            storage.createMiddleware(engine, [], config.actionsToPersist),
-        ),
-    ),
+    process.env.NODE_ENV === 'development' ? devEnhancer : prodEnhancer,
 )
 
 storage.createLoader(engine)(store)

@@ -5,14 +5,14 @@
     "scripts": {
         "postinstall": "rm -f node_modules/intl/.babelrc",
         "commit": "git-cz",
-        "dev": "tsc --watch",
+        "dev": "NODE_ENV=development tsc --watch",
         "start": "node node_modules/react-native/local-cli/cli.js start --skipflow",
         "android": "node node_modules/react-native/local-cli/cli.js run-android",
         "ios": "node node_modules/react-native/local-cli/cli.js run-ios",
         "prebuild": "node node_modules/.bin/rimraf build && mkdir build && ncp src/translations build/translations",
-        "build": "tsc",
+        "build": "NODE_ENV=production tsc",
         "pretest": "npm run build",
-        "test": "jest",
+        "test": "NODE_ENV=test jest",
         "gen": "plop --plopfile __generators__/index.js"
     },
     "dependencies": {
