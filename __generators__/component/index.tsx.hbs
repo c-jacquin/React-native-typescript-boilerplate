@@ -1,0 +1,21 @@
+import React, { Component, PropTypes } from 'react'
+{{#if wantMessages}}
+import { FormattedMessage } from 'react-intl'
+{{/if}}
+import { View } from 'react-native'
+
+{{#if wantMessages}}
+import messages from './messages'
+{{/if}}
+import { I{{ properCase name }}Props, I{{ properCase name }}State } from './types'
+
+class {{ properCase name }} extends Component<I{{ properCase name }}Props, I{{ properCase name }}State> {
+
+    render() {
+        return (
+            <View/>
+        )
+    }
+}
+
+export default {{ properCase name }}

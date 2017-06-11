@@ -1,0 +1,13 @@
+import * as React from 'react'
+import 'react-native'
+// Note: test renderer must be required after react-native.
+import * as renderer from 'react-test-renderer'
+
+import {{ properCase name }} from '../../../src/components/{{ properCase name }}/index'
+
+it('renders correctly', () => {
+  const tree = renderer.create(
+    <{{ properCase name }} />,
+  )
+  expect(tree).toBeDefined()
+})
