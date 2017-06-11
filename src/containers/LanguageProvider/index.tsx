@@ -1,16 +1,17 @@
 import React, { Component, PropTypes, StatelessComponent } from 'react'
-import { connect } from 'react-redux'
 import { IntlProvider } from 'react-intl'
-import { selectLocale } from 'store/language/selectors'
-import { AppState } from 'store/reducer'
+import { connect } from 'react-redux'
+
 import config from 'config'
+import { selectLocale } from 'store/language/selectors'
+import { IAppState } from 'store/types'
 
-import { LanguageProviderProps } from './types'
+import { ILanguageProviderProps } from './types'
 
-const LanguageProvider: StatelessComponent<LanguageProviderProps> = ({
+const LanguageProvider: StatelessComponent<ILanguageProviderProps> = ({
     locale = config.language.defaultLocale,
     children,
-    messages
+    messages,
 }) => (
     <IntlProvider locale={locale} messages={messages[locale]}>
       { children }
@@ -18,8 +19,8 @@ const LanguageProvider: StatelessComponent<LanguageProviderProps> = ({
 )
 
 export default connect(
-    (state: AppState, props: LanguageProviderProps) => ({
+    (state: IAppState, props: ILanguageProviderProps) => ({
         ...props,
-        locale: selectLocale(state)
-    })
+        locale: selectLocale(state),
+    }),
 )(LanguageProvider)

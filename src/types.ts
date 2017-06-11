@@ -1,11 +1,7 @@
 import { Store } from 'redux'
 import { IAppState } from 'store/types'
 
-export interface IRootProps {
+export interface IAppProps {
     store?: Store<IAppState>
     messages?: any
-}
-
-export interface IRootState {
-    items: any[]
 }

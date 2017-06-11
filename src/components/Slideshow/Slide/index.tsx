@@ -1,15 +1,15 @@
 import React, { PureComponent } from 'react'
 import { Animated, Image, View } from 'react-native'
 
-import { SlideProps, SlideState } from './types'
 import { getStyles } from './styles'
+import { ISlideProps } from './types'
 
-class Slide extends PureComponent<SlideProps, SlideState> {
+class Slide extends PureComponent<ISlideProps, any> {
     private translateX(animation: Animated.AnimatedDivision) {
         return {
             transform: [{
-                translateX: animation
-            }]
+                translateX: animation,
+            }],
         }
     }
 
@@ -20,11 +20,11 @@ class Slide extends PureComponent<SlideProps, SlideState> {
             return this.translateX(Animated.divide(translate, new Animated.Value(paralaxFactor)))
         }
 
-        if(index === page + 1) {
+        if (index === page + 1) {
             return this.translateX(Animated.divide(Animated.add(translate, width), new Animated.Value(paralaxFactor)))
         }
 
-        if (index === page -1) {
+        if (index === page - 1) {
             return this.translateX(Animated.divide(Animated.add(translate, width * -1), new Animated.Value(paralaxFactor)))
         }
     }

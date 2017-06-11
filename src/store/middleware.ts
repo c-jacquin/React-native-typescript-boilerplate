@@ -1,5 +1,5 @@
-import { combineEpics } from 'redux-observable'
+import { combineEpics, Epic } from 'redux-observable'
 
-const rootEpic = combineEpics()
+const rootEpic: Epic<any, any> = combineEpics()
 
 export default rootEpic

@@ -1,16 +1,11 @@
-import React, { PropTypes, isValidElement, createElement } from 'react'
+import React, { createElement, isValidElement, StatelessComponent } from 'react'
+import ReactIntl from 'react-intl'
 import { Text } from 'react-native'
-import { FormattedMessage } from 'react-intl'
+import { IFormattedMessageProps } from './types'
 
-interface Props {
-    style: string,
-    value: any,
-    id: string
-}
-
-export default (props: Props) => (
-  <FormattedMessage {...props}>
-    {(...nodes: Array<any>) => {
+const FormattedMessage: StatelessComponent<IFormattedMessageProps> = (props) => (
+  <ReactIntl.FormattedMessage {...props}>
+    {(...nodes: any[]) => {
       const newNodes = nodes.map((node) => {
         if (!isValidElement(node)) {
           return <Text style={props.style}>{node}</Text>
@@ -19,5 +14,7 @@ export default (props: Props) => (
       })
       return createElement(Text, {style: props.style}, ...newNodes)
     }}
-  </FormattedMessage>
+  </ReactIntl.FormattedMessage>
 )
+
+export default FormattedMessage

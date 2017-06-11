@@ -1,33 +1,24 @@
-import React, { PropTypes } from 'react'
+import React, { StatelessComponent } from 'react'
+import ReactIntl from 'react-intl'
 import { Text } from 'react-native'
-import { FormattedNumber } from 'react-intl'
 
-interface Props {
-    style: any,
-    localeMatcher: any,
-    formatStyle: string,
-    value: any,
-    currency: string,
-    currencyDisplay: any,
-    useGrouping: boolean,
-    minimumIntegerDigits: number,
-    minimumFractionDigits: number,
-    maximumFractionDigits: number,
-    minimumSignificantDigits: number,
-    maximumSignificantDigits: number
-}
+import { IFormattedNumberProps } from './types'
 
-export default (props: Props) => {
-  const style = props.style
-
+const FormattedNumber: StatelessComponent<IFormattedNumberProps> = ({
+    style,
+    formatStyle,
+    ...other,
+}) => {
   const formatOptions = {
-      ...props,
-      style: props.formatStyle
+      ...other,
+      style: formatStyle,
   }
 
   return (
-    <FormattedNumber {...formatOptions}>
+    <ReactIntl.FormattedNumber {...formatOptions}>
       {(localized: string) => <Text style={style}>{localized}</Text>}
-    </FormattedNumber>
+    </ReactIntl.FormattedNumber>
   )
 }
+
+export default FormattedNumber
