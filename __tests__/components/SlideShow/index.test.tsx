@@ -3,11 +3,11 @@ import 'react-native'
 // Note: test renderer must be required after react-native.
 import * as renderer from 'react-test-renderer'
 
-import {{ properCase name }} from '../../../src/components/{{ properCase name }}'
+import SlideShow from '../../../src/components/Slideshow/index'
 
 it('renders correctly', () => {
   const tree = renderer.create(
-    <{{ properCase name }} />,
+    <SlideShow items={[{ screen: { uri: '' }, poster: { uri: '' }, title: '' }]} />,
   )
   expect(tree).toBeDefined()
 })
