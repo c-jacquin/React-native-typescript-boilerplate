@@ -1,14 +1,25 @@
 import React, { PureComponent } from 'react'
-import { View, Animated, Image, Dimensions, PanResponder, PanResponderInstance, NativeTouchEvent, GestureResponderEvent, PanResponderGestureState } from 'react-native'
+import {
+    Animated,
+    Dimensions,
+    GestureResponderEvent,
+    Image,
+    NativeTouchEvent,
+    PanResponder,
+    PanResponderGestureState,
+    PanResponderInstance,
+    View,
+} from 'react-native'
+
 import autobind from 'autobind-decorator'
 
 import Slide from './Slide'
 
-import { CarouselProps, CarouselState, CarouselItem } from './types'
 import { getStyles } from './styles'
+import { ICarouselProps, ICarouselState } from './types'
 
-class Slideshow extends PureComponent<CarouselProps, CarouselState> {
-    panResponser: PanResponderInstance
+class Slideshow extends PureComponent<ICarouselProps, ICarouselState> {
+    private panResponser: PanResponderInstance
 
     @autobind
     private handleEndGesture(evt: GestureResponderEvent, gestureState: PanResponderGestureState) {
@@ -19,9 +30,9 @@ class Slideshow extends PureComponent<CarouselProps, CarouselState> {
         const handleAnimationEnd = () => {
             this.state.translate.setValue(0)
 
-            if(toValue < 0) {
+            if (toValue < 0) {
                 this.nextPage()
-            } else if(toValue > 0) {
+            } else if (toValue > 0) {
                 this.prevPage()
             }
         }
@@ -30,37 +41,37 @@ class Slideshow extends PureComponent<CarouselProps, CarouselState> {
             .timing(this.state.translate, {
                 toValue,
                 duration: 300,
-                useNativeDriver: true
+                useNativeDriver: true,
             })
             .start(handleAnimationEnd)
     }
 
-    prevPage() {
+    public prevPage() {
         const { items } = this.props
         const { page } = this.state
 
         this.setState({
-            page: page -1 < 0 ? items.length -1 : page -1
+            page: page - 1 < 0 ? items.length - 1 : page - 1,
         })
     }
 
-    nextPage() {
+    public nextPage() {
         const { items } = this.props
         const { page } = this.state
 
         this.setState({
-            page: page + 1 >= items.length ? 0 : page + 1
+            page: page + 1 >= items.length ? 0 : page + 1,
         })
     }
 
-    constructor(props:CarouselProps) {
+    constructor(props: ICarouselProps) {
         super(props)
         const { width } = Dimensions.get('window')
 
         this.state = {
             width,
             translate: new Animated.Value(0),
-            page: 0
+            page: 0,
         }
     }
 
@@ -72,14 +83,14 @@ class Slideshow extends PureComponent<CarouselProps, CarouselState> {
             onMoveShouldSetPanResponderCapture: () => true,
             onPanResponderTerminationRequest: () => false,
             onPanResponderMove: Animated.event([false, { dx: this.state.translate }]),
-            onPanResponderRelease: this.handleEndGesture
+            onPanResponderRelease: this.handleEndGesture,
         })
     }
 
     render() {
         const { items } = this.props
         const { page, translate, width } = this.state
-        const styles = getStyles(width,items, page, translate)
+        const styles = getStyles(width, items, page, translate)
 
         return (
             <Animated.View style={styles.slider} {...this.panResponser.panHandlers}>

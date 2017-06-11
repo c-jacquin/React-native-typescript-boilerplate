@@ -1,45 +1,45 @@
 {
-  "compilerOptions": {
-    "target": "es2015",
-    "module": "es2015",
-    "allowJs": true,
-    "jsx": "react-native",
-    "sourceMap": true,
-    "outDir": "./build",
-    "rootDir": "./src",
-    "removeComments": false,
-    "lib":["dom","es2017"],
-    "strict": true,
-    "noImplicitAny": true,
-    "strictNullChecks": true,
-    "noImplicitThis": true,
-    "alwaysStrict": true,
+    "compilerOptions": {
+        "target": "es2015",
+        "module": "es2015",
+        "allowJs": true,
+        "jsx": "react-native",
+        "sourceMap": true,
+        "outDir": "./build",
+        "rootDir": "./src",
+        "removeComments": false,
+        "lib":["dom","es2017"],
+        "strict": true,
+        "noImplicitAny": true,
+        "strictNullChecks": true,
+        "noImplicitThis": true,
+        "alwaysStrict": true,
 
-    "moduleResolution": "node",
-    "baseUrl": ".",
-    "paths": {
-        "components/*": ["./src/components/*"],
-        "config": ["./src/config/index.ts"],
-        "containers/*": ["./src/containers/*"],
-        "store/*": ["./src/store/*"],
-        "translations/*": ["./src/translations/*"],
-        "i18n": ["./src/i18n.ts"]
+        "moduleResolution": "node",
+        "baseUrl": ".",
+        "paths": {
+            "components/*": ["./src/components/*"],
+            "config": ["./src/config/index.ts"],
+            "containers/*": ["./src/containers/*"],
+            "store/*": ["./src/store/*"],
+            "translations/*": ["./src/translations/*"],
+            "i18n": ["./src/i18n.ts"]
+        },
+        "typeRoots": [
+            "./src/types"
+        ],
+        "allowSyntheticDefaultImports": true,
+
+        "experimentalDecorators": true
     },
-    "typeRoots": [
-        "./src/types"
+    "include": [
+        "src/**/*"
     ],
-    "allowSyntheticDefaultImports": true,
-
-    "experimentalDecorators": true
-  },
-  "include": [
-    "src/**/*"
-  ],
-  "exclude": [
-    "__tests__",
-    "index.android.js",
-    "index.ios.js",
-    "build",
-    "node_modules"
-  ]
+    "exclude": [
+        "__tests__",
+        "index.android.js",
+        "index.ios.js",
+        "build",
+        "node_modules"
+    ]
 }

@@ -1,20 +1,20 @@
 import { NavigationAnimatedValue } from 'react-native'
 
-export interface CarouselItem {
+export interface ICarouselItem {
     title: string
     screen: {
-        uri: string
+        uri: string,
     }
     poster: {
-        uri: string
+        uri: string,
     }
 }
 
-export interface CarouselProps {
-    items: CarouselItem[]
+export interface ICarouselProps {
+    items: ICarouselItem[]
 }
 
-export interface CarouselState {
+export interface ICarouselState {
     width: number
     translate: NavigationAnimatedValue
     page: number

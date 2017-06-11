@@ -19,12 +19,11 @@ export const formatTranslationMessages: any = (locale: string, messages: any) =>
   const defaultFormattedMessages: any = locale !== config.language.defaultLocale ? formatTranslationMessages(config.language.defaultLocale, enTranslationMessages) : {}
   const formattedMessages: any = {}
   const messageKeys = Object.keys(messages)
+
   for (const messageKey of messageKeys) {
-    if (locale === config.language.defaultLocale) {
-      formattedMessages[messageKey] = messages[messageKey]
-    } else {
-      formattedMessages[messageKey] = messages[messageKey] || defaultFormattedMessages[messageKey]
-    }
+      formattedMessages[messageKey] = locale === config.language.defaultLocale
+        ? messages[messageKey]
+        : formattedMessages[messageKey] = messages[messageKey] || defaultFormattedMessages[messageKey]
   }
 
   return formattedMessages
@@ -32,5 +31,5 @@ export const formatTranslationMessages: any = (locale: string, messages: any) =>
 
 export const translationMessages: any = {
   en: formatTranslationMessages('en', enTranslationMessages),
-  fr: formatTranslationMessages('fr', frTranslationMessages)
+  fr: formatTranslationMessages('fr', frTranslationMessages),
 }

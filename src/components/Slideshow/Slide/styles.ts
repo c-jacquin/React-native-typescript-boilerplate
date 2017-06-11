@@ -4,22 +4,22 @@ export const getStyles = (width: number, translateX: NavigationAnimatedValue): a
     slide: {
         height: 390,
         width,
-        position: 'relative'
+        position: 'relative',
     },
     screen: {
         width,
-        height: 300
+        height: 300,
     },
     poster: {
         position: 'absolute',
         top: 150,
         left: 20,
         height: 220,
-        width: 150
+        width: 150,
     },
     title: {
         fontSize: 18,
-        color: '#FFF'
+        color: '#FFF',
     },
     titleContainer: {
         position: 'absolute',
@@ -27,6 +27,6 @@ export const getStyles = (width: number, translateX: NavigationAnimatedValue): a
         left: 200,
         top: 330,
         right: 0,
-        overflow: 'hidden'
-    }
+        overflow: 'hidden',
+    },
 })

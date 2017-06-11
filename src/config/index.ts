@@ -3,7 +3,7 @@ export default {
   storeKey: 'myAppStoreKey',
   language: {
     defaultLocale: 'en',
-    supportedLocales: ['fr', 'en']
+    supportedLocales: ['fr', 'en'],
   },
-  actionsToPersist: []
+  actionsToPersist: [],
 }

@@ -8,7 +8,7 @@ export const getStyles = (width: number, items: any[], page: number, translateX:
         backgroundColor: '#1B1B1B',
         left: (page + 1) * -1 * width,
         transform: [{
-            translateX
-        }]
+            translateX,
+        }],
     },
 })
