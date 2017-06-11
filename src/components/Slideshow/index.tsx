@@ -13,6 +13,7 @@ import {
 
 import autobind from 'autobind-decorator'
 
+import ArrowButton from './ArrowButton'
 import Slide from './Slide'
 
 import { getStyles } from './styles'
@@ -22,46 +23,50 @@ class Slideshow extends PureComponent<ICarouselProps, ICarouselState> {
     private panResponser: PanResponderInstance
 
     @autobind
-    private handleEndGesture(evt: GestureResponderEvent, gestureState: PanResponderGestureState) {
-        const toValue = Math.abs(gestureState.dx) / this.state.width > 0.2
-            ? gestureState.dx < 0 ? this.state.width * -1 : this.state.width
-            : 0
+    private handleAnimationEnd(toValue: number) {
+        const { items } = this.props
+        const { page } = this.state
 
-        const handleAnimationEnd = () => {
-            this.state.translate.setValue(0)
+        this.state.translate.setValue(0)
 
-            if (toValue < 0) {
-                this.nextPage()
-            } else if (toValue > 0) {
-                this.prevPage()
-            }
+        if (toValue < 0) {
+            this.setState({
+                page: page + 1 >= items.length ? 0 : page + 1,
+            })
+        } else if (toValue > 0) {
+            this.setState({
+                page: page - 1 < 0 ? items.length - 1 : page - 1,
+            })
         }
+    }
 
+    @autobind
+    private animate(toValue: number) {
         Animated
             .timing(this.state.translate, {
                 toValue,
                 duration: 300,
                 useNativeDriver: true,
             })
-            .start(handleAnimationEnd)
+            .start(() => this.handleAnimationEnd(toValue))
     }
 
+    @autobind
+    private handleEndGesture(evt: GestureResponderEvent, gestureState: PanResponderGestureState) {
+        const toValue = Math.abs(gestureState.dx) / this.state.width > 0.2
+            ? gestureState.dx < 0 ? this.state.width * -1 : this.state.width
+            : 0
+        this.animate(toValue)
+    }
+
+    @autobind
     public prevPage() {
-        const { items } = this.props
-        const { page } = this.state
-
-        this.setState({
-            page: page - 1 < 0 ? items.length - 1 : page - 1,
-        })
+        this.animate(this.state.width * -1)
     }
 
+    @autobind
     public nextPage() {
-        const { items } = this.props
-        const { page } = this.state
-
-        this.setState({
-            page: page + 1 >= items.length ? 0 : page + 1,
-        })
+        this.animate(this.state.width)
     }
 
     constructor(props: ICarouselProps) {
@@ -88,16 +93,24 @@ class Slideshow extends PureComponent<ICarouselProps, ICarouselState> {
     }
 
     render() {
-        const { items } = this.props
+        const { items, arrows } = this.props
         const { page, translate, width } = this.state
         const styles = getStyles(width, items, page, translate)
 
         return (
-            <Animated.View style={styles.slider} {...this.panResponser.panHandlers}>
-                <Slide item={items[items.length - 1]} {...this.state} index={-1} />
-                { items.map((item, index) => <Slide item={item} key={index} {...this.state} index={index} />) }
-                <Slide item={items[0]} {...this.state} index={items.length} />
-            </Animated.View>
+            <View style={{ position: 'relative' }}>
+                { arrows &&
+                    <ArrowButton style={styles.arrowLeft} direction={'back'} onPress={this.prevPage} />
+                }
+                <Animated.View style={styles.slider} {...this.panResponser.panHandlers}>
+                    <Slide item={items[items.length - 1]} {...this.state} index={-1} />
+                    { items.map((item, index) => <Slide item={item} key={index} {...this.state} index={index} />) }
+                    <Slide item={items[0]} {...this.state} index={items.length} />
+                </Animated.View>
+                { arrows &&
+                    <ArrowButton style={styles.arrowRight} direction={'forward'} onPress={this.nextPage} />
+                }
+            </View>
         )
     }
 }

@@ -12,6 +12,7 @@ export interface ICarouselItem {
 
 export interface ICarouselProps {
     items: ICarouselItem[]
+    arrows?: boolean
 }
 
 export interface ICarouselState {
