@@ -44,7 +44,7 @@ class Root extends PureComponent<IRootProps, IRootState> {
 
         return (
             <ScrollView>
-                <Slideshow items={items} />
+                <Slideshow items={items} arrows={true} />
             </ScrollView>
         )
     }

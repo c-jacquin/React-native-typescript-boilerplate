@@ -18,11 +18,12 @@
             true,
             "spaces"
         ],
-        "jsdoc-format": true,
+        "jsdoc-format": false,
         "jsx-curly-spacing": true,
         "jsx-no-multiline-js": false,
         "label-position": true,
         "label-undefined": true,
+        "max-classes-per-file": 10,
         "max-line-length": [
             false,
             140
