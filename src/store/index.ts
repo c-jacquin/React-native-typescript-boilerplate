@@ -1,32 +1,40 @@
-import { applyMiddleware, createStore, Store } from 'redux'
+import { applyMiddleware, createStore, Store, StoreEnhancer } from 'redux'
+import immutableStateMiddleware from 'redux-immutable-state-invariant'
 import { createEpicMiddleware } from 'redux-observable'
 import * as storage from 'redux-storage'
 import createEngine from 'redux-storage-engine-reactnativeasyncstorage'
 import { composeWithDevTools } from 'remote-redux-devtools'
 
-import rootEpic from './middleware'
-import rootReducer from './reducer'
+import rootEpic from './rootEpic'
+import rootReducer from './rootReducer'
 
 import config from 'config'
-import { IAppState } from './types'
+import { AppState } from './types'
 
 const engine = createEngine(config.storeKey)
 
-const devEnhancer = composeWithDevTools(
-    applyMiddleware(
+const getDevEnhancer = (): StoreEnhancer<AppState> => {
+    return composeWithDevTools(
+        applyMiddleware(
+            createEpicMiddleware(rootEpic),
+            storage.createMiddleware(engine, [], config.actionsToPersist),
+            immutableStateMiddleware()
+        )
+    )
+}
+
+const getProdEnhancer = (): StoreEnhancer<AppState> => {
+    return applyMiddleware(
         createEpicMiddleware(rootEpic),
-        storage.createMiddleware(engine, [], config.actionsToPersist),
-    ),
-)
+        storage.createMiddleware(engine, [], config.actionsToPersist)
+    )
+}
 
-const prodEnhancer = applyMiddleware(
-    createEpicMiddleware(rootEpic),
-    storage.createMiddleware(engine, [], config.actionsToPersist),
-)
-
-const store = createStore<IAppState>(
+const store = createStore<AppState>(
     storage.reducer(rootReducer),
-    process.env.NODE_ENV === 'development' ? devEnhancer : prodEnhancer,
+    process.env.NODE_ENV === 'development'
+        ? getDevEnhancer()
+        : getProdEnhancer()
 )
 
 storage.createLoader(engine)(store)

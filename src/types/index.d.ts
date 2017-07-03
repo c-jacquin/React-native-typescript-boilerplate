@@ -1,6 +1,6 @@
-declare interface IProcess  {
+interface IProcess {
     env: {
-        NODE_ENV: string,
+        NODE_ENV: string
     }
 }
 

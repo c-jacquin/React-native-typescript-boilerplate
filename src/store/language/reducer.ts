@@ -1,22 +1,39 @@
-import DeviceInfo from 'react-native-device-info'
-import { Action, Reducer } from 'redux'
+import { Reducer } from 'redux'
 
 import config from 'config'
+import { ReduxAction } from '../types'
+import * as LanguageActions from './actions'
+import { LanguageState } from './types'
 
-import { ILanguageState } from './types'
-
-const phoneLocale: string = DeviceInfo.getDeviceLocale()
-
-const initialState: ILanguageState = {
-  locale: config.language.supportedLocales.includes(phoneLocale) ? phoneLocale : config.language.defaultLocale,
-  supportedLanguages: config.language.supportedLocales,
+const initialState: LanguageState = {
+    locale: config.language.defaultLocale,
+    supportedLanguages: config.language.supportedLocales,
+    pending: false,
 }
 
-const languageReducer: Reducer<ILanguageState> = (state = initialState, action: Action) => {
-  switch (action.type) {
-    default:
-      return state
-  }
+const languageReducer: Reducer<LanguageState> = (
+    state = initialState,
+    action: ReduxAction
+) => {
+    switch (action.type) {
+        case LanguageActions.GET_LOCALE_PENDING:
+            return {
+                ...state,
+                pending: true,
+            }
+        case LanguageActions.GET_LOCALE_SUCCESS:
+            return {
+                ...state,
+                pending: false,
+                locale: config.language.supportedLocales.includes(
+                    action.payload
+                )
+                    ? action.payload
+                    : state.locale,
+            }
+        default:
+            return state
+    }
 }
 
 export default languageReducer

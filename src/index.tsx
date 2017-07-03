@@ -1,4 +1,5 @@
-import React, { Component } from "react"
+import Expo from 'expo'
+import React, { Component } from 'react'
 import { Provider } from 'react-redux'
 
 import { translationMessages } from 'i18n'
@@ -19,4 +20,4 @@ class App extends Component<any, any> {
     }
 }
 
-export default App
+Expo.registerRootComponent(App)

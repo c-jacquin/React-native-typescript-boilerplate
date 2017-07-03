@@ -9,16 +9,16 @@ const FormattedNumber: StatelessComponent<IFormattedNumberProps> = ({
     formatStyle,
     ...other,
 }) => {
-  const formatOptions = {
-      ...other,
-      style: formatStyle,
-  }
+    const formatOptions = {
+        ...other,
+        style: formatStyle,
+    }
 
-  return (
-    <ReactIntl.FormattedNumber {...formatOptions}>
-      {(localized: string) => <Text style={style}>{localized}</Text>}
-    </ReactIntl.FormattedNumber>
-  )
+    return (
+        <ReactIntl.FormattedNumber {...formatOptions}>
+            {(localized: string) => <Text style={style}>{localized}</Text>}
+        </ReactIntl.FormattedNumber>
+    )
 }
 
 export default FormattedNumber
