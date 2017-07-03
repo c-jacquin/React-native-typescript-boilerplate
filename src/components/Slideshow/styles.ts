@@ -1,6 +1,11 @@
 import { NavigationAnimatedValue } from 'react-native'
 
-export const getStyles = (width: number, items: any[], page: number, translateX: NavigationAnimatedValue): any => ({
+export const getStyles = (
+    width: number,
+    items: any[],
+    page: number,
+    translateX: NavigationAnimatedValue
+): any => ({
     slider: {
         flexDirection: 'row',
         position: 'relative',
@@ -8,9 +13,11 @@ export const getStyles = (width: number, items: any[], page: number, translateX:
         height: 390,
         backgroundColor: '#1B1B1B',
         left: (page + 1) * -1 * width,
-        transform: [{
-            translateX,
-        }],
+        transform: [
+            {
+                translateX,
+            },
+        ],
     },
     arrowLeft: {
         position: 'absolute',

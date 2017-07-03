@@ -1,6 +1,9 @@
 import { NavigationAnimatedValue } from 'react-native'
 
-export const getStyles = (width: number, translateX: NavigationAnimatedValue): any => ({
+export const getStyles = (
+    width: number,
+    translateX: NavigationAnimatedValue
+): any => ({
     slide: {
         height: 390,
         width,

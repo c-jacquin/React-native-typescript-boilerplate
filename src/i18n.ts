@@ -4,8 +4,8 @@ import { addLocaleData } from 'react-intl'
 import enLocaleData from 'react-intl/locale-data/en'
 import frLocaleData from 'react-intl/locale-data/fr'
 
-import enTranslationMessages from 'translations/en.json'
-import frTranslationMessages from 'translations/fr.json'
+import enTranslationMessages from './translations/en'
+import frTranslationMessages from './translations/fr'
 
 import config from 'config'
 
@@ -15,21 +15,31 @@ import config from 'config'
 addLocaleData(enLocaleData)
 addLocaleData(frLocaleData)
 
-export const formatTranslationMessages: any = (locale: string, messages: any) => {
-  const defaultFormattedMessages: any = locale !== config.language.defaultLocale ? formatTranslationMessages(config.language.defaultLocale, enTranslationMessages) : {}
-  const formattedMessages: any = {}
-  const messageKeys = Object.keys(messages)
+export const formatTranslationMessages: any = (
+    locale: string,
+    messages: any
+) => {
+    const defaultFormattedMessages: any = locale !==
+        config.language.defaultLocale
+        ? formatTranslationMessages(
+              config.language.defaultLocale,
+              enTranslationMessages
+          )
+        : {}
+    const formattedMessages: any = {}
+    const messageKeys = Object.keys(messages)
 
-  for (const messageKey of messageKeys) {
-      formattedMessages[messageKey] = locale === config.language.defaultLocale
-        ? messages[messageKey]
-        : formattedMessages[messageKey] = messages[messageKey] || defaultFormattedMessages[messageKey]
-  }
+    for (const messageKey of messageKeys) {
+        formattedMessages[messageKey] = locale === config.language.defaultLocale
+            ? messages[messageKey]
+            : (formattedMessages[messageKey] =
+                  messages[messageKey] || defaultFormattedMessages[messageKey])
+    }
 
-  return formattedMessages
+    return formattedMessages
 }
 
 export const translationMessages: any = {
-  en: formatTranslationMessages('en', enTranslationMessages),
-  fr: formatTranslationMessages('fr', frTranslationMessages),
+    en: formatTranslationMessages('en', enTranslationMessages),
+    fr: formatTranslationMessages('fr', frTranslationMessages),
 }

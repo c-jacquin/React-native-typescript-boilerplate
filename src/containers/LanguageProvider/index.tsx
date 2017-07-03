@@ -4,23 +4,23 @@ import { connect } from 'react-redux'
 
 import config from 'config'
 import { selectLocale } from 'store/language/selectors'
-import { IAppState } from 'store/types'
+import { AppState } from 'store/types'
 
-import { ILanguageProviderProps } from './types'
+import { LanguageProviderConnectedProps, LanguageProviderProps } from './types'
 
-const LanguageProvider: StatelessComponent<ILanguageProviderProps> = ({
+const LanguageProvider: StatelessComponent<LanguageProviderProps> = ({
     locale = config.language.defaultLocale,
     children,
     messages,
-}) => (
+}) =>
     <IntlProvider locale={locale} messages={messages[locale]}>
-      { children }
+        {children}
     </IntlProvider>
-)
 
-export default connect(
-    (state: IAppState, props: ILanguageProviderProps) => ({
-        ...props,
-        locale: selectLocale(state),
-    }),
-)(LanguageProvider)
+export default connect<
+    LanguageProviderConnectedProps,
+    null,
+    LanguageProviderProps
+>(state => ({
+    locale: selectLocale(state),
+}))(LanguageProvider)

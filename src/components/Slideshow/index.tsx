@@ -42,17 +42,18 @@ class Slideshow extends PureComponent<ICarouselProps, ICarouselState> {
 
     @autobind
     private animate(toValue: number) {
-        Animated
-            .timing(this.state.translate, {
-                toValue,
-                duration: 300,
-                useNativeDriver: true,
-            })
-            .start(() => this.handleAnimationEnd(toValue))
+        Animated.timing(this.state.translate, {
+            toValue,
+            duration: 300,
+            useNativeDriver: true,
+        }).start(() => this.handleAnimationEnd(toValue))
     }
 
     @autobind
-    private handleEndGesture(evt: GestureResponderEvent, gestureState: PanResponderGestureState) {
+    private handleEndGesture(
+        evt: GestureResponderEvent,
+        gestureState: PanResponderGestureState
+    ) {
         const toValue = Math.abs(gestureState.dx) / this.state.width > 0.2
             ? gestureState.dx < 0 ? this.state.width * -1 : this.state.width
             : 0
@@ -84,10 +85,14 @@ class Slideshow extends PureComponent<ICarouselProps, ICarouselState> {
         this.panResponser = PanResponder.create({
             onStartShouldSetPanResponder: () => false,
             onStartShouldSetPanResponderCapture: () => false,
-            onMoveShouldSetPanResponder: (evt, gestureState) => Math.abs(gestureState.dx) > 7,
+            onMoveShouldSetPanResponder: (evt, gestureState) =>
+                Math.abs(gestureState.dx) > 7,
             onMoveShouldSetPanResponderCapture: () => true,
             onPanResponderTerminationRequest: () => false,
-            onPanResponderMove: Animated.event([false, { dx: this.state.translate }]),
+            onPanResponderMove: Animated.event([
+                false,
+                { dx: this.state.translate },
+            ]),
             onPanResponderRelease: this.handleEndGesture,
         })
     }
@@ -99,17 +104,41 @@ class Slideshow extends PureComponent<ICarouselProps, ICarouselState> {
 
         return (
             <View style={{ position: 'relative' }}>
-                { arrows &&
-                    <ArrowButton style={styles.arrowLeft} direction={'back'} onPress={this.prevPage} />
-                }
-                <Animated.View style={styles.slider} {...this.panResponser.panHandlers}>
-                    <Slide item={items[items.length - 1]} {...this.state} index={-1} />
-                    { items.map((item, index) => <Slide item={item} key={index} {...this.state} index={index} />) }
-                    <Slide item={items[0]} {...this.state} index={items.length} />
+                {arrows &&
+                    <ArrowButton
+                        style={styles.arrowLeft}
+                        direction={'back'}
+                        onPress={this.prevPage}
+                    />}
+                <Animated.View
+                    style={styles.slider}
+                    {...this.panResponser.panHandlers}
+                >
+                    <Slide
+                        item={items[items.length - 1]}
+                        {...this.state}
+                        index={-1}
+                    />
+                    {items.map((item, index) =>
+                        <Slide
+                            item={item}
+                            key={index}
+                            {...this.state}
+                            index={index}
+                        />
+                    )}
+                    <Slide
+                        item={items[0]}
+                        {...this.state}
+                        index={items.length}
+                    />
                 </Animated.View>
-                { arrows &&
-                    <ArrowButton style={styles.arrowRight} direction={'forward'} onPress={this.nextPage} />
-                }
+                {arrows &&
+                    <ArrowButton
+                        style={styles.arrowRight}
+                        direction={'forward'}
+                        onPress={this.nextPage}
+                    />}
             </View>
         )
     }
