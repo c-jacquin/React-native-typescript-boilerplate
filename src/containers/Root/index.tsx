@@ -1,12 +1,20 @@
 import React, { PureComponent } from 'react'
 import { ScrollView } from 'react-native'
+import { connect, DispatchProp } from 'react-redux'
+import { bindActionCreators } from 'redux'
 
 import Slideshow from 'components/Slideshow'
 
-import { IRootProps, IRootState } from './types'
+import { getLocale } from 'store/language/actions'
 
-class Root extends PureComponent<IRootProps, IRootState> {
+import {
+    RootActionCreators,
+    RootConnectedProps,
+    RootProps,
+    RootState,
+} from './types'
 
+export class Root extends PureComponent<RootProps, RootState> {
     state = {
         items: [
             {
@@ -39,6 +47,12 @@ class Root extends PureComponent<IRootProps, IRootState> {
         ],
     }
 
+    componentWillMount() {
+        if (this.props.getLocale) {
+            this.props.getLocale()
+        }
+    }
+
     render() {
         const { items } = this.state
 
@@ -50,4 +64,11 @@ class Root extends PureComponent<IRootProps, IRootState> {
     }
 }
 
-export default Root
+export default connect<null, RootActionCreators, RootProps>(null, dispatch =>
+    bindActionCreators(
+        {
+            getLocale,
+        },
+        dispatch
+    )
+)(Root)
