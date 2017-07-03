@@ -3,10 +3,10 @@ import { NavigationAnimatedValue } from 'react-native'
 export interface ICarouselItem {
     title: string
     screen: {
-        uri: string,
+        uri: string
     }
     poster: {
-        uri: string,
+        uri: string
     }
 }
 

@@ -1,4 +1,5 @@
-export interface ILanguageState {
-    locale: string,
-    supportedLanguages: string[],
+export interface LanguageState {
+    locale: string
+    supportedLanguages: string[]
+    pending: boolean
 }

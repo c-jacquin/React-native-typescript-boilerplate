@@ -1,5 +1,5 @@
 {
-    "extends": ["tslint:latest", "tslint-react"],
+    "extends": ["tslint:latest", "tslint-react", "tslint-config-prettier"],
     "rules": {
         "align": [
             true,
@@ -18,6 +18,7 @@
             true,
             "spaces"
         ],
+        "interface-name": false,
         "jsdoc-format": false,
         "jsx-curly-spacing": true,
         "jsx-no-multiline-js": false,
@@ -74,6 +75,7 @@
             "check-else",
             "check-whitespace"
         ],
+        "ordered-imports": false,
         "quotemark": [
             true,
             "simple"
@@ -81,13 +83,15 @@
         "radix": true,
         "semicolon": false,
         "switch-default": true,
-        "trailing-comma": [
-            true,
-            {
-                "multiline": "always",
-                "singleline": "never"
-            }
-        ],
+        "trailing-comma": [true, {
+            "multiline": {
+                "objects": "always",
+                "arrays": "always",
+                "functions": "never",
+                "typeLiterals": "ignore"
+            },
+            "singleline": "never"
+        }],
         "triple-equals": [
             true,
             "allow-null-check"
