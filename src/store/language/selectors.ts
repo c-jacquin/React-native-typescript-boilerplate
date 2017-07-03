@@ -1,9 +1,9 @@
 import { createSelector, OutputSelector, Selector } from 'reselect'
-import { IAppState } from '../types'
+import { AppState } from '../types'
 
-export const selectLanguage = (state: IAppState) => state.language
+export const selectLanguage = (state: AppState) => state.language
 
-export const selectLocale: Selector<IAppState, string> =  createSelector(
-  selectLanguage,
-  (languageState) => languageState.locale,
+export const selectLocale: Selector<AppState, string> = createSelector(
+    [selectLanguage],
+    languageState => languageState.locale
 )
