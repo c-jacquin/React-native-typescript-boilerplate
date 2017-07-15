@@ -1,9 +1,8 @@
 import devConfig from './env/development'
 import prodConfig from './env/production'
 
-const extraConfig = process.env.NODE_ENV === 'development'
-    ? devConfig
-    : prodConfig
+const extraConfig =
+    process.env.NODE_ENV === 'development' ? devConfig : prodConfig
 
 export default {
     appName: 'MyApp',

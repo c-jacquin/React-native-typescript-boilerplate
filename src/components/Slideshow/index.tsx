@@ -54,9 +54,10 @@ class Slideshow extends PureComponent<ICarouselProps, ICarouselState> {
         evt: GestureResponderEvent,
         gestureState: PanResponderGestureState
     ) {
-        const toValue = Math.abs(gestureState.dx) / this.state.width > 0.2
-            ? gestureState.dx < 0 ? this.state.width * -1 : this.state.width
-            : 0
+        const toValue =
+            Math.abs(gestureState.dx) / this.state.width > 0.2
+                ? gestureState.dx < 0 ? this.state.width * -1 : this.state.width
+                : 0
         this.animate(toValue)
     }
 

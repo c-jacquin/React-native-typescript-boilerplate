@@ -14,6 +14,4 @@ export interface RootProps extends RootActionCreators, RootConnectedProps {
     messages?: any
 }
 
-export interface RootState {
-    items: any[]
-}
+export interface RootState {}
