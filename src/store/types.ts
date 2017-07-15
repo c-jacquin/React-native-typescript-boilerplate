@@ -8,10 +8,12 @@ export interface AppState {
 
 export interface ReduxAction extends Action {
     payload?: any
+    meta?: any
 }
 
 export interface ErrorReduxAction extends Action {
-    error?: Error
+    error: Error
+    meta?: any
 }
 
 export interface RxObservable<T> extends Observable<T> {

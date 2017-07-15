@@ -16,7 +16,10 @@ const FormattedNumber: StatelessComponent<IFormattedNumberProps> = ({
 
     return (
         <ReactIntl.FormattedNumber {...formatOptions}>
-            {(localized: string) => <Text style={style}>{localized}</Text>}
+            {(localized: string) =>
+                <Text style={style}>
+                    {localized}
+                </Text>}
         </ReactIntl.FormattedNumber>
     )
 }

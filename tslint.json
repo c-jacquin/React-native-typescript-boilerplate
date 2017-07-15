@@ -53,6 +53,7 @@
         "no-empty": false,
         "no-empty-interface": false,
         "no-eval": true,
+        "no-namespace": false,
         "no-inferrable-types": false,
         "no-internal-module": false,
         "no-require-imports": false,
