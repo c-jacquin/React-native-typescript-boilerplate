@@ -1,16 +1,16 @@
 import 'rxjs'
-import React from 'react'
+import * as React from 'react'
 import 'react-native'
-import { Provider, Store } from 'react-redux'
-import renderer from 'react-test-renderer'
+import { Provider } from 'react-redux'
+import * as renderer from 'react-test-renderer'
 import store from 'store'
 
-import Root from '../index'
+import Home from 'pages/Home'
 
 it('renders correctly', () => {
     const tree = renderer.create(
         <Provider store={store}>
-            <Root />
+            <Home />
         </Provider>
     )
     expect(tree).toBeDefined()

@@ -1,11 +1,10 @@
 import React, { PureComponent } from 'react'
-import { ScrollView } from 'react-native'
-import { connect, DispatchProp } from 'react-redux'
+import { ScrollView, Text } from 'react-native'
+import { connect, MapDispatchToProps } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
-import Slideshow from 'components/Slideshow'
-
 import { getLocale } from 'store/language/actions'
+import Navigator from 'pages'
 
 import {
     RootActionCreators,
@@ -14,39 +13,7 @@ import {
     RootState,
 } from './types'
 
-export class Root extends PureComponent<RootProps, RootState> {
-    state = {
-        items: [
-            {
-                title: 'Some Bullshit',
-                poster: {
-                    uri: 'http://lorempixel.com/150/220/',
-                },
-                screen: {
-                    uri: 'http://lorempixel.com/400/300/',
-                },
-            },
-            {
-                title: 'Some nature',
-                poster: {
-                    uri: 'https://placeimg.com/150/220/nature',
-                },
-                screen: {
-                    uri: 'https://placeimg.com/400/200/nature',
-                },
-            },
-            {
-                title: 'Some animals',
-                poster: {
-                    uri: 'https://placeimg.com/150/220/animals',
-                },
-                screen: {
-                    uri: 'https://placeimg.com/400/200/animals',
-                },
-            },
-        ],
-    }
-
+class Root extends PureComponent<RootProps, RootState> {
     componentWillMount() {
         if (this.props.getLocale) {
             this.props.getLocale()
@@ -54,6 +21,7 @@ export class Root extends PureComponent<RootProps, RootState> {
     }
 
     render() {
+<<<<<<< HEAD
         const { items } = this.state
 
         return (
@@ -61,14 +29,26 @@ export class Root extends PureComponent<RootProps, RootState> {
                 <Slideshow items={items} />
             </ScrollView>
         )
+=======
+        return <Navigator />
+>>>>>>> 3c07c81... feat(routing): add react-navigation (StackNavigator) (#4)
     }
 }
 
-export default connect<null, RootActionCreators, RootProps>(null, dispatch =>
-    bindActionCreators(
+const mapStateToProps = null
+const mapDispatchToProps: MapDispatchToProps<
+    RootActionCreators,
+    RootProps
+> = dispatch => {
+    return bindActionCreators(
         {
             getLocale,
         },
         dispatch
     )
+}
+
+export default connect<null, RootActionCreators, RootProps>(
+    mapStateToProps,
+    mapDispatchToProps
 )(Root)

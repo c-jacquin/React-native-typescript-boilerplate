@@ -5,9 +5,5 @@
   "strict": false,
   "minify": false,
   "urlType": "exp",
-<<<<<<< HEAD
-  "urlRandomness": "az-8b4"
-=======
-  "urlRandomness": "m5-75t"
->>>>>>> 7b51684... chore(expo): switch to expo (#3)
+  "urlRandomness": "gp-2m3"
 }
