@@ -5,7 +5,10 @@ import { IFormattedDateProps } from './types'
 
 const FormattedDate: StatelessComponent<IFormattedDateProps> = props =>
     <ReactIntl.FormattedDate {...props}>
-        {(localized: string) => <Text style={props.style}>{localized}</Text>}
+        {(localized: string) =>
+            <Text style={props.style}>
+                {localized}
+            </Text>}
     </ReactIntl.FormattedDate>
 
 export default FormattedDate
