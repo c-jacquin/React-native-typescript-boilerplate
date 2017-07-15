@@ -1,10 +1,10 @@
 export interface IFormattedDateProps {
-    style: string
+    style: any
     value: any
 }
 
 export interface IFormattedMessageProps {
-    style: string
+    style: any
     value: any
     id: string
 }
@@ -25,11 +25,11 @@ export interface IFormattedNumberProps {
 }
 
 export interface IFormattedPlural {
-    style: 'cardinal' | 'ordinal' | undefined
+    style: any
     value: any
 }
 
 export interface IFormattedTime {
-    style: string
+    style: any
     value: any
 }

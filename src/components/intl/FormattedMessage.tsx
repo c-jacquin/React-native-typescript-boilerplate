@@ -8,7 +8,11 @@ const FormattedMessage: StatelessComponent<IFormattedMessageProps> = props =>
         {(...nodes: any[]) => {
             const newNodes = nodes.map(node => {
                 if (!isValidElement(node)) {
-                    return <Text style={props.style}>{node}</Text>
+                    return (
+                        <Text style={props.style}>
+                            {node}
+                        </Text>
+                    )
                 }
                 return node
             })

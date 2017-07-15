@@ -6,5 +6,10 @@ import { IFormattedTime } from './types'
 
 const FormattedTime: StatelessComponent<IFormattedTime> = props =>
     <ReactIntl.FormattedTime {...props}>
-        {(localized: string) => <Text style={props.style}>{localized}</Text>}
+        {(localized: string) =>
+            <Text style={props.style}>
+                {localized}
+            </Text>}
     </ReactIntl.FormattedTime>
+
+export default FormattedTime

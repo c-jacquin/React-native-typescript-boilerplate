@@ -59,7 +59,7 @@ module.exports = {
             abortOnFail: true,
         }, {
             type: 'add',
-            path: '../src/components/{{properCase name}}/__tests__/index.test.tsx',
+            path: '../src/containers/{{properCase name}}/__tests__/index.test.tsx',
             templateFile: './container/test.tsx.hbs',
             abortOnFail: true,
         }, {
