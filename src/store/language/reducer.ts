@@ -12,7 +12,7 @@ export const initialState: LanguageState = {
 }
 
 const languageReducer: Reducer<LanguageState> = (
-    state: LanguageState = initialState,
+    state = initialState,
     action: ReduxAction
 ) => {
     switch (action.type) {
