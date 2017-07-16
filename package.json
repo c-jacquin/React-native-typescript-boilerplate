@@ -14,7 +14,7 @@
         "start": "NODE_ENV=development tsc --watch",
         "prebuild": "node node_modules/.bin/rimraf build && mkdir build",
         "build": "NODE_ENV=production tsc",
-        "pretest": "npm run build",
+        "pretest": "NODE_ENV=test tsc",
         "test": "NODE_ENV=test jest",
         "tdd": "NODE_ENV=test jest --watch",
         "release": "standard-version",
