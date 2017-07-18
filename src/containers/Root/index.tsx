@@ -13,7 +13,7 @@ import {
     RootState,
 } from './types'
 
-class Root extends PureComponent<RootProps, RootState> {
+export class Root extends PureComponent<RootProps, RootState> {
     componentWillMount() {
         if (this.props.getLocale) {
             this.props.getLocale()

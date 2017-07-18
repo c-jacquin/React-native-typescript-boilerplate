@@ -1,10 +1,10 @@
 import React, { StatelessComponent } from 'react'
-import ReactIntl from 'react-intl'
+import { FormattedNumber } from 'react-intl'
 import { Text } from 'react-native'
 
 import { IFormattedNumberProps } from './types'
 
-const FormattedNumber: StatelessComponent<IFormattedNumberProps> = ({
+const NativeFormattedNumber: StatelessComponent<IFormattedNumberProps> = ({
     style,
     formatStyle,
     ...other,
@@ -15,13 +15,13 @@ const FormattedNumber: StatelessComponent<IFormattedNumberProps> = ({
     }
 
     return (
-        <ReactIntl.FormattedNumber {...formatOptions}>
+        <FormattedNumber {...formatOptions}>
             {(localized: string) =>
                 <Text style={style}>
                     {localized}
                 </Text>}
-        </ReactIntl.FormattedNumber>
+        </FormattedNumber>
     )
 }
 
-export default FormattedNumber
+export default NativeFormattedNumber
