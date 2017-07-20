@@ -8,7 +8,7 @@ import { AppState } from 'store/types'
 
 import { LanguageProviderConnectedProps, LanguageProviderProps } from './types'
 
-const LanguageProvider: StatelessComponent<LanguageProviderProps> = ({
+export const LanguageProvider: StatelessComponent<LanguageProviderProps> = ({
     locale = config.language.defaultLocale,
     children,
     messages,

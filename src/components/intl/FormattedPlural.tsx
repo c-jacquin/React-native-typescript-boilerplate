@@ -1,15 +1,15 @@
 import React, { StatelessComponent } from 'react'
-import ReactIntl from 'react-intl'
+import { FormattedPlural } from 'react-intl'
 import { Text } from 'react-native'
 
 import { IFormattedPlural } from './types'
 
-const FormattedPlural: StatelessComponent<IFormattedPlural> = props =>
-    <ReactIntl.FormattedPlural {...props}>
+const NativeFormattedPlural: StatelessComponent<IFormattedPlural> = props =>
+    <FormattedPlural {...props}>
         {(localized: string) =>
-            <Text style={props.style}>
+            <Text style={props.textStyle}>
                 {localized}
             </Text>}
-    </ReactIntl.FormattedPlural>
+    </FormattedPlural>
 
-export default FormattedPlural
+export default NativeFormattedPlural
