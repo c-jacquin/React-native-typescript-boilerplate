@@ -15,7 +15,3 @@ export interface ErrorReduxAction extends Action {
     error: Error
     meta?: any
 }
-
-export interface RxObservable<T> extends Observable<T> {
-    ofType: (type: any) => RxObservable<T>
-}

@@ -1,14 +1,14 @@
 import React, { StatelessComponent } from 'react'
-import ReactIntl from 'react-intl'
+import { FormattedDate } from 'react-intl'
 import { Text } from 'react-native'
 import { IFormattedDateProps } from './types'
 
-const FormattedDate: StatelessComponent<IFormattedDateProps> = props =>
-    <ReactIntl.FormattedDate {...props}>
+const NativeFormattedDate: StatelessComponent<IFormattedDateProps> = props =>
+    <FormattedDate {...props}>
         {(localized: string) =>
             <Text style={props.style}>
                 {localized}
             </Text>}
-    </ReactIntl.FormattedDate>
+    </FormattedDate>
 
-export default FormattedDate
+export default NativeFormattedDate
