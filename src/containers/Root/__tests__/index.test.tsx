@@ -3,15 +3,33 @@ import React from 'react'
 import 'react-native'
 import { Provider, Store } from 'react-redux'
 import renderer from 'react-test-renderer'
-import store from 'store'
+import { Root } from '../index'
 
-import Root from '../index'
+import configureStore from 'redux-mock-store'
 
-it('renders correctly', () => {
+const mockStore = configureStore()
+
+describe('Root component', () => {
+    let store = mockStore({})
+    const mockProps = {
+        getLocale: () => ({ type: 'TEST' }),
+    }
+    const spy = jest.spyOn(mockProps, 'getLocale')
+
     const tree = renderer.create(
         <Provider store={store}>
-            <Root />
+            <Root {...mockProps} />
         </Provider>
     )
-    expect(tree).toBeDefined()
+    beforeEach(() => {
+        store = mockStore({})
+    })
+
+    it('should renders correctly', () => {
+        expect(tree).toBeDefined()
+    })
+
+    it('should call getLocale prop', () => {
+        expect(spy).toHaveBeenCalled()
+    })
 })
