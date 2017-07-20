@@ -11,22 +11,24 @@ export interface IFormattedMessageProps {
 
 export interface IFormattedNumberProps {
     style: any
-    localeMatcher: any
-    formatStyle: string
+    localeMatcher?: any
+    formatStyle?: string
     value: any
-    currency: string
-    currencyDisplay: any
-    useGrouping: boolean
-    minimumIntegerDigits: number
-    minimumFractionDigits: number
-    maximumFractionDigits: number
-    minimumSignificantDigits: number
-    maximumSignificantDigits: number
+    currency?: string
+    currencyDisplay?: any
+    useGrouping?: boolean
+    minimumIntegerDigits?: number
+    minimumFractionDigits?: number
+    maximumFractionDigits?: number
+    minimumSignificantDigits?: number
+    maximumSignificantDigits?: number
 }
 
 export interface IFormattedPlural {
     style: any
     value: any
+    textStyle?: object
+    other: any
 }
 
 export interface IFormattedTime {
