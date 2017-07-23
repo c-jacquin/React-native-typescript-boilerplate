@@ -1,0 +1,12 @@
+import {{ name }}Reducer, { initialState } from '../reducer'
+import * as {{ name }}Actions from '../actions'
+
+describe('{{ name }} reducer', () => {
+    it('should return the initial state', () => {
+        expect(
+            {{ name }}Reducer(initialState, {
+                type: 'TEST',
+            })
+        ).toEqual(initialState)
+    })
+})
