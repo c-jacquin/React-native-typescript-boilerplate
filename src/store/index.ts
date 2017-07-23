@@ -1,3 +1,4 @@
+import { Platform } from 'react-native'
 import { applyMiddleware, createStore, Store, StoreEnhancer } from 'redux'
 import immutableStateMiddleware from 'redux-immutable-state-invariant'
 import { createEpicMiddleware } from 'redux-observable'
@@ -13,21 +14,25 @@ import { AppState } from './types'
 
 const engine = createEngine(config.storeKey)
 
+const middlewares = [
+    createEpicMiddleware(rootEpic),
+    storage.createMiddleware(engine, [], config.actionsToPersist),
+]
+
+if (process.env.NODE_ENV === 'development') {
+    middlewares.push(immutableStateMiddleware())
+}
+
 const getDevEnhancer = (): StoreEnhancer<AppState> => {
-    return composeWithDevTools(
-        applyMiddleware(
-            createEpicMiddleware(rootEpic),
-            storage.createMiddleware(engine, [], config.actionsToPersist),
-            immutableStateMiddleware()
-        )
-    )
+    return composeWithDevTools({
+        name: Platform.OS,
+        hostname: 'localhost',
+        port: 5678,
+    })(applyMiddleware(...middlewares))
 }
 
 const getProdEnhancer = (): StoreEnhancer<AppState> => {
-    return applyMiddleware(
-        createEpicMiddleware(rootEpic),
-        storage.createMiddleware(engine, [], config.actionsToPersist)
-    )
+    return applyMiddleware(...middlewares)
 }
 
 const store = createStore<AppState>(
