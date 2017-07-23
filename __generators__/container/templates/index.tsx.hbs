@@ -1,0 +1,38 @@
+import React, { Component, PropTypes } from 'react'
+{{#if wantMessages}}
+import { FormattedMessage } from 'react-intl'
+{{/if}}
+import { View } from 'react-native'
+import { connect, MapStateToProps, MapDispatchToProps } from 'react-redux'
+import { bindActionCreators } from 'redux'
+
+import { AppState } from 'store/types'
+
+{{#if wantMessages}}
+import messages from './messages'
+{{/if}}
+import { {{ pascal name }}Props, {{ pascal name }}State, ConnectedProps, {{ pascal name }}ActionCreators } from './types'
+
+class {{ pascal name }} extends Component<{{ pascal name }}Props, {{ pascal name }}State> {
+
+    render() {
+        return (
+            <View/>
+        )
+    }
+}
+
+const mapStateToProps: MapStateToProps<
+    ConnectedProps,
+    {{ pascal name }}Props
+> = (state: AppState) => ({})
+
+const mapDispatchToProps: MapDispatchToProps<
+    {{ pascal name }}ActionCreators,
+    {{ pascal name }}Props
+> = (dispatch) => bindActionCreators({}, dispatch)
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)({{ pascal name }})
