@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react'
-import { ScrollView, Text } from 'react-native'
+import { StatusBar, ScrollView, Text, View } from 'react-native'
 import { connect, MapDispatchToProps } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
@@ -12,6 +12,7 @@ import {
     RootProps,
     RootState,
 } from './types'
+import styles from './styles'
 
 export class Root extends PureComponent<RootProps, RootState> {
     componentWillMount() {
@@ -21,7 +22,12 @@ export class Root extends PureComponent<RootProps, RootState> {
     }
 
     render() {
-        return <Navigator />
+        return (
+            <View style={styles.root}>
+                <StatusBar hidden={true} />
+                <Navigator />
+            </View>
+        )
     }
 }
 
@@ -38,7 +44,4 @@ const mapDispatchToProps: MapDispatchToProps<
     )
 }
 
-export default connect<null, RootActionCreators, RootProps>(
-    mapStateToProps,
-    mapDispatchToProps
-)(Root)
+export default connect(mapStateToProps, mapDispatchToProps)(Root)
