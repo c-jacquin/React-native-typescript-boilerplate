@@ -4,15 +4,22 @@ import { Text, TouchableOpacity } from 'react-native'
 import { Ionicons } from '@expo/vector-icons'
 
 import styles from './styles'
-import { IArrowButtonProps } from './types'
+import { ArrowButtonProps } from './types'
 
-const ArrowButton: StatelessComponent<IArrowButtonProps> = ({
+const ArrowButton: StatelessComponent<ArrowButtonProps> = ({
     onPress = () => {},
     direction = 'back',
     style = {},
-}) =>
-    <TouchableOpacity style={[styles.button, style]} onPress={onPress}>
-        <Ionicons name={`ios-arrow-${direction}`} size={100} color={'black'} />
-    </TouchableOpacity>
+}) => {
+    return (
+        <TouchableOpacity style={[styles.button, style]} onPress={onPress}>
+            <Ionicons
+                name={`ios-arrow-${direction}`}
+                size={100}
+                color={'black'}
+            />
+        </TouchableOpacity>
+    )
+}
 
 export default ArrowButton

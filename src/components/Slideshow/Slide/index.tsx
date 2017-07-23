@@ -2,9 +2,9 @@ import React, { PureComponent } from 'react'
 import { Animated, Image, View } from 'react-native'
 
 import { getStyles } from './styles'
-import { ISlideProps } from './types'
+import { SlideProps } from './types'
 
-class Slide extends PureComponent<ISlideProps, any> {
+class Slide extends PureComponent<SlideProps, any> {
     private translateX(animation: Animated.AnimatedDivision) {
         return {
             transform: [

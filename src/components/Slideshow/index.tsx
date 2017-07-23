@@ -17,9 +17,9 @@ import ArrowButton from './ArrowButton'
 import Slide from './Slide'
 
 import { getStyles } from './styles'
-import { ICarouselProps, ICarouselState } from './types'
+import { CarouselProps, CarouselState } from './types'
 
-class Slideshow extends PureComponent<ICarouselProps, ICarouselState> {
+class Slideshow extends PureComponent<CarouselProps, CarouselState> {
     private panResponser: PanResponderInstance
 
     @autobind
@@ -71,7 +71,7 @@ class Slideshow extends PureComponent<ICarouselProps, ICarouselState> {
         this.animate(this.state.width)
     }
 
-    constructor(props: ICarouselProps) {
+    constructor(props: CarouselProps) {
         super(props)
         const { width } = Dimensions.get('window')
 
