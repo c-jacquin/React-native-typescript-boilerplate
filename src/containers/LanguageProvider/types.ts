@@ -1,8 +1,8 @@
-export interface LanguageProviderConnectedProps {
+export interface ConnectedProps {
     locale?: string
 }
 
-export interface LanguageProviderProps extends LanguageProviderConnectedProps {
+export interface LanguageProps extends ConnectedProps {
     messages: any
     children: any
 }

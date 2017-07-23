@@ -24,11 +24,7 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 const getDevEnhancer = (): StoreEnhancer<AppState> => {
-    return composeWithDevTools({
-        name: Platform.OS,
-        hostname: 'localhost',
-        port: 5678,
-    })(applyMiddleware(...middlewares))
+    return composeWithDevTools(applyMiddleware(...middlewares))
 }
 
 const getProdEnhancer = (): StoreEnhancer<AppState> => {
