@@ -1,8 +1,8 @@
 import { NavigationAnimatedValue } from 'react-native'
-import { ICarouselItem } from '../types'
+import { CarouselItem } from '../types'
 
-export interface ISlideProps {
-    item: ICarouselItem
+export interface SlideProps {
+    item: CarouselItem
     page: number
     translate: NavigationAnimatedValue
     width: number
