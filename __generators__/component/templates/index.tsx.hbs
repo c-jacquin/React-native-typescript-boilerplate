@@ -7,9 +7,9 @@ import { View } from 'react-native'
 {{#if wantMessages}}
 import messages from './messages'
 {{/if}}
-import { I{{ properCase name }}Props, I{{ properCase name }}State } from './types'
+import { {{ properCase name }}Props, {{ properCase name }}State } from './types'
 
-class {{ properCase name }} extends Component<I{{ properCase name }}Props, I{{ properCase name }}State> {
+class {{ properCase name }} extends Component<{{ properCase name }}Props, {{ properCase name }}State> {
 
     render() {
         return (

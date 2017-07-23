@@ -1,0 +1,12 @@
+import React from 'react'
+import 'react-native'
+import renderer from 'react-test-renderer'
+
+import {{ properCase name }} from '../index'
+
+it('renders correctly', () => {
+  const tree = renderer.create(
+    <{{ properCase name }} />
+  )
+  expect(tree).toBeDefined()
+})

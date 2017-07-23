@@ -1,7 +1,9 @@
 const fs = require('fs')
-const componentGenerator = require('./component/index.js')
-const containerGenerator = require('./container/index.js')
-const reduxModuleGenerator = require('./reduxModule/index.js')
+const componentGenerator = require('./component')
+const containerGenerator = require('./container')
+const reduxModuleGenerator = require('./reduxModule')
+const pageGenerator = require('./page')
+const languageGenerator = require('./language')
 
 const capitalizeFirstLetter = (string) => `${string.charAt(0).toUpperCase()}${string.slice(1)}`
 
@@ -9,6 +11,8 @@ module.exports = (plop) => {
     plop.setGenerator('component', componentGenerator)
     plop.setGenerator('container', containerGenerator)
     plop.setGenerator('redux module', reduxModuleGenerator)
+    plop.setGenerator('page', pageGenerator)
+    plop.setGenerator('language', languageGenerator)
 
     plop.addHelper('directory', (comp) => {
         try {
@@ -18,7 +22,7 @@ module.exports = (plop) => {
             return `components/${comp}`
         }
     })
-    plop.addHelper('docParam', (comp) => `{${capitalizeFirstLetter(comp)}}`)
+    plop.addHelper('pascal', capitalizeFirstLetter)
     plop.addHelper('curly', (object, open) => (open ? '{' : '}'))
-    plop.addHelper('capitalize', (comp) => comp.toUpperCase())
+    plop.addHelper('capitalize', (name) => name.toUpperCase())
 }

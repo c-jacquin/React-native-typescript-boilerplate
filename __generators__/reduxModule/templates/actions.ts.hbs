@@ -1,0 +1,20 @@
+import { ActionCreator } from 'redux'
+import { ErrorReduxAction, ReduxAction } from '../types'
+
+export const GET_{{ capitalize name }}_PENDING = 'GET_{{ capitalize name }}_PENDING'
+export const GET_{{ capitalize name }}_SUCCESS = 'GET_{{ capitalize name }}_SUCCESS'
+export const GET_{{ capitalize name }}_FAILED = 'GET_{{ capitalize name }}_FAILED'
+
+export const get{{ pascal name }}: ActionCreator<ReduxAction> = () => ({
+    type: GET_{{ capitalize name }}_PENDING,
+})
+
+export const get{{ pascal name }}Success: ActionCreator<ReduxAction> = payload => ({
+    type: GET_{{ capitalize name }}_SUCCESS,
+    payload,
+})
+
+export const get{{ pascal name }}Failed: ActionCreator<ErrorReduxAction> = error => ({
+    type: GET_{{ capitalize name }}_FAILED,
+    error,
+})

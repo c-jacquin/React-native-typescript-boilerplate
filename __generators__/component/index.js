@@ -36,15 +36,15 @@ module.exports = {
 
         switch (data.type) {
             case 'ES6 Class': {
-                componentTemplate = './component/index.tsx.hbs'
+                componentTemplate = './component/templates/index.tsx.hbs'
                 break
             }
             case 'Stateless Function': {
-                componentTemplate = './component/stateless.tsx.hbs'
+                componentTemplate = './component/templates/stateless.tsx.hbs'
                 break
             }
             default: {
-                componentTemplate = './component/es6.tsx.hbs'
+                componentTemplate = './component/templates/es6.tsx.hbs'
             }
         }
 
@@ -55,13 +55,13 @@ module.exports = {
             abortOnFail: true,
         }, {
             type: 'add',
-            path: '../src/components/{{properCase name}}/__tests__index.test.tsx',
-            templateFile: './component/test.tsx.hbs',
+            path: '../src/components/{{properCase name}}/__tests__/index.test.tsx',
+            templateFile: './component/templates/test.tsx.hbs',
             abortOnFail: true,
         }, {
             type: 'add',
             path: '../src/components/{{properCase name}}/types.ts',
-            templateFile: './component/types.ts.hbs',
+            templateFile: './component/templates/types.ts.hbs',
             abortOnFail: true,
         }]
 
@@ -70,7 +70,7 @@ module.exports = {
             actions.push({
                 type: 'add',
                 path: '../src/components/{{properCase name}}/messages.ts',
-                templateFile: './component/messages.ts.hbs',
+                templateFile: './component/templates/messages.ts.hbs',
                 abortOnFail: true,
             })
         }

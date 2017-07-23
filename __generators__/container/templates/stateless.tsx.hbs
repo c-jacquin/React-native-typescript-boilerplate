@@ -1,0 +1,35 @@
+import React, { StatelessComponent } from 'react'
+{{#if wantMessages}}
+import { FormattedMessage } from 'react-intl'
+{{/if}}
+import { View } from 'react-native'
+import { connect, MapDispatchToProps, MapStateToProps } from 'react-redux'
+import { bindActionCreators } from 'redux'
+
+import { AppState } from 'store/types'
+
+{{#if wantMessages}}
+import messages from './messages'
+{{/if}}
+import { {{ pascal name }}Props, ConnectedProps, {{ pascal name }}ActionCreators } from './types'
+
+const {{ pascal name }}: StatelessComponent<{{ pascal name }}Props> = ({
+
+}) => (
+    <View/>
+)
+
+const mapStateToProps: MapStateToProps<
+    ConnectedProps,
+    {{ pascal name }}Props
+> = (state: AppState) => ({})
+
+const mapDispatchToProps: MapDispatchToProps<
+    {{ pascal name }}ActionCreators,
+    {{ pascal name }}Props
+> = (dispatch) => bindActionCreators({}, dispatch)
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)({{ pascal name }})
