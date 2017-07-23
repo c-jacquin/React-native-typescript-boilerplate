@@ -1,0 +1,30 @@
+import * as {{ name }}Actions from '../actions'
+
+describe('{{ name }} actions', () => {
+    it('should create an action to get the {{ name }}', () => {
+        const expectedAction = {
+            type: {{ name }}Actions.GET_{{ capitalize name }}_PENDING,
+        }
+        expect({{ name }}Actions.get{{ pascal name }}()).toEqual(expectedAction)
+    })
+
+    it('should create an action when getting the {{ name }} work fine', () => {
+        const expectedAction = {
+            type: {{ name }}Actions.GET_{{ capitalize name }}_SUCCESS,
+            payload: 'test',
+        }
+
+        expect({{ name }}Actions.get{{ pascal name }}Success('test')).toEqual(
+            expectedAction
+        )
+    })
+
+    it('should create an action when getting the {{ name }} failed', () => {
+        const expectedAction = {
+            type: {{ name }}Actions.GET_{{ capitalize name }}_FAILED,
+            error: 'test',
+        }
+
+        expect({{ name }}Actions.get{{ pascal name }}Failed('test')).toEqual(expectedAction)
+    })
+})
