@@ -1,12 +1,13 @@
-import {{ name }}Reducer, { initialState } from '../reducer'
+import {{ name }}Reducer from '../reducer'
 import * as {{ name }}Actions from '../actions'
+import appState from 'store/__helpers__/initialState'
 
 describe('{{ name }} reducer', () => {
     it('should return the initial state', () => {
         expect(
-            {{ name }}Reducer(initialState, {
+            {{ name }}Reducer(appState.{{ name }}, {
                 type: 'TEST',
             })
-        ).toEqual(initialState)
+        ).toEqual(appState.{{ name }})
     })
 })

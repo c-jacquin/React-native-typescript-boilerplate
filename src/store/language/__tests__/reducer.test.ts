@@ -1,20 +1,21 @@
-import languageReducer, { initialState } from '../reducer'
+import languageReducer from '../reducer'
 import * as languagesActions from '../actions'
+import appState from 'store/__helpers__/initialState'
 
 describe('language reducer', () => {
     it('should return the initial state', () => {
         expect(
-            languageReducer(initialState, {
+            languageReducer(appState.language, {
                 type: 'TEST',
             })
-        ).toEqual(initialState)
+        ).toEqual(appState.language)
     })
 
     it('should handle GET_LOCALE_PENDING action', () => {
         expect(
-            languageReducer(initialState, languagesActions.getLocale())
+            languageReducer(appState.language, languagesActions.getLocale())
         ).toEqual({
-            ...initialState,
+            ...appState.language,
             pending: true,
         })
     })
@@ -22,11 +23,11 @@ describe('language reducer', () => {
     it('should handle GET_LOCALE_SUCCESS action', () => {
         expect(
             languageReducer(
-                initialState,
+                appState.language,
                 languagesActions.getLocaleSuccess('test')
             )
         ).toEqual({
-            ...initialState,
+            ...appState.language,
             locale: 'test',
         })
     })
