@@ -54,17 +54,17 @@ module.exports = {
 
         const actions = [{
             type: 'add',
-            path: '../src/containers/{{properCase name}}/index.tsx',
+            path: '../src/containers/{{ pascal name }}/index.tsx',
             templateFile: componentTemplate,
             abortOnFail: true,
         }, {
             type: 'add',
-            path: '../src/containers/{{properCase name}}/__tests__/index.test.tsx',
+            path: '../src/containers/{{ pascal name }}/__tests__/index.test.tsx',
             templateFile: './container/templates/test.tsx.hbs',
             abortOnFail: true,
         }, {
             type: 'add',
-            path: '../src/containers/{{properCase name}}/types.ts',
+            path: '../src/containers/{{ pascal name }}/types.ts',
             templateFile: './container/templates/types.ts.hbs',
             abortOnFail: true,
         }]
@@ -73,7 +73,7 @@ module.exports = {
         if (data.wantMessages) {
             actions.push({
                 type: 'add',
-                path: '../src/containers/{{properCase name}}/messages.ts',
+                path: '../src/containers/{{ pascal name }}/messages.ts',
                 templateFile: './container/templates/messages.ts.hbs',
                 abortOnFail: true,
             })
