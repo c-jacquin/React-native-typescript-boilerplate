@@ -1,0 +1,8 @@
+import { select{{ pascal name}} } from '../selectors'
+import appState from 'store/__helpers__/initialState'
+
+describe('{{ name }} selectors', () => {
+    it('should return the {{ name }} state', () => {
+        expect(select{{ pascal name}}(appState)).toBe(appState.{{ name }})
+    })
+})
