@@ -1,0 +1,7 @@
+import { createSelector, Selector } from 'reselect'
+import { AppState } from '../types'
+import { {{ pascal name }}State } from './types'
+
+export const select{{ pascal name }}: Selector<AppState, {{ pascal name }}State> = (
+    state: AppState
+) => state.{{ name }}

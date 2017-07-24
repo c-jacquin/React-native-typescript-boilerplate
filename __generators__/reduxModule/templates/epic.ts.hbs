@@ -6,7 +6,7 @@ import { AppState, ReduxAction } from '../types'
 import * as {{ name }}Actions from './actions'
 
 const {{ name }}Epic: Epic<ReduxAction, AppState> = (action$) => {
-    return action$
+    return action$.ofType('SOMETHING')
 }
 
 export default {{ name }}Epic

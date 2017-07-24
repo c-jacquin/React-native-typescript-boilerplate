@@ -67,30 +67,30 @@ module.exports = {
 
         const actions = [{
             type: 'add',
-            path: '../src/pages/{{properCase name}}/index.tsx',
+            path: '../src/pages/{{ pascal name}}/index.tsx',
             templateFile: componentTemplate,
             abortOnFail: true,
         }, {
             type: 'add',
-            path: '../src/pages/{{properCase name}}/__tests__/index.test.tsx',
+            path: '../src/pages/{{ pascal name}}/__tests__/index.test.tsx',
             templateFile: './container/templates/test.tsx.hbs',
             abortOnFail: true,
         }, {
             type: 'add',
-            path: '../src/pages/{{properCase name}}/types.ts',
+            path: '../src/pages/{{ pascal name}}/types.ts',
             templateFile: './container/templates/types.ts.hbs',
             abortOnFail: true,
         },
         {
             type: 'modify',
             path: navigatorPath,
-            pattern: /\/\/ Insert pages here/g,
+            pattern: /\/\/ Insert pages here\n/g,
             templateFile: './page/templates/mainNavigator.hbs',
         },
         {
             type: 'modify',
             path: navigatorPath,
-            pattern: /\/\/ Import pages here/g,
+            pattern: /\/\/ Import pages here\n/g,
             templateFile: './page/templates/importPage.hbs',
         }]
 
@@ -98,7 +98,7 @@ module.exports = {
         if (data.wantMessages) {
             actions.push({
                 type: 'add',
-                path: '../src/pages/{{properCase name}}/messages.ts',
+                path: '../src/pages/{{ pascal name}}/messages.ts',
                 templateFile: './container/templates/messages.ts.hbs',
                 abortOnFail: true,
             })
