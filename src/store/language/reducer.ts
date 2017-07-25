@@ -6,8 +6,7 @@ import * as LanguageActions from './actions'
 import { LanguageState } from './types'
 
 export const initialState: LanguageState = {
-    locale: config.language.defaultLocale,
-    supportedLanguages: config.language.supportedLocales,
+    locale: config.LANGUAGE.DEFAULT_LOCALE,
     pending: false,
 }
 
