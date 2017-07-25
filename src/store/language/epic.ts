@@ -11,11 +11,11 @@ const getLocaleEpic: Epic<ReduxAction, AppState> = (action$, store) => {
         return languageApi
             .getLanguage()
             .map(locale => {
-                const formattedLocale = config.language.supportedLocales.includes(
+                const formattedLocale = config.LANGUAGE.SUPPORTED_LOCALES.includes(
                     locale
                 )
                     ? locale
-                    : config.language.defaultLocale
+                    : config.LANGUAGE.DEFAULT_LOCALE
 
                 return languageActions.getLocaleSuccess(formattedLocale)
             })
