@@ -19,10 +19,6 @@ const middlewares = [
     storage.createMiddleware(engine),
 ]
 
-if (process.env.NODE_ENV === 'development') {
-    middlewares.push(immutableStateMiddleware())
-}
-
 const getDevEnhancer = (): StoreEnhancer<AppState> => {
     return composeWithDevTools(applyMiddleware(...middlewares))
 }
@@ -33,9 +29,7 @@ const getProdEnhancer = (): StoreEnhancer<AppState> => {
 
 const store = createStore<AppState>(
     storage.reducer(rootReducer),
-    process.env.NODE_ENV === 'development'
-        ? getDevEnhancer()
-        : getProdEnhancer()
+    config.ENV === 'dev' ? getDevEnhancer() : getProdEnhancer()
 )
 
 storage.createLoader(engine)(store)
