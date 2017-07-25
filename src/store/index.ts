@@ -12,11 +12,11 @@ import rootReducer from './rootReducer'
 import config from 'config'
 import { AppState } from './types'
 
-const engine = createEngine(config.storeKey)
+const engine = createEngine(config.STORE_KEY)
 
 const middlewares = [
     createEpicMiddleware(rootEpic),
-    storage.createMiddleware(engine, [], config.actionsToPersist),
+    storage.createMiddleware(engine),
 ]
 
 if (process.env.NODE_ENV === 'development') {
