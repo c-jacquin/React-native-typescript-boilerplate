@@ -4,8 +4,8 @@ import { addLocaleData } from 'react-intl'
 import enLocaleData from 'react-intl/locale-data/en'
 import frLocaleData from 'react-intl/locale-data/fr'
 
-import enTranslationMessages from './translations/en'
-import frTranslationMessages from './translations/fr'
+import enTranslationMessages from '../__translations__/en.json'
+import frTranslationMessages from '../__translations__/fr.json'
 
 import config from 'config'
 
@@ -20,9 +20,9 @@ export const formatTranslationMessages: any = (
     messages: any
 ) => {
     const defaultFormattedMessages: any =
-        locale !== config.language.defaultLocale
+        locale !== config.LANGUAGE.DEFAULT_LOCALE
             ? formatTranslationMessages(
-                  config.language.defaultLocale,
+                  config.LANGUAGE.DEFAULT_LOCALE,
                   enTranslationMessages
               )
             : {}
@@ -31,7 +31,7 @@ export const formatTranslationMessages: any = (
 
     for (const messageKey of messageKeys) {
         formattedMessages[messageKey] =
-            locale === config.language.defaultLocale
+            locale === config.LANGUAGE.DEFAULT_LOCALE
                 ? messages[messageKey]
                 : (formattedMessages[messageKey] =
                       messages[messageKey] ||

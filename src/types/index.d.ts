@@ -1,9 +1,9 @@
-interface IProcess {
+interface Process {
     env: {
         NODE_ENV: string
     }
 }
 
-declare const process: IProcess
+declare const process: Process
 
 declare function require(name: string): any
