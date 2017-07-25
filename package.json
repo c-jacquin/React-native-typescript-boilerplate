@@ -61,6 +61,7 @@
         "husky": "^0.13.4",
         "jest": "^20.0.4",
         "jest-expo-ts": "^0.3.0",
+        "jest-nyan-reporter": "^1.0.2",
         "plop": "^1.8.0",
         "prettier": "^1.4.4",
         "react-test-renderer": "^15.6.1",
@@ -76,6 +77,9 @@
         "typescript": "^2.3.4"
     },
     "jest": {
+        "collectCoverage": true,
+        "collectCoverageFrom" : ["build/**/*.{js,jsx}", "!build/**/*.test.{js, jsx}", "!**/node_modules/**"],
+        "coverageDirectory": "coverage",
         "moduleDirectories": [
             "node_modules",
             "build"
@@ -94,7 +98,12 @@
         "transform": {
             "^.+\\.js$": "<rootDir>/node_modules/babel-jest",
             ".(ts|tsx)": "<rootDir>/node_modules/ts-jest/preprocessor.js"
-        }
+        },
+        "reporters": [
+            ["jest-nyan-reporter", {
+                "suppressErrorReporter": false
+            }]
+        ]
     },
     "config": {
         "commitizen": {
