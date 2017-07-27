@@ -6,7 +6,7 @@
     "main": "build/index.js",
     "scripts": {
         "generate": "plop --plopfile __generators__/index.js",
-        "postinstall": "rm -f node_modules/intl/.babelrc",
+        "postinstall": "rm -f node_modules/intl/.babelrc && plop --plopfile __generators__/postInstall.js postinstall",
         "pregitcommit": "npm run test",
         "gitcommit": "git-cz",
         "precommit": "lint-staged",
@@ -78,7 +78,11 @@
     },
     "jest": {
         "collectCoverage": true,
-        "collectCoverageFrom" : ["build/**/*.{js,jsx}", "!build/**/*.test.{js, jsx}", "!**/node_modules/**"],
+        "collectCoverageFrom": [
+            "build/**/*.{js,jsx}",
+            "!build/**/*.test.{js, jsx}",
+            "!**/node_modules/**"
+        ],
         "coverageDirectory": "coverage",
         "moduleDirectories": [
             "node_modules",
@@ -100,9 +104,12 @@
             ".(ts|tsx)": "<rootDir>/node_modules/ts-jest/preprocessor.js"
         },
         "reporters": [
-            ["jest-nyan-reporter", {
-                "suppressErrorReporter": false
-            }]
+            [
+                "jest-nyan-reporter",
+                {
+                    "suppressErrorReporter": false
+                }
+            ]
         ]
     },
     "config": {
