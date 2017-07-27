@@ -4,8 +4,7 @@ const containerGenerator = require('./container')
 const reduxModuleGenerator = require('./reduxModule')
 const pageGenerator = require('./page')
 const languageGenerator = require('./language')
-
-const capitalizeFirstLetter = (string) => `${string.charAt(0).toUpperCase()}${string.slice(1)}`
+const capitalizeFirstLetter = require('./utils/string')
 
 module.exports = (plop) => {
     plop.setGenerator('component', componentGenerator)
