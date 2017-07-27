@@ -1,13 +1,12 @@
 import React, { Component, PropTypes } from 'react'
-{{#if wantMessages}}
-import { FormattedMessage } from 'react-intl'
-{{/if}}
 import { View } from 'react-native'
 import { connect, MapStateToProps, MapDispatchToProps } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
 import { AppState } from 'store/types'
-
+{{#if includedNavigator}}
+import Navigator from './{{ name }}.nav'
+{{/if}}
 {{#if wantMessages}}
 import messages from './messages'
 {{/if}}
@@ -17,7 +16,11 @@ class {{ pascal name }} extends Component<{{ pascal name }}Props, {{ pascal name
 
     render() {
         return (
+            {{#if includedNavigator}}
+            <Navigator/>
+            {{else}}
             <View/>
+            {{/if}}
         )
     }
 }

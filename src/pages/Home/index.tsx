@@ -1,13 +1,16 @@
 import React, { Component, PropTypes } from 'react'
-import { ScrollView, Text } from 'react-native'
+import { ScrollView, Text, Button } from 'react-native'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
+import { Ionicons } from '@expo/vector-icons'
 
 import Slideshow from 'components/Slideshow'
 
 import { AppState } from 'store/types'
 
 import { HomeProps, HomeState } from './types'
+
+import autobind from 'autobind-decorator'
 
 class Home extends Component<HomeProps, HomeState> {
     static navigationOptions = {
@@ -46,10 +49,16 @@ class Home extends Component<HomeProps, HomeState> {
         ],
     }
 
+    @autobind
+    goDemo() {
+        this.props.navigation.navigate('Demo')
+    }
+
     render() {
         return (
             <ScrollView>
                 <Slideshow items={this.state.items} arrows={true} />
+                <Button title={'demo'} onPress={this.goDemo} />
             </ScrollView>
         )
     }
