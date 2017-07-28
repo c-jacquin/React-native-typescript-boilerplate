@@ -12,7 +12,7 @@ import messages from './messages'
 {{/if}}
 import { {{ pascal name }}Props, {{ pascal name }}State, ConnectedProps, {{ pascal name }}ActionCreators } from './types'
 
-class {{ pascal name }} extends Component<{{ pascal name }}Props, {{ pascal name }}State> {
+export class {{ pascal name }} extends Component<{{ pascal name }}Props, {{ pascal name }}State> {
 
     render() {
         return (
