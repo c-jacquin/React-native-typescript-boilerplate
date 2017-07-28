@@ -1,16 +1,15 @@
 export interface IFormattedDateProps {
-    style: any
+    style?: any
     value: any
 }
 
 export interface IFormattedMessageProps {
-    style: any
-    value: any
+    style?: any
     id: string
 }
 
 export interface IFormattedNumberProps {
-    style: any
+    style?: any
     localeMatcher?: any
     formatStyle?: string
     value: any
@@ -25,13 +24,13 @@ export interface IFormattedNumberProps {
 }
 
 export interface IFormattedPlural {
-    style: any
+    style?: any
     value: any
     textStyle?: object
-    other: any
+    other?: any
 }
 
 export interface IFormattedTime {
-    style: any
+    style?: any
     value: any
 }

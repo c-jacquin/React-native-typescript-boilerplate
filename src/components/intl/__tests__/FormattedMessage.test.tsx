@@ -8,7 +8,7 @@ describe('FormattedMessage', () => {
     it('should renders correctly', () => {
         const tree = renderer.create(
             <IntlProvider locale="en" messages={{ bar: 'foo' }}>
-                <FormattedMessage style={{}} value={'foo'} id={'bar'} />
+                <FormattedMessage style={{}} id={'bar'} />
             </IntlProvider>
         )
         expect(tree).toBeDefined()
