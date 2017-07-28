@@ -77,7 +77,7 @@ module.exports = {
             }
         }
 
-        console.log(pageDir, navigator)
+        data.includedNavigator = data.includedNavigator !== 'none'
 
         const actions = [{
             type: 'add',
@@ -118,7 +118,7 @@ module.exports = {
             })
         }
 
-        if (data.includedNavigator !== 'none') {
+        if (data.includedNavigator) {
             actions.push({
                 type: 'add',
                 path: `${pageDir}/{{ name }}.nav.ts`,

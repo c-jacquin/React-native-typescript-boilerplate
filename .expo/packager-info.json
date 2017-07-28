@@ -1,8 +1,8 @@
 {
-  "expoServerPort": 19000,
   "packagerPort": 19001,
-  "packagerPid": 25698,
+  "packagerPid": 31243,
+  "expoServerPort": 19000,
   "expoServerNgrokUrl": "https://ea-g9e.charjac.reactnativetsboilerplate.exp.direct",
   "packagerNgrokUrl": "https://packager.ea-g9e.charjac.reactnativetsboilerplate.exp.direct",
-  "ngrokPid": 25812
+  "ngrokPid": 31368
 }

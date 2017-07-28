@@ -10,8 +10,6 @@ import { AppState } from 'store/types'
 
 import { HomeProps, HomeState } from './types'
 
-import autobind from 'autobind-decorator'
-
 class Home extends Component<HomeProps, HomeState> {
     static navigationOptions = {
         title: 'Home',
@@ -49,16 +47,10 @@ class Home extends Component<HomeProps, HomeState> {
         ],
     }
 
-    @autobind
-    goDemo() {
-        this.props.navigation.navigate('Demo')
-    }
-
     render() {
         return (
             <ScrollView>
                 <Slideshow items={this.state.items} arrows={true} />
-                <Button title={'demo'} onPress={this.goDemo} />
             </ScrollView>
         )
     }
