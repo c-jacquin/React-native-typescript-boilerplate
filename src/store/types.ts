@@ -1,10 +1,12 @@
 import { Action } from 'redux'
 import { Observable } from 'rxjs'
 import { LanguageState } from 'store/language/types'
+import { NavigationState } from './navigation/types'
 // Import types here
 
 export interface AppState {
     language: LanguageState
+    navigation: NavigationState
     // Insert types here
 }
 
