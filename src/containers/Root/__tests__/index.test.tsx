@@ -13,6 +13,15 @@ describe('Root component', () => {
     let store = mockStore({})
     const mockProps = {
         getLocale: () => ({ type: 'TEST' }),
+        nav: {
+            index: 0,
+            routes: [
+                {
+                    key: 'test',
+                    routeName: 'Home',
+                },
+            ],
+        },
     }
     const spy = jest.spyOn(mockProps, 'getLocale')
 

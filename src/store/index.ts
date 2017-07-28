@@ -14,9 +14,11 @@ import { AppState } from './types'
 
 const engine = createEngine(config.STORE_KEY)
 
+const blackListedAction = ['Navigation/NAVIGATE', 'Navigation/BACK']
+
 const middlewares = [
     createEpicMiddleware(rootEpic),
-    storage.createMiddleware(engine),
+    storage.createMiddleware(engine, blackListedAction),
 ]
 
 const getDevEnhancer = (): StoreEnhancer<AppState> => {
