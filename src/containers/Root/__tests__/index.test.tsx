@@ -2,10 +2,12 @@ import 'rxjs'
 import React from 'react'
 import 'react-native'
 import { Provider, Store } from 'react-redux'
+import { IntlProvider } from 'react-intl'
 import renderer from 'react-test-renderer'
 import { Root } from '../index'
 
 import configureStore from 'redux-mock-store'
+import { translationMessages } from 'i18n'
 
 const mockStore = configureStore()
 
@@ -27,7 +29,9 @@ describe('Root component', () => {
 
     const tree = renderer.create(
         <Provider store={store}>
-            <Root {...mockProps} />
+            <IntlProvider locale={'en'} messages={translationMessages.en}>
+                <Root {...mockProps} />
+            </IntlProvider>
         </Provider>
     )
     beforeEach(() => {
