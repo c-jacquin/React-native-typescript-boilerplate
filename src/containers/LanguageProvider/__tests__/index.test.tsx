@@ -1,6 +1,7 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
-import { LanguageProvider } from '../index'
+import { LanguageProvider, mapStateToProps } from '../index'
+import initialState from 'store/__helpers__/initialState'
 
 describe('Language Provider', () => {
     it('should renders correctly', () => {
@@ -10,5 +11,15 @@ describe('Language Provider', () => {
             </LanguageProvider>
         )
         expect(tree).toBeDefined()
+    })
+
+    describe('mapStateToProps function', () => {
+        it('should return an object with the locale', () => {
+            expect(
+                mapStateToProps(initialState, { messages: [], children: {} })
+            ).toEqual({
+                locale: initialState.language.locale,
+            })
+        })
     })
 })

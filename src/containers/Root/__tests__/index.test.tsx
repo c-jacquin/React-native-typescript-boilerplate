@@ -1,13 +1,12 @@
-import 'rxjs'
 import React from 'react'
-import 'react-native'
 import { Provider, Store } from 'react-redux'
 import { IntlProvider } from 'react-intl'
 import renderer from 'react-test-renderer'
-import { Root } from '../index'
+import { Root, mapStateToProps } from '../index'
 
 import configureStore from 'redux-mock-store'
 import { translationMessages } from 'i18n'
+import initialState from 'store/__helpers__/initialState'
 
 const mockStore = configureStore()
 
@@ -44,5 +43,13 @@ describe('Root component', () => {
 
     it('should call getLocale prop', () => {
         expect(spy).toHaveBeenCalled()
+    })
+
+    describe('mapStateToPropsFunction', () => {
+        it('should return the navigation state in an object', () => {
+            expect(mapStateToProps(initialState, null)).toEqual({
+                nav: initialState.navigation,
+            })
+        })
     })
 })
