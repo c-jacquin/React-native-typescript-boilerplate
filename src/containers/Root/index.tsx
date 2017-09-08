@@ -44,9 +44,10 @@ export class Root extends PureComponent<RootProps, RootState> {
     }
 }
 
-const mapStateToProps: MapStateToProps<RootConnectedProps, RootProps> = (
-    state: AppState
-) => ({
+export const mapStateToProps: MapStateToProps<
+    RootConnectedProps,
+    RootProps | null
+> = (state: AppState) => ({
     nav: selectNavigation(state),
 })
 const mapDispatchToProps: MapDispatchToProps<RootActionCreators, RootProps> = (
