@@ -27,4 +27,6 @@ const mapStateToProps: MapStateToProps<
     locale: selectLocale(state),
 })
 
-export default connect(mapStateToProps)(LanguageProvider)
+export default connect<ConnectedProps, any, LanguageProps>(mapStateToProps)(
+    LanguageProvider
+)

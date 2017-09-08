@@ -1,9 +1,9 @@
 import React, { Component, PropTypes } from 'react'
 import { View } from 'react-native'
 import { connect, MapStateToProps, MapDispatchToProps } from 'react-redux'
-import { bindActionCreators } from 'redux'
+import { bindActionCreators, Dispatch } from 'redux'
 
-import { AppState } from 'store/types'
+import { AppState, ReduxAction } from 'store/types'
 {{#if includedNavigator}}
 import Navigator from './{{ name }}.nav'
 {{/if}}
@@ -33,9 +33,9 @@ const mapStateToProps: MapStateToProps<
 const mapDispatchToProps: MapDispatchToProps<
     {{ pascal name }}ActionCreators,
     {{ pascal name }}Props
-> = (dispatch) => bindActionCreators({}, dispatch)
+> = (dispatch: Dispatch<ReduxAction>) => bindActionCreators({}, dispatch)
 
-export default connect(
+export default connect<ConnectedProps, {{ pascal name }}ActionCreators, {{ pascal name }}Props>(
     mapStateToProps,
     mapDispatchToProps
 )({{ pascal name }})

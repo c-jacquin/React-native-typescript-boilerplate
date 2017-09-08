@@ -1,4 +1,5 @@
 import { Epic } from 'redux-observable'
+
 import { Observable } from 'rxjs'
 
 import config from 'config'
