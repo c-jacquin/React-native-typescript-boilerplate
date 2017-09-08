@@ -29,11 +29,6 @@
             140
         ],
         "member-access": false,
-        "member-ordering": [
-            true,
-            "variables-before-functions",
-            "private-before-public"
-        ],
         "no-any": false,
         "no-arg": true,
         "no-bitwise": true,
@@ -59,6 +54,7 @@
         "no-require-imports": false,
         "no-shadowed-variable": true,
         "no-string-literal": true,
+        "no-submodule-imports": false,
         "no-switch-case-fall-through": false,
         "no-trailing-whitespace": true,
         "no-unreachable": true,
@@ -78,10 +74,14 @@
         "ordered-imports": false,
         "quotemark": [
             true,
-            "simple"
+            "single",
+            "jsx-double"
         ],
         "radix": true,
-        "semicolon": false,
+        "semicolon": [
+            true,
+            "never"
+        ],
         "switch-default": true,
         "trailing-comma": [true, {
             "multiline": {

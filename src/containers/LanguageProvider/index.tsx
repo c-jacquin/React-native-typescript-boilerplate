@@ -1,4 +1,4 @@
-import React, { Component, PropTypes, StatelessComponent } from 'react'
+import React, { Component, StatelessComponent } from 'react'
 import { IntlProvider } from 'react-intl'
 import { connect, MapStateToProps } from 'react-redux'
 
