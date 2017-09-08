@@ -1,3 +1,5 @@
+console.error = jest.genMockFunction() // proptypes warning from react-native
+
 jest.mock('Linking', () => {
 
   const getInitialURL = jest.fn()
