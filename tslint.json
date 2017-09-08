@@ -30,6 +30,7 @@
         ],
         "member-access": false,
         "no-any": false,
+        "no-angle-bracket-type-assertion": false,
         "no-arg": true,
         "no-bitwise": true,
         "no-conditional-assignment": true,

@@ -20,7 +20,7 @@ export const LanguageProvider: StatelessComponent<LanguageProps> = ({
     )
 }
 
-const mapStateToProps: MapStateToProps<
+export const mapStateToProps: MapStateToProps<
     ConnectedProps,
     LanguageProps
 > = state => ({
