@@ -1,12 +1,11 @@
 import { Platform } from 'react-native'
 import { applyMiddleware, createStore, Store, StoreEnhancer } from 'redux'
 import immutableStateMiddleware from 'redux-immutable-state-invariant'
-import { createEpicMiddleware } from 'redux-observable'
 import * as storage from 'redux-storage'
 import createEngine from 'redux-storage-engine-reactnativeasyncstorage'
 import { composeWithDevTools } from 'remote-redux-devtools'
 
-import rootEpic from './rootEpic'
+import epicMiddleware from './epicMiddleware'
 import rootReducer from './rootReducer'
 
 import config from 'config'
@@ -17,11 +16,11 @@ const engine = createEngine(config.STORE_KEY)
 const blackListedAction = ['Navigation/NAVIGATE', 'Navigation/BACK']
 
 const middlewares = [
-    createEpicMiddleware(rootEpic),
+    epicMiddleware,
     storage.createMiddleware(engine, blackListedAction),
 ]
 
-const getDevEnhancer = (): StoreEnhancer<AppState> => {
+const getDevEnhancer = () => {
     return composeWithDevTools(applyMiddleware(...middlewares))
 }
 

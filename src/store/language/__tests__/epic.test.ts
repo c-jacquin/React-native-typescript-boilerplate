@@ -1,10 +1,17 @@
 import configureMockStore from 'redux-mock-store'
 import { createEpicMiddleware } from 'redux-observable'
 import * as languageAction from '../actions'
-import * as languageApi from '../api'
+import languageApi from '../api'
 import getLocaleEpic from '../epic'
+import { dependencies } from 'store/epicMiddleware'
+import { AppState, ReduxAction, EpicDependancies } from 'store/types'
 
-const epicMiddleware = createEpicMiddleware(getLocaleEpic)
+const epicMiddleware = createEpicMiddleware<
+    ReduxAction,
+    AppState,
+    EpicDependancies
+>(getLocaleEpic, { dependencies })
+
 const mockStore = configureMockStore([epicMiddleware])
 
 jest.mock('store/language/api')

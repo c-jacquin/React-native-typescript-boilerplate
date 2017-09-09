@@ -6,10 +6,9 @@ import { IFormattedDateProps } from './types'
 const NativeFormattedDate: StatelessComponent<IFormattedDateProps> = props => {
     return (
         <FormattedDate {...props}>
-            {(localized: string) =>
-                <Text style={props.style}>
-                    {localized}
-                </Text>}
+            {(localized: string) => (
+                <Text style={props.style}>{localized}</Text>
+            )}
         </FormattedDate>
     )
 }
