@@ -17,6 +17,7 @@
     "build": "NODE_ENV=production tsc",
     "test": "NODE_ENV=test jest --coverage",
     "watch:test": "NODE_ENV=test jest --watch",
+    "doc": "typedoc --out doc src/index.ts",
     "release": "standard-version",
     "prettier": "prettier --tab-width 4 --write --no-semi --single-quote --trailing-comma es5 --parser typescript \"src/**/*(*.ts|*.tsx)\""
   },
@@ -74,6 +75,7 @@
     "tslint": "^5.7.0",
     "tslint-config-prettier": "^1.5.0",
     "tslint-react": "^3.2.0",
+    "typedoc": "^0.8.0",
     "typescript": "^2.5.2"
   },
   "jest": {
