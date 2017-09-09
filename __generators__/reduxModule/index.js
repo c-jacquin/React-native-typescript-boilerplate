@@ -8,6 +8,11 @@ module.exports = {
     actions: (data) => {
         const actions = [{
             type: 'add',
+            path: '../src/store/{{name}}/index.ts',
+            templateFile: './reduxModule/templates/index.hbs',
+            abortOnFail: true,
+        }, {
+            type: 'add',
             path: '../src/store/{{name}}/reducer.ts',
             templateFile: './reduxModule/templates/reducer.ts.hbs',
             abortOnFail: true,
