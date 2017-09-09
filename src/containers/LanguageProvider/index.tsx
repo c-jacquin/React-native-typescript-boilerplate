@@ -3,7 +3,7 @@ import { IntlProvider } from 'react-intl'
 import { connect, MapStateToProps } from 'react-redux'
 
 import config from 'config'
-import { selectLocale } from 'store/language/selectors'
+import { selectLocale } from 'store/language'
 import { AppState } from 'store/types'
 
 import { ConnectedProps, LanguageProps } from './types'

@@ -6,8 +6,8 @@ import { addNavigationHelpers } from 'react-navigation'
 import PropTypes from 'prop-types'
 
 import { AppState, ReduxAction } from 'store/types'
-import { getLocale } from 'store/language/actions'
-import { selectNavigation } from 'store/navigation/selectors'
+import { getLocale } from 'store/language'
+import { selectNavigation } from 'store/navigation'
 import Navigator from 'pages'
 
 import {
