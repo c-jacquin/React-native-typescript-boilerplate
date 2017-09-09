@@ -16,10 +16,7 @@ const NativeFormattedNumber: StatelessComponent<IFormattedNumberProps> = ({
 
     return (
         <FormattedNumber {...formatOptions}>
-            {(localized: string) =>
-                <Text style={style}>
-                    {localized}
-                </Text>}
+            {(localized: string) => <Text style={style}>{localized}</Text>}
         </FormattedNumber>
     )
 }

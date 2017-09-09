@@ -1,10 +1,16 @@
 import { Observable } from 'rxjs'
 import { Util } from 'expo'
 
-export const formatLocale = (locale: string) => locale.split('_')[1]
+export class LanguageApi {
+    formatLocale(locale: string): string {
+        return locale.split('_')[1]
+    }
 
-export const getLanguage = () => {
-    return Observable.fromPromise(Util.getCurrentLocaleAsync()).map(
-        formatLocale
-    )
+    getLanguage() {
+        return Observable.fromPromise(Util.getCurrentLocaleAsync()).map(
+            this.formatLocale
+        )
+    }
 }
+
+export default new LanguageApi()

@@ -1,4 +1,4 @@
-import * as languageApi from '../api'
+import languageApi from '../api'
 import { Util } from 'expo'
 
 describe('languages api', () => {

@@ -7,10 +7,9 @@ import { IFormattedPlural } from './types'
 const NativeFormattedPlural: StatelessComponent<IFormattedPlural> = props => {
     return (
         <FormattedPlural {...props}>
-            {(localized: string) =>
-                <Text style={props.textStyle}>
-                    {localized}
-                </Text>}
+            {(localized: string) => (
+                <Text style={props.textStyle}>{localized}</Text>
+            )}
         </FormattedPlural>
     )
 }
