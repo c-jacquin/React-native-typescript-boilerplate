@@ -1,5 +1,13 @@
 import { Observable } from 'rxjs'
 
-export const getLanguage = () => {
-    return Observable.of('en')
+export class LanguageApi {
+    formatLocale(locale: string): string {
+        return locale.split('_')[1]
+    }
+
+    getLanguage() {
+        return Observable.of('en')
+    }
 }
+
+export default new LanguageApi()

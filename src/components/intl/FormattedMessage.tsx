@@ -11,11 +11,7 @@ const NativeFormattedMessage: StatelessComponent<
             {(...nodes: any[]) => {
                 const newNodes = nodes.map(node => {
                     if (!isValidElement(node)) {
-                        return (
-                            <Text style={props.style}>
-                                {node}
-                            </Text>
-                        )
+                        return <Text style={props.style}>{node}</Text>
                     }
                     return node
                 })
