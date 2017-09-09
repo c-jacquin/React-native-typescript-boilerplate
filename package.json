@@ -17,7 +17,7 @@
     "build": "NODE_ENV=production tsc",
     "test": "NODE_ENV=test jest --coverage",
     "watch:test": "NODE_ENV=test jest --watch",
-    "doc": "typedoc --out doc src/index.ts",
+    "docs": "typedoc --out docs src/index.ts",
     "release": "standard-version",
     "prettier": "prettier --tab-width 4 --write --no-semi --single-quote --trailing-comma es5 --parser typescript \"src/**/*(*.ts|*.tsx)\""
   },
