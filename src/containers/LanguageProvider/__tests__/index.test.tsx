@@ -1,7 +1,7 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
 import { LanguageProvider, mapStateToProps } from '../index'
-import initialState from 'store/__helpers__/initialState'
+import initialState from 'store/_helpers_/initialState'
 
 describe('Language Provider', () => {
     it('should renders correctly', () => {

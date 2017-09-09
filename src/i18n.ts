@@ -4,8 +4,8 @@ import { addLocaleData } from 'react-intl'
 import enLocaleData from 'react-intl/locale-data/en'
 import frLocaleData from 'react-intl/locale-data/fr'
 
-import enTranslationMessages from '../__translations__/en.json'
-import frTranslationMessages from '../__translations__/fr.json'
+import enTranslationMessages from '../_translations_/en.json'
+import frTranslationMessages from '../_translations_/fr.json'
 
 import config from 'config'
 

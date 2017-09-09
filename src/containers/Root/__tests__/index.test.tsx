@@ -6,7 +6,7 @@ import { Root, mapStateToProps } from '../index'
 
 import configureStore from 'redux-mock-store'
 import { translationMessages } from 'i18n'
-import initialState from 'store/__helpers__/initialState'
+import initialState from 'store/_helpers_/initialState'
 
 const mockStore = configureStore()
 
