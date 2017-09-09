@@ -5,8 +5,8 @@
     "author": "Charles Jacquin <charles.jacquin@gmail.com>",
     "main": "build/index.js",
     "scripts": {
-        "generate": "plop --plopfile __generators__/index.js",
-        "postinstall": "rm -f node_modules/intl/.babelrc && plop --plopfile __generators__/postInstall.js postinstall",
+        "generate": "plop --plopfile _generators_/index.js",
+        "postinstall": "rm -f node_modules/intl/.babelrc && plop --plopfile _generators_/postInstall.js postinstall",
         "prepush": "npm run test",
         "cz": "git-cz",
         "precommit": "lint-staged",
@@ -93,7 +93,7 @@
         ],
         "preset": "jest-expo",
         "setupFiles": [
-            "./__scripts__/test-setup.js"
+            "./_scripts_/test-setup.js"
         ],
         "testPathIgnorePatterns": [
             "<rootDir>/src/",

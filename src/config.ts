@@ -1,5 +1,5 @@
-import devEnv from '../__env__/development.json'
-import prodEnv from '../__env__/production.json'
+import devEnv from '../_env_/development.json'
+import prodEnv from '../_env_/production.json'
 
 export interface Env {
     ENV: string
