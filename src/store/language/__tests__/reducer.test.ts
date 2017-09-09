@@ -1,6 +1,6 @@
 import languageReducer from '../reducer'
 import * as languagesActions from '../actions'
-import appState from 'store/__helpers__/initialState'
+import appState from 'store/_helpers_/initialState'
 
 describe('language reducer', () => {
     it('should return the initial state', () => {

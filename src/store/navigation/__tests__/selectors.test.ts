@@ -1,5 +1,5 @@
 import { selectNavigation } from '../selectors'
-import appState from 'store/__helpers__/initialState'
+import appState from 'store/_helpers_/initialState'
 
 describe('navigation selectors', () => {
     it('should return the navigation state', () => {

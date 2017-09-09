@@ -1,5 +1,5 @@
 import epicMiddleware, { rootEpic, dependencies } from '../epicMiddleware'
-import appState from 'store/__helpers__/initialState'
+import appState from 'store/_helpers_/initialState'
 
 describe('epic middleware', () => {
     it('should be defined', () => {
