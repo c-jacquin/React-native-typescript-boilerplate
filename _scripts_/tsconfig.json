@@ -1,13 +1,11 @@
 {
     "compilerOptions": {
         "target": "es2015",
-        "module": "es2015",
+        "module": "commonjs",
         "allowJs": true,
         "jsx": "react",
-        "sourceMap": true,
-        "outDir": "./build",
-        "rootDir": "./src",
-        "removeComments": false,
+        "sourceMap": false,
+        "rootDir": "../",
         "lib":["dom","es2017"],
         "strict": true,
         "noImplicitAny": true,
@@ -15,18 +13,16 @@
         "noImplicitThis": true,
         "alwaysStrict": true,
         "moduleResolution": "node",
-        "baseUrl": "src",
         "typeRoots": [
-            "./src/typings"
+            "../node_modules/@types"            
         ],
         "allowSyntheticDefaultImports": true,
         "experimentalDecorators": true
     },
     "include": [
-        "src/**/*"
+        "./**/*"
     ],
     "exclude": [
-        "build",
-        "node_modules"
+        "../node_modules"
     ]
 }

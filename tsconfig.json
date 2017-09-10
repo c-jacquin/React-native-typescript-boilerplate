@@ -21,7 +21,6 @@
             "_scripts_/docs/typings"
         ],
         "allowSyntheticDefaultImports": true,
-
         "experimentalDecorators": true
     },
     "include": [
