@@ -9,21 +9,23 @@
     "url": "https://github.com/charjac/React-native-typescript-boilerplate.git"
   },
   "scripts": {
+    "add": "git add -A",
     "generate": "plop --plopfile _generators_/index.js",
-    "postinstall": "rm -f node_modules/intl/.babelrc && plop --plopfile _generators_/postInstall.js postinstall",
+    "postinstall": "rimraf node_modules/intl/.babelrc && plop --plopfile _generators_/postInstall.js postinstall",
     "prepush": "npm run test",
     "cz": "git-cz",
     "precommit": "lint-staged",
+    "clean": "ts-node --project _scripts_/ _scripts_/utils/clean",
     "prestart": "npm run prebuild",
     "start": "NODE_ENV=development tsc --watch",
-    "clean": "node node_modules/.bin/rimraf build",
-    "prebuild": "npm run clean && mkdir build",
+    "prebuild": "rimraf build && mkdir build",
     "build": "NODE_ENV=production tsc",
     "test": "NODE_ENV=test jest",
+    "posttest": "rimraf docs/lcov.info",
     "watch:test": "NODE_ENV=test jest --watch",
-    "docs": "typedoc --out docs/doc src/index.ts",
-    "release": "standard-version",
-    "postrelease": "npm run docs && npm test -- --coverage && tsc --project _scripts_/docs && node _scripts_/docs/.temp/index.js && rimraf _scripts_/docs/.temp -r && rimraf docs/lcov.info",
+    "docs": "typedoc --out docs/doc src/index.ts && tsc --project _scripts_/docs",
+    "postdocs": "node _scripts_/docs/.temp/index.js && rimraf _scripts_/docs/.temp -r",
+    "release": "standard-version --no-verify",
     "prettier": "prettier --tab-width 4 --write --no-semi --single-quote --trailing-comma es5 --parser typescript \"src/**/*(*.ts|*.tsx)\""
   },
   "dependencies": {
@@ -66,6 +68,7 @@
     "babel-plugin-jest-hoist": "^21.0.2",
     "babel-plugin-module-resolver": "^2.7.1",
     "babel-plugin-transform-decorators-legacy": "^1.3.4",
+    "child-process-promise": "^2.2.1",
     "commitizen": "^2.9.6",
     "cz-conventional-changelog": "^2.0.0",
     "fbemitter": "^2.1.1",
@@ -122,7 +125,7 @@
     ],
     "preset": "jest-expo-ts",
     "setupFiles": [
-      "./_scripts_/test-setup.ts"
+      "./_scripts_/utils/test-setup.ts"
     ],
     "testPathIgnorePatterns": [
       "<rootDir>/build/",
@@ -149,5 +152,11 @@
       "prettier --tab-width 4 --write --no-semi --single-quote --trailing-comma es5 --parser typescript",
       "git add -A"
     ]
+  },
+  "standard-version": {
+    "scripts": {
+      "postcommit": "ts-node --project _scripts_/ _scripts_/releaseHook/postcommit",
+      "posttag": "ts-node --project _scripts_/ _scripts_/releaseHook/posttag" 
+    }
   }
 }
