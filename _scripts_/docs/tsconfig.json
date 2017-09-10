@@ -1,12 +1,12 @@
 {
     "compilerOptions": {
         "target": "es2015",
-        "module": "es2015",
+        "module": "commonjs",
         "allowJs": true,
-        "jsx": "react-native",
-        "sourceMap": true,
-        "outDir": "./build",
-        "rootDir": "./src",
+        "jsx": "react",
+        "sourceMap": false,
+        "outDir": "./.temp",
+        "rootDir": "./",
         "removeComments": false,
         "lib":["dom","es2017"],
         "strict": true,
@@ -15,23 +15,17 @@
         "noImplicitThis": true,
         "alwaysStrict": true,
         "moduleResolution": "node",
-        "baseUrl": "src",
         "typeRoots": [
-            "./src/typings",
-            "_scripts_/docs/typings"
+            "typings"
         ],
         "allowSyntheticDefaultImports": true,
 
         "experimentalDecorators": true
     },
     "include": [
-        "src/**/*"
+        "./"
     ],
     "exclude": [
-        "src/**/__mocks__/*",
-        "src/**/__tests__/*",        
-        "build",
-        "_scripts_/docs/**/*",
-        "node_modules"
+        "../../node_modules"
     ]
 }

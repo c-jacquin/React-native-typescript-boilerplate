@@ -1,330 +1,58 @@
 <!doctype html>
-<html class="default no-js">
-<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>react-native-ts-boilerplate</title>
-	<meta name="description" content="">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="assets/css/main.css">
-</head>
-<body>
-<header>
-	<div class="tsd-page-toolbar">
-		<div class="container">
-			<div class="table-wrap">
-				<div class="table-cell" id="tsd-search" data-index="assets/js/search.js" data-base=".">
-					<div class="field">
-						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
-						<input id="tsd-search-field" type="text" />
-					</div>
-					<ul class="results">
-						<li class="state loading">Preparing search index...</li>
-						<li class="state failure">The search index is not available</li>
-					</ul>
-					<a href="index.html" class="title">react-native-ts-boilerplate</a>
-				</div>
-				<div class="table-cell" id="tsd-widgets">
-					<div id="tsd-filter">
-						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
-						<div class="tsd-filter-group">
-							<div class="tsd-select" id="tsd-filter-visibility">
-								<span class="tsd-select-label">All</span>
-								<ul class="tsd-select-list">
-									<li data-value="public">Public</li>
-									<li data-value="protected">Public/Protected</li>
-									<li data-value="private" class="selected">All</li>
-								</ul>
-							</div>
-							<input type="checkbox" id="tsd-filter-inherited" checked />
-							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
-							<input type="checkbox" id="tsd-filter-externals" checked />
-							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
-							<input type="checkbox" id="tsd-filter-only-exported" />
-							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
-						</div>
-					</div>
-					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="tsd-page-title">
-		<div class="container">
-			<ul class="tsd-breadcrumb">
-				<li>
-					<a href="globals.html">Globals</a>
-				</li>
-			</ul>
-			<h1> react-native-ts-boilerplate</h1>
-		</div>
-	</div>
-</header>
-<div class="container container-main">
-	<div class="row">
-		<div class="col-8 col-content">
-			<div class="tsd-panel tsd-typography">
-				<h1 id="boilerplate-for-react-native-app-using-the-amazing-expo">Boilerplate for React-native app using the amazing expo</h1>
-				<p><a href=""><img src="https://img.shields.io/travis/rust-lang/rust.svg" alt="Travis"></a>
-				<a href="https://conventionalcommits.org"><img src="https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg" alt="Conventional Commits"></a></p>
-				<ul>
-					<li><a href="#presentation">Presentation</a></li>
-					<li><a href="#requirement">Requirement</a></li>
-					<li><a href="#installation">Installation</a></li>
-					<li><a href="#development">Development</a></li>
-					<li><a href="#production">Production</a></li>
-					<li><a href="#releases">Releases</a></li>
-					<li><a href="#contibuting">Contributing</a></li>
-				</ul>
-				<h2 id="presentation">Presentation</h2>
-				<p>This boilerplate include :</p>
-				<ul>
-					<li>react-native</li>
-					<li>expo &lt;3</li>
-					<li>redux</li>
-					<li>rxjs with redux-observable</li>
-					<li>reselect</li>
-					<li>react-intl (i18n)</li>
-					<li>react-navigation (amazing isomorphic router)</li>
-					<li>unit test with jest</li>
-					<li>continuous integration with Travis</li>
-					<li>tslint and prettier</li>
-					<li>commitizen with cz-conventional-changelog</li>
-					<li>gitHook with husky and lint-staged (run test and prettier before commit)</li>
-				</ul>
-				<h2 id="requirement">Requirement</h2>
-				<ul>
-					<li>Node.js</li>
-					<li>Expo Ide</li>
-					<li>Redux remote devtools</li>
-					<li>an android/iphone or genymotion installed</li>
-				</ul>
-				<h2 id="installation">Installation</h2>
-				<h3 id="install-dependancies">install dependancies</h3>
-				<pre><code class="lang-bash">$ npm i
-</code></pre>
-				<h3 id="compile-typescript-source">Compile typescript source</h3>
-				<pre><code class="lang-bash">$ npm start
-</code></pre>
-				<p>Then open Expo ide and start your project</p>
-				<h2 id="development">Development</h2>
-				<h3 id="run-tests">Run tests</h3>
-				<pre><code class="lang-bash">$ npm <span class="hljs-built_in">test</span>
-$ npm run tdd
-</code></pre>
-				<h3 id="scafolding">Scafolding</h3>
-				<pre><code class="lang-bash">$ npm run generate
-</code></pre>
-				<p>You have access to plop.js generators:</p>
-				<ul>
-					<li>component</li>
-					<li>containers</li>
-					<li>redux module (reducers, selector, actionCreator, middlewares)</li>
-					<li>language</li>
-					<li>page</li>
-					<li>navigator</li>
-				</ul>
-				<h2 id="production">production</h2>
-				<h3 id="publish-a-release">Publish a release</h3>
-				<pre><code class="lang-bash">$ npm run release
-</code></pre>
-				<h2 id="changelog">Changelog</h2>
-				<ul>
-					<li><a href="CHANGELOG.md">Changelog</a></li>
-				</ul>
-				<h2 id="contributing">Contributing</h2>
-				<ul>
-					<li><a href="CONTRIBUTING.md">Contributing</a></li>
-				</ul>
-			</div>
-		</div>
-		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
-			<nav class="tsd-navigation primary">
-				<ul>
-					<li class="globals  ">
-						<a href="globals.html"><em>Globals</em></a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_components_intl_formatteddate_.html">"components/intl/<wbr>Formatted<wbr>Date"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_components_intl_formattedmessage_.html">"components/intl/<wbr>Formatted<wbr>Message"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_components_intl_formattednumber_.html">"components/intl/<wbr>Formatted<wbr>Number"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_components_intl_formattedplural_.html">"components/intl/<wbr>Formatted<wbr>Plural"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_components_intl_formattedtime_.html">"components/intl/<wbr>Formatted<wbr>Time"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_components_intl_index_.html">"components/intl/index"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_components_intl_types_.html">"components/intl/types"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_config_.html">"config"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_containers_languageprovider_index_.html">"containers/<wbr>Language<wbr>Provider/index"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_containers_languageprovider_types_.html">"containers/<wbr>Language<wbr>Provider/types"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_containers_root_index_.html">"containers/<wbr>Root/index"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_containers_root_styles_.html">"containers/<wbr>Root/styles"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_containers_root_types_.html">"containers/<wbr>Root/types"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_i18n_.html">"i18n"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_index_.html">"index"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_pages_home_index_.html">"pages/<wbr>Home/index"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_pages_home_messages_.html">"pages/<wbr>Home/messages"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_pages_home_types_.html">"pages/<wbr>Home/types"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_pages_index_.html">"pages/index"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_store__helpers__initialstate_.html">"store/_<wbr>helpers_<wbr>/initial<wbr>State"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_store_epicmiddleware_.html">"store/epic<wbr>Middleware"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_store_index_.html">"store/index"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_store_language_actions_.html">"store/language/actions"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_store_language_api_.html">"store/language/api"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_store_language_epic_.html">"store/language/epic"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_store_language_index_.html">"store/language/index"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_store_language_reducer_.html">"store/language/reducer"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_store_language_selectors_.html">"store/language/selectors"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_store_language_types_.html">"store/language/types"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_store_navigation_actions_.html">"store/navigation/actions"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_store_navigation_index_.html">"store/navigation/index"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_store_navigation_reducer_.html">"store/navigation/reducer"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_store_navigation_selectors_.html">"store/navigation/selectors"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_store_navigation_types_.html">"store/navigation/types"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_store_rootreducer_.html">"store/root<wbr>Reducer"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_store_types_.html">"store/types"</a>
-					</li>
-				</ul>
-			</nav>
-			<nav class="tsd-navigation secondary menu-sticky">
-				<ul class="before-current">
-				</ul>
-			</nav>
-		</div>
-	</div>
-</div>
-<footer class="with-border-bottom">
-	<div class="container">
-		<h2>Legend</h2>
-		<div class="tsd-legend-group">
-			<ul class="tsd-legend">
-				<li class="tsd-kind-module"><span class="tsd-kind-icon">Module</span></li>
-				<li class="tsd-kind-object-literal"><span class="tsd-kind-icon">Object literal</span></li>
-				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
-				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
-				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
-				<li class="tsd-kind-index-signature"><span class="tsd-kind-icon">Index signature</span></li>
-				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
-				<li class="tsd-kind-enum-member"><span class="tsd-kind-icon">Enumeration member</span></li>
-				<li class="tsd-kind-property tsd-parent-kind-enum"><span class="tsd-kind-icon">Property</span></li>
-				<li class="tsd-kind-method tsd-parent-kind-enum"><span class="tsd-kind-icon">Method</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
-				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
-				<li class="tsd-kind-constructor tsd-parent-kind-interface"><span class="tsd-kind-icon">Constructor</span></li>
-				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
-				<li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li>
-				<li class="tsd-kind-index-signature tsd-parent-kind-interface"><span class="tsd-kind-icon">Index signature</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
-				<li class="tsd-kind-class tsd-has-type-parameter"><span class="tsd-kind-icon">Class with type parameter</span></li>
-				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
-				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
-				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
-				<li class="tsd-kind-accessor tsd-parent-kind-class"><span class="tsd-kind-icon">Accessor</span></li>
-				<li class="tsd-kind-index-signature tsd-parent-kind-class"><span class="tsd-kind-icon">Index signature</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited constructor</span></li>
-				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited property</span></li>
-				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited method</span></li>
-				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited accessor</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected property</span></li>
-				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected method</span></li>
-				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected accessor</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li>
-				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private method</span></li>
-				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private accessor</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static property</span></li>
-				<li class="tsd-kind-call-signature tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li>
-			</ul>
-		</div>
-	</div>
-</footer>
-<div class="container tsd-generator">
-	<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a></p>
-</div>
-<div class="overlay"></div>
-<script src="assets/js/main.js"></script>
-<script>if (location.protocol == 'file:') document.write('<script src="assets/js/search.js"><' + '/script>');</script>
-</body>
+<html>
+    
+    <head>
+        <title data-react-helmet="true">react-native-ts-boilerplate Documentation</title>
+        <meta data-react-helmet="true"
+        charset="utf-8" />
+        <link data-react-helmet="true" rel="stylesheet" href="./github.css" />
+        <link data-react-helmet="true" rel="stylesheet" href="./main.css" />
+        <link data-react-helmet="true" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"
+        />
+        <script data-react-helmet="true" src="https://use.fontawesome.com/3d13965eab.js"></script>
+    </head>
+    
+    <body>
+        <div data-reactroot="" data-reactid="1" data-react-checksum="1278187331">
+            <!-- react-empty: 2 -->
+            <nav class="navbar navbar-expand-lg navbar-light bg-light" data-reactid="3">
+                <!-- react-empty: 4 --><a class="navbar-brand" href="#" data-reactid="5">Documentation</a>
+                <button
+                class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation"
+                data-reactid="6"><span class="navbar-toggler-icon" data-reactid="7"></span>
+                    </button>
+                    <div class="collapse navbar-collapse justify-content-between" id="navbarNavDropdown"
+                    data-reactid="8">
+                        <ul class="navbar-nav" data-reactid="9">
+                            <li class="nav-item" data-reactid="10"><a class="nav-link" href="./lcov-report" data-reactid="11">Code Coverage</a>
+                            </li>
+                            <li class="nav-item" data-reactid="12"><a class="nav-link" href="./doc" data-reactid="13">TypeDoc</a>
+                            </li>
+                        </ul>
+                        <ul class="navbar-nav" data-reactid="14">
+                            <li class="nav-item" data-reactid="15"><a class="nav-link" href="https://github.com/charjac/React-native-typescript-boilerplate"
+                                data-reactid="16"><i class="fa fa-github" aria-hidden="true" data-reactid="17"></i></a>
+                            </li>
+                            <li class="nav-item" data-reactid="18"><a class="nav-link" href="https://github.com/charjac/React-native-typescript-boilerplate/issues"
+                                data-reactid="19"><i class="fa fa-exclamation-circle" aria-hidden="true" data-reactid="20"></i></a>
+                            </li>
+                            <li class="nav-item" data-reactid="21"><a class="nav-link" href="https://github.com/charjac/React-native-typescript-boilerplate/projects"
+                                data-reactid="22"><i class="fa fa-trello" aria-hidden="true" data-reactid="23"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+            </nav>
+            <div class="wrap" data-reactid="24">
+                <div class="" data-reactid="25">
+                    <h1 id="change-log">Change Log</h1>
+
+                    <p>All notable changes to this project will be documented in this file. See
+                        <a
+                        href="https://github.com/conventional-changelog/standard-version">standard-version</a>for commit guidelines.</p>
+                </div>
+            </div>
+        </div>
+    </body>
+
 </html>

@@ -61,3 +61,6 @@ coverage
 
 # .expo
 .expo
+
+# docs
+_scripts_/docs/.temp/
