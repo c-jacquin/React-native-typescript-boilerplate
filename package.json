@@ -19,11 +19,11 @@
     "clean": "node node_modules/.bin/rimraf build",
     "prebuild": "npm run clean && mkdir build",
     "build": "NODE_ENV=production tsc",
-    "test": "NODE_ENV=test jest --coverage",
+    "test": "NODE_ENV=test jest",
     "watch:test": "NODE_ENV=test jest --watch",
     "docs": "typedoc --out docs/doc src/index.ts",
     "release": "standard-version",
-    "postrelease": "npm run docs && npm test && tsc --project _scripts_/docs && node _scripts_/docs/.temp/index.js && rimraf _scripts_/docs/.temp -r",
+    "postrelease": "npm run docs && npm test -- --coverage && tsc --project _scripts_/docs && node _scripts_/docs/.temp/index.js && rimraf _scripts_/docs/.temp -r && rimraf docs/lcov.info",
     "prettier": "prettier --tab-width 4 --write --no-semi --single-quote --trailing-comma es5 --parser typescript \"src/**/*(*.ts|*.tsx)\""
   },
   "dependencies": {
@@ -73,6 +73,7 @@
     "husky": "^0.14.3",
     "jest": "^21.0.0",
     "jest-expo-ts": "^20.0.0",
+    "jest-html-reporter": "^0.5.1",
     "lint-staged": "^4.1.3",
     "marked": "^0.3.6",
     "plop": "^1.8.1",
@@ -107,6 +108,9 @@
       "!**/node_modules/**"
     ],
     "coverageDirectory": "docs/",
+    "coverageReporters": [
+      "lcov"
+    ],
     "moduleDirectories": [
       "node_modules",
       "src"
@@ -127,7 +131,13 @@
     "transform": {
       ".(js|jsx)": "<rootDir>/node_modules/babel-jest",
       ".(ts|tsx)": "<rootDir>/node_modules/ts-jest/preprocessor.js"
-    }
+    },
+    "testResultsProcessor": "./node_modules/jest-html-reporter"
+  },
+  "jest-html-reporter": {
+    "pageTitle": "Test report",
+    "outputPath": "docs/test-report/index.html",
+    "includeFailureMsg": true
   },
   "config": {
     "commitizen": {

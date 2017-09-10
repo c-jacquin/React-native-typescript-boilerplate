@@ -19,13 +19,18 @@ export const Navbar: React.StatelessComponent<NavbarProps> = ({ repo }) => (
         <div className="collapse navbar-collapse justify-content-between" id="navbarNavDropdown">
             <ul className="navbar-nav">
                 <li className="nav-item">
-                    <a className="nav-link" href="./lcov-report">
-                        Code Coverage
+                    <a className="nav-link" href="./doc">
+                        TypeDoc
                     </a>
                 </li>
                 <li className="nav-item">
-                    <a className="nav-link" href="./doc">
-                        TypeDoc
+                    <a className="nav-link" href="./test-report">
+                        Test Report
+                    </a>
+                </li>
+                <li className="nav-item">
+                    <a className="nav-link" href="./lcov-report">
+                        Code Coverage
                     </a>
                 </li>
             </ul>
