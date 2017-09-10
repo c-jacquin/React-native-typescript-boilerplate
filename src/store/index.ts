@@ -1,6 +1,5 @@
 import { Platform } from 'react-native'
 import { applyMiddleware, createStore, Store, StoreEnhancer } from 'redux'
-import immutableStateMiddleware from 'redux-immutable-state-invariant'
 import * as storage from 'redux-storage'
 import createEngine from 'redux-storage-engine-reactnativeasyncstorage'
 import { composeWithDevTools } from 'remote-redux-devtools'
