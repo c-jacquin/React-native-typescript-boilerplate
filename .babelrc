@@ -1,9 +1,14 @@
 {
-  "presets": ["react-native"],
+  "presets": ["babel-preset-expo"],
   "sourceMaps": true,
-  "plugins": [
-      ["module-resolver", {
-        "root": ["./build"]
-      }]
-  ]
+  "env": {
+    "development": {
+      "plugins": [
+        "transform-react-jsx-source",
+        ["module-resolver", {
+          "root": ["./build"]
+        }]
+      ]
+    }
+  }
 }
