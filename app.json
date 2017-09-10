@@ -1,24 +1,26 @@
 {
-    "expo": {
-      "name": "react-native-ts-boilerplate",
-      "description": "A react native typescript expo boilerplate",
-      "slug": "react-native-ts-boilerplate",
-      "privacy": "public",
-      "sdkVersion": "20.0.0",
-      "version": "0.0.0",
-      "orientation": "portrait",
-      "primaryColor": "#cccccc",
-      "icon": "./assets/icons/app-icon.png",
-      "loading": {
-        "icon": "./assets/icons/loading-icon.png",
-        "hideExponentText": false
-      },
-      "packagerOpts": {
-        "assetExts": ["ttf", "mp4"]
-      },
-      "ios": {
-        "supportsTablet": true
-      }
+  "expo": {
+    "name": "react-native-ts-boilerplate",
+    "description": "A react native typescript expo boilerplate",
+    "slug": "react-native-ts-boilerplate",
+    "privacy": "public",
+    "sdkVersion": "20.0.0",
+    "version": "0.0.0",
+    "orientation": "portrait",
+    "primaryColor": "#cccccc",
+    "icon": "./assets/icons/app-icon.png",
+    "loading": {
+      "icon": "./assets/icons/loading-icon.png",
+      "hideExponentText": false
+    },
+    "packagerOpts": {
+      "assetExts": [
+        "ttf",
+        "mp4"
+      ]
+    },
+    "ios": {
+      "supportsTablet": true
     }
   }
-  
+}

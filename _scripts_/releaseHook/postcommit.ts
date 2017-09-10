@@ -1,5 +1,6 @@
 (async () => {
     const exec = require('child-process-promise').exec
+    const jsonFormat = require('json-format')
     const { readFile, writeFile } = require('../docs/helpers/fs')
 
     const cleanGitignore = (): void => {
@@ -12,8 +13,24 @@
         )
     }
 
+    const updateExpoVersion = (): void => {
+        const expoConfigPath = `${process.cwd()}/app.json`
+        const pkg = require(`${process.cwd()}/package.json`)
+        const expoConfigContent = JSON.parse(readFile(expoConfigPath))
+        expoConfigContent.expo.version = pkg.version
+
+        writeFile(
+            expoConfigPath,
+            jsonFormat(expoConfigContent, {
+                type: 'space',
+                size: 2,
+            })
+        )
+    }
+
     try {
         cleanGitignore()
+        updateExpoVersion()
         await exec('npm test -- --coverage')
         await exec('npm run build')
         await exec('npm run docs')
