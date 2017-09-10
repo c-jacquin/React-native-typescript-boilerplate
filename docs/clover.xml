@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1505043386766" clover="3.2.0">
+  <project timestamp="1505043386767" name="All files">
+    <metrics statements="97" coveredstatements="93" conditionals="37" coveredconditionals="26" methods="40" coveredmethods="39" elements="174" coveredelements="158" complexity="0" loc="97" ncloc="97" packages="10" files="29" classes="29">
+      <package name="src">
+        <metrics statements="15" coveredstatements="14" conditionals="8" coveredconditionals="6" methods="2" coveredmethods="2"/>
+        <file name="config.ts" path="/home/charl/Workspace/reactNativeTsBoilerplate/src/config.ts">
+          <metrics statements="3" coveredstatements="2" conditionals="2" coveredconditionals="1" methods="0" coveredmethods="0"/>
+          <line num="3" count="13" type="stmt"/>
+          <line num="4" count="13" type="cond" truecount="1" falsecount="1"/>
+          <line num="5" count="0" type="stmt"/>
+        </file>
+        <file name="i18n.ts" path="/home/charl/Workspace/reactNativeTsBoilerplate/src/i18n.ts">
+          <metrics statements="10" coveredstatements="10" conditionals="6" coveredconditionals="5" methods="1" coveredmethods="1"/>
+          <line num="11" count="3" type="stmt"/>
+          <line num="12" count="3" type="stmt"/>
+          <line num="13" count="3" type="stmt"/>
+          <line num="14" count="9" type="cond" truecount="2" falsecount="0"/>
+          <line num="17" count="9" type="stmt"/>
+          <line num="18" count="9" type="stmt"/>
+          <line num="19" count="9" type="stmt"/>
+          <line num="20" count="9" type="stmt"/>
+          <line num="27" count="9" type="stmt"/>
+          <line num="29" count="3" type="stmt"/>
+        </file>
+        <file name="index.tsx" path="/home/charl/Workspace/reactNativeTsBoilerplate/src/index.tsx">
+          <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+          <line num="10" count="1" type="stmt"/>
+          <line num="15" count="1" type="stmt"/>
+        </file>
+      </package>
+      <package name="src.components.intl">
+        <metrics statements="25" coveredstatements="23" conditionals="15" coveredconditionals="10" methods="12" coveredmethods="12"/>
+        <file name="FormattedDate.tsx" path="/home/charl/Workspace/reactNativeTsBoilerplate/src/components/intl/FormattedDate.tsx">
+          <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+          <line num="4" count="11" type="stmt"/>
+          <line num="5" count="1" type="stmt"/>
+        </file>
+        <file name="FormattedMessage.tsx" path="/home/charl/Workspace/reactNativeTsBoilerplate/src/components/intl/FormattedMessage.tsx">
+          <metrics statements="7" coveredstatements="6" conditionals="2" coveredconditionals="1" methods="3" coveredmethods="3"/>
+          <line num="4" count="11" type="stmt"/>
+          <line num="5" count="4" type="stmt"/>
+          <line num="6" count="4" type="stmt"/>
+          <line num="7" count="4" type="cond" truecount="1" falsecount="1"/>
+          <line num="8" count="4" type="stmt"/>
+          <line num="10" count="0" type="stmt"/>
+          <line num="12" count="4" type="stmt"/>
+        </file>
+        <file name="FormattedNumber.tsx" path="/home/charl/Workspace/reactNativeTsBoilerplate/src/components/intl/FormattedNumber.tsx">
+          <metrics statements="12" coveredstatements="11" conditionals="13" coveredconditionals="9" methods="3" coveredmethods="3"/>
+          <line num="1" count="11" type="cond" truecount="2" falsecount="1"/>
+          <line num="2" count="1" type="stmt"/>
+          <line num="3" count="2" type="cond" truecount="4" falsecount="0"/>
+          <line num="4" count="1" type="stmt"/>
+          <line num="5" count="1" type="cond" truecount="3" falsecount="1"/>
+          <line num="6" count="1" type="cond" truecount="0" falsecount="2"/>
+          <line num="7" count="0" type="stmt"/>
+          <line num="8" count="1" type="stmt"/>
+          <line num="13" count="11" type="stmt"/>
+          <line num="14" count="1" type="stmt"/>
+          <line num="15" count="1" type="stmt"/>
+          <line num="16" count="1" type="stmt"/>
+        </file>
+        <file name="FormattedPlural.tsx" path="/home/charl/Workspace/reactNativeTsBoilerplate/src/components/intl/FormattedPlural.tsx">
+          <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+          <line num="4" count="11" type="stmt"/>
+          <line num="5" count="1" type="stmt"/>
+        </file>
+        <file name="FormattedTime.tsx" path="/home/charl/Workspace/reactNativeTsBoilerplate/src/components/intl/FormattedTime.tsx">
+          <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+          <line num="4" count="11" type="stmt"/>
+          <line num="5" count="1" type="stmt"/>
+        </file>
+        <file name="index.ts" path="/home/charl/Workspace/reactNativeTsBoilerplate/src/components/intl/index.ts">
+          <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        </file>
+      </package>
+      <package name="src.containers.LanguageProvider">
+        <metrics statements="3" coveredstatements="3" conditionals="1" coveredconditionals="1" methods="2" coveredmethods="2"/>
+        <file name="index.tsx" path="/home/charl/Workspace/reactNativeTsBoilerplate/src/containers/LanguageProvider/index.tsx">
+          <metrics statements="3" coveredstatements="3" conditionals="1" coveredconditionals="1" methods="2" coveredmethods="2"/>
+          <line num="6" count="2" type="cond" truecount="1" falsecount="0"/>
+          <line num="7" count="2" type="stmt"/>
+          <line num="9" count="3" type="stmt"/>
+        </file>
+      </package>
+      <package name="src.containers.Root">
+        <metrics statements="7" coveredstatements="7" conditionals="2" coveredconditionals="1" methods="4" coveredmethods="4"/>
+        <file name="index.tsx" path="/home/charl/Workspace/reactNativeTsBoilerplate/src/containers/Root/index.tsx">
+          <metrics statements="7" coveredstatements="7" conditionals="2" coveredconditionals="1" methods="4" coveredmethods="4"/>
+          <line num="13" count="2" type="cond" truecount="1" falsecount="1"/>
+          <line num="14" count="2" type="stmt"/>
+          <line num="18" count="2" type="stmt"/>
+          <line num="26" count="2" type="stmt"/>
+          <line num="29" count="3" type="stmt"/>
+          <line num="32" count="2" type="stmt"/>
+          <line num="33" count="1" type="stmt"/>
+        </file>
+        <file name="styles.ts" path="/home/charl/Workspace/reactNativeTsBoilerplate/src/containers/Root/styles.ts">
+          <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        </file>
+      </package>
+      <package name="src.pages">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <file name="index.ts" path="/home/charl/Workspace/reactNativeTsBoilerplate/src/pages/index.ts">
+          <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        </file>
+      </package>
+      <package name="src.pages.Home">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
+        <file name="index.tsx" path="/home/charl/Workspace/reactNativeTsBoilerplate/src/pages/Home/index.tsx">
+          <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
+          <line num="9" count="3" type="stmt"/>
+          <line num="13" count="10" type="stmt"/>
+          <line num="16" count="3" type="stmt"/>
+        </file>
+        <file name="messages.ts" path="/home/charl/Workspace/reactNativeTsBoilerplate/src/pages/Home/messages.ts">
+          <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        </file>
+      </package>
+      <package name="src.store">
+        <metrics statements="14" coveredstatements="13" conditionals="2" coveredconditionals="1" methods="2" coveredmethods="1"/>
+        <file name="epicMiddleware.ts" path="/home/charl/Workspace/reactNativeTsBoilerplate/src/store/epicMiddleware.ts">
+          <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+          <line num="6" count="4" type="stmt"/>
+          <line num="9" count="4" type="stmt"/>
+          <line num="12" count="4" type="stmt"/>
+          <line num="13" count="4" type="stmt"/>
+        </file>
+        <file name="index.ts" path="/home/charl/Workspace/reactNativeTsBoilerplate/src/store/index.ts">
+          <metrics statements="9" coveredstatements="8" conditionals="2" coveredconditionals="1" methods="2" coveredmethods="1"/>
+          <line num="8" count="2" type="stmt"/>
+          <line num="9" count="2" type="stmt"/>
+          <line num="10" count="2" type="stmt"/>
+          <line num="14" count="2" type="stmt"/>
+          <line num="15" count="2" type="stmt"/>
+          <line num="17" count="2" type="stmt"/>
+          <line num="18" count="0" type="stmt"/>
+          <line num="20" count="2" type="cond" truecount="1" falsecount="1"/>
+          <line num="21" count="2" type="stmt"/>
+        </file>
+        <file name="rootReducer.ts" path="/home/charl/Workspace/reactNativeTsBoilerplate/src/store/rootReducer.ts">
+          <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+          <line num="5" count="3" type="stmt"/>
+        </file>
+      </package>
+      <package name="src.store._helpers_">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <file name="initialState.ts" path="/home/charl/Workspace/reactNativeTsBoilerplate/src/store/_helpers_/initialState.ts">
+          <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+          <line num="4" count="7" type="stmt"/>
+        </file>
+      </package>
+      <package name="src.store.language">
+        <metrics statements="22" coveredstatements="22" conditionals="6" coveredconditionals="5" methods="12" coveredmethods="12"/>
+        <file name="actions.ts" path="/home/charl/Workspace/reactNativeTsBoilerplate/src/store/language/actions.ts">
+          <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
+          <line num="1" count="12" type="stmt"/>
+          <line num="2" count="12" type="stmt"/>
+          <line num="3" count="12" type="stmt"/>
+          <line num="4" count="12" type="stmt"/>
+          <line num="7" count="12" type="stmt"/>
+          <line num="11" count="12" type="stmt"/>
+        </file>
+        <file name="api.ts" path="/home/charl/Workspace/reactNativeTsBoilerplate/src/store/language/api.ts">
+          <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+          <line num="5" count="1" type="stmt"/>
+          <line num="8" count="2" type="stmt"/>
+        </file>
+        <file name="epic.ts" path="/home/charl/Workspace/reactNativeTsBoilerplate/src/store/language/epic.ts">
+          <metrics statements="6" coveredstatements="6" conditionals="2" coveredconditionals="1" methods="4" coveredmethods="4"/>
+          <line num="4" count="6" type="stmt"/>
+          <line num="5" count="13" type="stmt"/>
+          <line num="6" count="6" type="stmt"/>
+          <line num="9" count="5" type="cond" truecount="1" falsecount="1"/>
+          <line num="12" count="5" type="stmt"/>
+          <line num="14" count="1" type="stmt"/>
+        </file>
+        <file name="index.ts" path="/home/charl/Workspace/reactNativeTsBoilerplate/src/store/language/index.ts">
+          <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        </file>
+        <file name="reducer.ts" path="/home/charl/Workspace/reactNativeTsBoilerplate/src/store/language/reducer.ts">
+          <metrics statements="6" coveredstatements="6" conditionals="4" coveredconditionals="4" methods="1" coveredmethods="1"/>
+          <line num="3" count="9" type="stmt"/>
+          <line num="7" count="9" type="cond" truecount="1" falsecount="0"/>
+          <line num="8" count="18" type="cond" truecount="3" falsecount="0"/>
+          <line num="10" count="2" type="stmt"/>
+          <line num="12" count="1" type="stmt"/>
+          <line num="14" count="15" type="stmt"/>
+        </file>
+        <file name="selectors.ts" path="/home/charl/Workspace/reactNativeTsBoilerplate/src/store/language/selectors.ts">
+          <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+          <line num="2" count="5" type="stmt"/>
+          <line num="3" count="4" type="stmt"/>
+        </file>
+      </package>
+      <package name="src.store.navigation">
+        <metrics statements="7" coveredstatements="7" conditionals="3" coveredconditionals="2" methods="3" coveredmethods="3"/>
+        <file name="actions.ts" path="/home/charl/Workspace/reactNativeTsBoilerplate/src/store/navigation/actions.ts">
+          <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+          <line num="1" count="3" type="stmt"/>
+          <line num="2" count="3" type="stmt"/>
+        </file>
+        <file name="index.ts" path="/home/charl/Workspace/reactNativeTsBoilerplate/src/store/navigation/index.ts">
+          <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        </file>
+        <file name="reducer.ts" path="/home/charl/Workspace/reactNativeTsBoilerplate/src/store/navigation/reducer.ts">
+          <metrics statements="4" coveredstatements="4" conditionals="3" coveredconditionals="2" methods="1" coveredmethods="1"/>
+          <line num="2" count="9" type="stmt"/>
+          <line num="3" count="9" type="cond" truecount="1" falsecount="0"/>
+          <line num="4" count="16" type="stmt"/>
+          <line num="5" count="16" type="cond" truecount="1" falsecount="1"/>
+        </file>
+        <file name="selectors.ts" path="/home/charl/Workspace/reactNativeTsBoilerplate/src/store/navigation/selectors.ts">
+          <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+          <line num="1" count="4" type="stmt"/>
+        </file>
+      </package>
+    </metrics>
+  </project>
+</coverage>
