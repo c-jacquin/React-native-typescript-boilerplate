@@ -4,11 +4,13 @@
   "env": {
     "development": {
       "plugins": [
-        "transform-react-jsx-source",
-        ["module-resolver", {
-          "root": ["./build"]
-        }]
+        "transform-react-jsx-source"
       ]
     }
-  }
+  },
+  "plugins": [
+    ["module-resolver", {
+      "root": ["./build"]
+    }]
+  ]
 }

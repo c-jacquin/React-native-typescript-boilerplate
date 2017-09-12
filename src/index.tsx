@@ -2,7 +2,7 @@ import Expo from 'expo'
 import React, { Component } from 'react'
 import { Provider } from 'react-redux'
 
-import { translationMessages } from 'i18n'
+import { translationMessages } from './i18n'
 import store from 'store/index'
 
 import LanguageProvider from 'containers/LanguageProvider'
