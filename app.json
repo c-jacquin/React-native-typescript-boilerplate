@@ -21,6 +21,9 @@
     },
     "ios": {
       "supportsTablet": true
+    },
+    "android": {
+      "package": "react.native.ts.boilerplate"
     }
   }
 }

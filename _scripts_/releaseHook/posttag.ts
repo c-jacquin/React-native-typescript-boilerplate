@@ -1,16 +1,6 @@
 (async () => {
     const exec = require('child-process-promise').exec
-    const { readFile, writeFile } = require('../docs/helpers/fs')
-
-    const restoreGitignore = (): void => {
-        const gitignorePath = `${process.cwd()}/.gitignore`
-        const gitignioreContent = readFile(gitignorePath)
-
-        writeFile(gitignorePath, gitignioreContent
-            .replace(new RegExp('#docs/', 'g'), 'docs/')
-            .replace(new RegExp('#build/', 'g'), 'build/')
-        )
-    }
+    const { restoreGitignore } = require('./lib')
 
     try {
         restoreGitignore()

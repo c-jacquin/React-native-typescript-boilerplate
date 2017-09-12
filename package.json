@@ -26,7 +26,8 @@
     "docs": "typedoc --out docs/doc src/index.ts && tsc --project _scripts_/docs",
     "postdocs": "node _scripts_/docs/.temp/index.js && rimraf _scripts_/docs/.temp -r",
     "release": "standard-version --no-verify",
-    "prettier": "prettier --tab-width 4 --write --no-semi --single-quote --trailing-comma es5 --parser typescript \"src/**/*(*.ts|*.tsx)\""
+    "prettier": "prettier --tab-width 4 --write --no-semi --single-quote --trailing-comma es5 --parser typescript \"src/**/*(*.ts|*.tsx)\"",
+    "build:android": "ts-node --project _scripts_/ _scripts_/expo/build"
   },
   "dependencies": {
     "autobind-decorator": "^2.1.0",
@@ -71,6 +72,7 @@
     "child-process-promise": "^2.2.1",
     "commitizen": "^2.9.6",
     "cz-conventional-changelog": "^2.0.0",
+    "exp": "^44.0.0",
     "fbemitter": "^2.1.1",
     "html": "^1.0.0",
     "husky": "^0.14.3",
