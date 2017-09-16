@@ -11,6 +11,6 @@
         await exec('rimraf build -r')
     } catch (err) {
         console.error(err)
-        process.exit(0)
+        process.exit(1)
     }
 })()

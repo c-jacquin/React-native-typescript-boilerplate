@@ -64,5 +64,3 @@ coverage
 
 # docs
 _scripts_/docs/.temp/
-docs/
-!docs/.gitkeep
