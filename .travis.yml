@@ -10,4 +10,8 @@ install:
   - npm i
 
 script:
+  - npm run clean
+  - npm test -- --coverage
+  - npm run build
   - npm run release
+  

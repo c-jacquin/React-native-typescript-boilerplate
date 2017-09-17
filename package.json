@@ -12,7 +12,7 @@
     "add": "git add -A",
     "generate": "plop --plopfile _generators_/index.js",
     "postinstall": "rimraf node_modules/intl/.babelrc",
-    "prepush": "npm run test",
+    "prepush": "npm run test -- --forceExit",
     "cz": "git-cz",
     "precommit": "lint-staged",
     "clean": "ts-node --project _scripts_/ _scripts_/utils/clean",
@@ -27,7 +27,8 @@
     "postdocs": "node _scripts_/docs/.temp/index.js && rimraf _scripts_/docs/.temp -r",
     "release": "standard-version --no-verify",
     "prettier": "prettier --tab-width 4 --write --no-semi --single-quote --trailing-comma es5 --parser typescript \"src/**/*(*.ts|*.tsx)\"",
-    "build:android": "ts-node --project _scripts_/ _scripts_/expo/build"
+    "release:postcommit": "ts-node --project _scripts_/ _scripts_/releaseHook/postcommit",
+    "release:posttag": "ts-node --project _scripts_/ _scripts_/releaseHook/posttag"
   },
   "dependencies": {
     "autobind-decorator": "^2.1.0",
@@ -74,6 +75,7 @@
     "cz-conventional-changelog": "^2.0.0",
     "exp": "^44.0.0",
     "fbemitter": "^2.1.1",
+    "git-branch": "^1.0.0",
     "html": "^1.0.0",
     "husky": "^0.14.3",
     "jest": "^21.0.0",
@@ -82,6 +84,7 @@
     "json-format": "^1.0.1",
     "lint-staged": "^4.1.3",
     "marked": "^0.3.6",
+    "node-fetch": "^1.7.3",
     "plop": "^1.8.1",
     "prettier": "^1.6.1",
     "react-dom": "16.0.0-rc.2",
@@ -157,8 +160,8 @@
   },
   "standard-version": {
     "scripts": {
-      "postcommit": "ts-node --project _scripts_/ _scripts_/releaseHook/postcommit",
-      "posttag": "ts-node --project _scripts_/ _scripts_/releaseHook/posttag"
+      "postcommit": "npm run release:postcommit",
+      "posttag": "npm run release:posttag"
     }
   }
 }
