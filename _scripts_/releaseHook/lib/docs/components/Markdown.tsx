@@ -17,10 +17,10 @@ interface MarkdownProps {
     markdown: string
 }
 
-export const Markdown: React.StatelessComponent<any> = ({ githubStyle, markdown }) => (
+export const Markdown = (props: MarkdownProps) => (
     <div
-        className={ githubStyle ? 'markdown-github' : '' }
-        dangerouslySetInnerHTML={{ __html: marked(markdown) }}
+        className={ props.githubStyle ? 'markdown-github' : '' }
+        dangerouslySetInnerHTML={{ __html: marked(props.markdown) }}
     />
 )
 
