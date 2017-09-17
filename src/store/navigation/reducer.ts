@@ -11,9 +11,7 @@ const navigationReducer: Reducer<NavigationState> = (
     state = initialState,
     action: NavigationAction
 ) => {
-    const nextState = Navigator.router.getStateForAction(action, state)
-
-    return nextState || state
+    return Navigator.router.getStateForAction(action, state)
 }
 
 export default navigationReducer

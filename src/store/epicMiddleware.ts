@@ -5,16 +5,12 @@ import { AppState, ReduxAction, EpicDependancies } from './types'
 import languageEpic from 'store/language/epic'
 // Import epic here
 
-import languageApi from 'store/language/api'
+import { dependencies } from './epicDependencies'
 
 const epics = [
     languageEpic,
     // Insert epic here
 ]
-
-export const dependencies: EpicDependancies = {
-    languageApi,
-}
 
 export const rootEpic = combineEpics<ReduxAction, AppState, EpicDependancies>(
     ...epics

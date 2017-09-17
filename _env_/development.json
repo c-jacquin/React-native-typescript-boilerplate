@@ -4,6 +4,6 @@
     "STORE_KEY": "myAppStoreKey",
     "LANGUAGE": {
         "DEFAULT_LOCALE": "en",
-        "SUPPORTED_LOCALES": ["fr", "en"]
+        "SUPPORTED_LOCALES": ["en", "fr"]
     }
 }
