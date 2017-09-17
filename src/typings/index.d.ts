@@ -5,5 +5,3 @@ interface Process {
 }
 
 declare const process: Process
-
-declare function require(name: string): any

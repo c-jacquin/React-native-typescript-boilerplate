@@ -9,12 +9,11 @@
     "url": "https://github.com/charjac/React-native-typescript-boilerplate.git"
   },
   "scripts": {
-    "add": "git add -A",
     "generate": "plop --plopfile _generators_/index.js",
     "postinstall": "rimraf node_modules/intl/.babelrc",
     "cz": "git-cz",
     "precommit": "lint-staged",
-    "prepush": "npm run test -- --forceExit",
+    "prepush": "npm run test -- --forceExit && npm run clean",
     "clean": "ts-node --project _scripts_/ _scripts_/utils/clean",
     "prestart": "npm run prebuild",
     "start": "NODE_ENV=development tsc --watch",

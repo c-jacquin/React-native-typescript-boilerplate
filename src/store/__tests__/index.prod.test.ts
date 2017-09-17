@@ -1,8 +1,17 @@
+jest.mock('config', () => {
+    return {
+        ENV: 'prod',
+        LANGUAGE: {
+            DEFAULT_LOCALE: 'test',
+        },
+    }
+})
+
 import { Store } from 'redux'
 import configureStore from '../index'
 import { AppState } from '../types'
 
-describe('redux store in dev environment', () => {
+describe('redux store in prod env', () => {
     let store: Store<AppState>
 
     beforeEach(() => {

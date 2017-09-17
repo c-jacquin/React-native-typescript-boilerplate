@@ -15,10 +15,15 @@ import config from 'config'
 addLocaleData(enLocaleData)
 addLocaleData(frLocaleData)
 
-export const formatTranslationMessages: any = (
+export interface TranslationMessages {
+    en: any
+    fr: any
+}
+
+export const formatTranslationMessages = (
     locale: string,
     messages: any
-) => {
+): TranslationMessages => {
     const defaultFormattedMessages: any =
         locale !== config.LANGUAGE.DEFAULT_LOCALE
             ? formatTranslationMessages(
@@ -26,7 +31,7 @@ export const formatTranslationMessages: any = (
                   enTranslationMessages
               )
             : {}
-    const formattedMessages: any = {}
+    const formattedMessages: TranslationMessages | any = {}
     const messageKeys = Object.keys(messages)
 
     for (const messageKey of messageKeys) {
@@ -41,7 +46,7 @@ export const formatTranslationMessages: any = (
     return formattedMessages
 }
 
-export const translationMessages: any = {
+export const translationMessages: TranslationMessages = {
     en: formatTranslationMessages('en', enTranslationMessages),
     fr: formatTranslationMessages('fr', frTranslationMessages),
 }

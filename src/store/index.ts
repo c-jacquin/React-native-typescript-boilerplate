@@ -27,11 +27,14 @@ const getProdEnhancer = (): StoreEnhancer<AppState> => {
     return applyMiddleware(...middlewares)
 }
 
-const store = createStore<AppState>(
-    storage.reducer(rootReducer),
-    config.ENV === 'dev' ? getDevEnhancer() : getProdEnhancer()
-)
+const configureStore = () => {
+    const store = createStore<AppState>(
+        storage.reducer(rootReducer),
+        config.ENV === 'dev' ? getDevEnhancer() : getProdEnhancer()
+    )
+    storage.createLoader(engine)(store)
 
-storage.createLoader(engine)(store)
+    return store
+}
 
-export default store
+export default configureStore

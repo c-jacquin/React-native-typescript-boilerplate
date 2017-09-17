@@ -1,25 +1,27 @@
-import configureMockStore from 'redux-mock-store'
-import { createEpicMiddleware } from 'redux-observable'
+import { Observable } from 'rxjs'
+import configureMockStore, { MockStore } from 'redux-mock-store'
+import { Store } from 'redux'
+import { createEpicMiddleware, EpicMiddleware } from 'redux-observable'
 import * as languageAction from '../actions'
 import languageApi from '../api'
 import getLocaleEpic from '../epic'
-import { dependencies } from 'store/epicMiddleware'
+import { dependencies } from 'store/epicDependencies'
 import { AppState, ReduxAction, EpicDependancies } from 'store/types'
-
-const epicMiddleware = createEpicMiddleware<
-    ReduxAction,
-    AppState,
-    EpicDependancies
->(getLocaleEpic, { dependencies })
-
-const mockStore = configureMockStore([epicMiddleware])
+import config from 'config'
 
 jest.mock('store/language/api')
 
 describe('language epic', () => {
-    let store = mockStore()
+    let epicMiddleware: EpicMiddleware<ReduxAction, AppState, EpicDependancies>
+    let store: MockStore<any>
 
     beforeEach(() => {
+        epicMiddleware = createEpicMiddleware<
+            ReduxAction,
+            AppState,
+            EpicDependancies
+        >(getLocaleEpic, { dependencies })
+        const mockStore = configureMockStore([epicMiddleware])
         store = mockStore()
     })
 
@@ -41,5 +43,34 @@ describe('language epic', () => {
             languageAction.getLocale(),
             languageAction.getLocaleSuccess('en'),
         ])
+    })
+
+    describe('when local is not supported', () => {
+        beforeEach(() => {
+            epicMiddleware = createEpicMiddleware<
+                ReduxAction,
+                AppState,
+                any
+            >(getLocaleEpic, {
+                dependencies: {
+                    languageApi: {
+                        getLanguage() {
+                            return Observable.of('test')
+                        },
+                    },
+                },
+            })
+            const mockStore = configureMockStore([epicMiddleware])
+            store = mockStore()
+        })
+
+        it('should set the default locale when GET_LOCALE_PENDING', () => {
+            store.dispatch(languageAction.getLocale())
+
+            expect(store.getActions()).toEqual([
+                languageAction.getLocale(),
+                languageAction.getLocaleSuccess(config.LANGUAGE.DEFAULT_LOCALE),
+            ])
+        })
     })
 })

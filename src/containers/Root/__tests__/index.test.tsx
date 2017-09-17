@@ -33,12 +33,25 @@ describe('Root component', () => {
             </IntlProvider>
         </Provider>
     )
+
+    const simpleTree = renderer.create(
+        <Provider store={store}>
+            <IntlProvider locale={'en'} messages={translationMessages.en}>
+                <Root nav={mockProps.nav} />
+            </IntlProvider>
+        </Provider>
+    )
+
     beforeEach(() => {
         store = mockStore({})
     })
 
     it('should renders correctly', () => {
         expect(tree).toBeDefined()
+    })
+
+    it('should renders correctly without getLocale prop', () => {
+        expect(simpleTree).toBeDefined()
     })
 
     it('should call getLocale prop', () => {

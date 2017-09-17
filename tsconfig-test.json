@@ -27,6 +27,8 @@
     ],
     "exclude": [
         "build",
+        "docs",
+        "_scripts_",
         "node_modules"
     ]
 }

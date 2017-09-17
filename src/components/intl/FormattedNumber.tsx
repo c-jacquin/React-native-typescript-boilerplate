@@ -9,13 +9,8 @@ const NativeFormattedNumber: StatelessComponent<IFormattedNumberProps> = ({
     formatStyle,
     ...other,
 }) => {
-    const formatOptions = {
-        ...other,
-        style: formatStyle,
-    }
-
     return (
-        <FormattedNumber {...formatOptions}>
+        <FormattedNumber {...other} style={formatStyle}>
             {(localized: string) => <Text style={style}>{localized}</Text>}
         </FormattedNumber>
     )
