@@ -1,16 +1,16 @@
-module.exports = (version: string): void => {
+module.exports = async (version: string) => {
     const jsonFormat = require('json-format')
-    const fs = require('fs')
+    const fs = require('fs-extra')
     const expoConfigPath = `${process.cwd()}/app.json`
     const expoConfigContent = JSON.parse(fs.readFileSync(expoConfigPath, { encoding: 'utf-8' }))
 
     expoConfigContent.expo.version = version
 
-    fs.writeFileSync(
+    await fs.writeJson(
         expoConfigPath,
-        jsonFormat(expoConfigContent, {
-            type: 'space',
-            size: 2,
-        })
+        expoConfigContent,
+        {
+            spaces: 2,
+        }
     )
 }

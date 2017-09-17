@@ -1,6 +1,6 @@
-import * as React from 'react'
-import * as PropTypes from 'prop-types'
-import { Helmet } from 'react-helmet'
+const React = require('react')
+const PropTypes = require('prop-types')
+const { Helmet } = require('react-helmet')
 
 interface NavbarProps {
     repo: string
@@ -54,3 +54,5 @@ export const Navbar: React.StatelessComponent<NavbarProps> = ({ repo }) => (
         </div>
     </nav>
 )
+
+module.exports = Navbar

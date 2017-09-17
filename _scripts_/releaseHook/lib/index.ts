@@ -1,6 +1,7 @@
 module.exports = {
-    build: require('./build'),
-    updateExpoVersion: require('./version'),
+    build: require('./expo/build'),
+    updateExpoVersion: require('./expo/version'),
     updateChangeLog: require('./changelog'),
-    downloadApk: require('./downloadApk'),
+    downloadApk: require('./expo/downloadApk'),
+    generateDocs: require('./docs'),
 }
