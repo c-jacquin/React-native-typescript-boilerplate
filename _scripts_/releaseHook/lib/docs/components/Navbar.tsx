@@ -6,7 +6,7 @@ interface NavbarProps {
     repo: string
 }
 
-export const Navbar: React.StatelessComponent<NavbarProps> = ({ repo }) => (
+export const Navbar = (props: NavbarProps) => (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <Helmet>
             <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" />
@@ -18,7 +18,7 @@ export const Navbar: React.StatelessComponent<NavbarProps> = ({ repo }) => (
         </button>
         <div className="collapse navbar-collapse justify-content-between" id="navbarNavDropdown">
             <ul className="navbar-nav">
-                <li className="nav-item">
+                {/* <li className="nav-item">
                     <a className="nav-link" href="./doc">
                         TypeDoc
                     </a>
@@ -32,21 +32,21 @@ export const Navbar: React.StatelessComponent<NavbarProps> = ({ repo }) => (
                     <a className="nav-link" href="./lcov-report">
                         Code Coverage
                     </a>
-                </li>
+                </li> */}
             </ul>
             <ul className="navbar-nav">
                 <li className="nav-item">
-                    <a className="nav-link" href={ repo }>
+                    <a className="nav-link" href={ props.repo }>
                         <i className="fa fa-github" aria-hidden="true" />
                     </a>
                 </li>
                 <li className="nav-item">
-                    <a className="nav-link" href={ `${repo}/issues` }>
+                    <a className="nav-link" href={ `${props.repo}/issues` }>
                         <i className="fa fa-exclamation-circle" aria-hidden="true" />
                     </a>
                 </li>
                 <li className="nav-item">
-                    <a className="nav-link" href={ `${repo}/projects` }>
+                    <a className="nav-link" href={ `${props.repo}/projects` }>
                         <i className="fa fa-trello" aria-hidden="true" />
                     </a>
                 </li>

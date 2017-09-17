@@ -11,17 +11,17 @@ interface MainPageProps {
     pkg: any,
 }
 
-export const MainPage: React.StatelessComponent<MainPageProps> = ({ title, changelog, pkg }) => (
+export const MainPage = (props: MainPageProps) => (
     <div>
         <Helmet>
             <meta charSet="utf-8" />
-            <title>{ title }</title>
+            <title>{ props.title }</title>
             <link rel="stylesheet" href="./github.css"/>
             <link rel="stylesheet" href="./main.css"/>
         </Helmet>
-        <Navbar repo={ pkg.repository.url.replace('.git', '') }/>
+        <Navbar repo={ props.pkg.repository.url.replace('.git', '') }/>
         <div className="wrap">
-            <Markdown markdown={ changelog } />
+            <Markdown markdown={ props.changelog } />
         </div>
     </div>
 )

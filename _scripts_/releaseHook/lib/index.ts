@@ -4,4 +4,5 @@ module.exports = {
     updateChangeLog: require('./changelog'),
     downloadApk: require('./expo/downloadApk'),
     generateDocs: require('./docs'),
+    versionDoc: require('./utils/versionDoc'),
 }

@@ -3,12 +3,7 @@
 
     try {
         await exec('rimraf .temp -r')
-        await exec('rimraf docs/doc -r')
-        await exec('rimraf docs/lcov-report -r')
-        await exec('rimraf docs/test-report -r')
-        await exec('rimraf docs/github.css')
-        await exec('rimraf docs/index.html')
-        await exec('rimraf docs/main.css')
+        // await exec('rimraf docs -r')
         await exec('rimraf build -r')
     } catch (err) {
         console.error(err)
