@@ -1,11 +1,11 @@
-import * as React from 'react'
-import * as ReactDomServer from 'react-dom/server'
-import { Helmet } from 'react-helmet'
+const React = require('react')
+const ReactDomServer = require('react-dom/server')
+const { Helmet } = require('react-helmet')
 
 /**
  * render an html page from a react component for the last version of the app
  */
-export const renderPage = (Component: any, props: any): string => {
+module.exports = (Component: any, props: any): string => {
     const reactApp = ReactDomServer.renderToString(<Component {...props}/>)
     const helmet = Helmet.renderStatic()
 

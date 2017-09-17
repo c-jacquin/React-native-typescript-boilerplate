@@ -1,5 +1,5 @@
-import * as React from 'react'
-import * as marked from 'marked'
+const React = require('react')
+const marked = require('marked')
 
 marked.setOptions({
     renderer: new marked.Renderer(),
@@ -23,3 +23,5 @@ export const Markdown: React.StatelessComponent<any> = ({ githubStyle, markdown 
         dangerouslySetInnerHTML={{ __html: marked(markdown) }}
     />
 )
+
+module.exports = Markdown

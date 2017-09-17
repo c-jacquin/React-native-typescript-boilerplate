@@ -1,9 +1,9 @@
-import * as React from 'react'
-import * as PropTypes from 'prop-types'
-import { Helmet } from 'react-helmet'
+const React = require('react')
+const PropTypes = require('prop-types')
+const { Helmet } = require('react-helmet')
 
-import { Navbar } from './Navbar'
-import { Markdown } from './Markdown'
+const Navbar = require('./Navbar')
+const Markdown = require('./Markdown')
 
 interface MainPageProps {
     title: string
@@ -25,3 +25,5 @@ export const MainPage: React.StatelessComponent<MainPageProps> = ({ title, chang
         </div>
     </div>
 )
+
+module.exports = MainPage
