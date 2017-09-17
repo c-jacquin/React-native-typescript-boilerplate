@@ -2,6 +2,7 @@
     const exec = require('child-process-promise').exec
 
     try {
+        await exec('rimraf .temp -r')
         await exec('rimraf docs/doc -r')
         await exec('rimraf docs/lcov-report -r')
         await exec('rimraf docs/test-report -r')

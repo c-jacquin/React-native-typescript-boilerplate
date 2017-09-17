@@ -12,21 +12,21 @@
     "add": "git add -A",
     "generate": "plop --plopfile _generators_/index.js",
     "postinstall": "rimraf node_modules/intl/.babelrc",
-    "prepush": "npm run test -- --forceExit",
     "cz": "git-cz",
     "precommit": "lint-staged",
+    "prepush": "npm run test -- --forceExit",
     "clean": "ts-node --project _scripts_/ _scripts_/utils/clean",
     "prestart": "npm run prebuild",
     "start": "NODE_ENV=development tsc --watch",
     "prebuild": "rimraf build && mkdir build",
     "build": "NODE_ENV=production tsc",
     "test": "NODE_ENV=test jest",
-    "posttest": "rimraf docs/lcov.info",
+    "posttest": "ts-node --project _scripts_/ _scripts_/testHook/remap-coverage && rimraf .temp -r",
     "watch:test": "NODE_ENV=test jest --watch",
     "docs": "typedoc --out docs/doc src/index.ts && tsc --project _scripts_/docs",
     "postdocs": "node _scripts_/docs/.temp/index.js && rimraf _scripts_/docs/.temp -r",
-    "release": "standard-version --no-verify",
     "prettier": "prettier --tab-width 4 --write --no-semi --single-quote --trailing-comma es5 --parser typescript \"src/**/*(*.ts|*.tsx)\"",
+    "release": "standard-version --no-verify",
     "release:postcommit": "ts-node --project _scripts_/ _scripts_/releaseHook/postcommit",
     "release:posttag": "ts-node --project _scripts_/ _scripts_/releaseHook/posttag"
   },
@@ -91,6 +91,7 @@
     "react-helmet": "^5.2.0",
     "react-test-renderer": "16.0.0-rc.2",
     "redux-mock-store": "^1.2.3",
+    "remap-istanbul": "^0.9.5",
     "remote-redux-devtools": "^0.5.12",
     "rimraf": "^2.6.1",
     "standard-version": "^4.2.0",
@@ -115,10 +116,7 @@
       "!src/**/types.ts",
       "!**/node_modules/**"
     ],
-    "coverageDirectory": "docs/",
-    "coverageReporters": [
-      "lcov"
-    ],
+    "coverageDirectory": ".temp",
     "moduleDirectories": [
       "node_modules",
       "src"
@@ -130,7 +128,7 @@
     ],
     "preset": "jest-expo-ts",
     "setupFiles": [
-      "./_scripts_/utils/test-setup.ts"
+      "./_scripts_/testHook/test-setup.ts"
     ],
     "testPathIgnorePatterns": [
       "<rootDir>/build/",
