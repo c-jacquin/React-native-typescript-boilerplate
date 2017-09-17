@@ -1,4 +1,4 @@
-# Boilerplate for React-native app using the amazing expo
+# Boilerplate for React-native app using expo
 
 [![Travis](https://img.shields.io/travis/rust-lang/rust.svg)]()
 [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
@@ -15,7 +15,7 @@
 
 This boilerplate include :
  - react-native
- - expo <3
+ - expo
  - redux
  - rxjs with redux-observable
  - reselect
@@ -25,8 +25,9 @@ This boilerplate include :
  - continuous integration with Travis
  - tslint and prettier
  - commitizen with cz-conventional-changelog
- - gitHook with husky and lint-staged (run test and prettier before commit)
-
+ - gitHook with husky and lint-staged
+   - run prettier before commit
+   - run test before push
 ## Requirement
 
  - Node.js
@@ -52,6 +53,12 @@ Then open Expo ide and start your project
 
 
 ## Development
+
+### First release
+
+```bash
+$ npm run release --first-release
+```
 
 ### Run tests
 
