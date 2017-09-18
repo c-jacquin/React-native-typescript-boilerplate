@@ -22,6 +22,7 @@
     "test": "NODE_ENV=test jest",
     "posttest": "ts-node --project _scripts_/ _scripts_/testHook/remap-coverage && rimraf .temp -r",
     "watch:test": "NODE_ENV=test jest --watch",
+    "postwatch:test": "npm run clean",
     "docs": "typedoc --out docs/doc src/index.ts",
     "prettier": "prettier --tab-width 4 --write --no-semi --single-quote --trailing-comma es5 --parser typescript \"src/**/*(*.ts|*.tsx)\"",
     "release": "standard-version --no-verify",
