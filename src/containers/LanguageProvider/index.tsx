@@ -1,12 +1,19 @@
 import React, { Component, StatelessComponent } from 'react'
 import { IntlProvider } from 'react-intl'
-import { connect, MapStateToProps } from 'react-redux'
+import {
+    connect,
+    MapStateToProps,
+    MapDispatchToProps,
+    Dispatch,
+} from 'react-redux'
+import { bindActionCreators } from 'redux'
+
+import * as languageStore from 'store/language'
+import { AppState, ReduxAction } from 'store/types'
 
 import config from 'config'
-import { selectLocale } from 'store/language'
-import { AppState } from 'store/types'
 
-import { ConnectedProps, LanguageProps } from './types'
+import { LanguageConnectedProps, LanguageProps } from './types'
 
 export const LanguageProvider: StatelessComponent<LanguageProps> = ({
     locale = config.LANGUAGE.DEFAULT_LOCALE,
@@ -21,12 +28,12 @@ export const LanguageProvider: StatelessComponent<LanguageProps> = ({
 }
 
 export const mapStateToProps: MapStateToProps<
-    ConnectedProps,
+    LanguageConnectedProps,
     LanguageProps
 > = state => ({
-    locale: selectLocale(state),
+    locale: languageStore.selectLocale(state),
 })
 
-export default connect<ConnectedProps, any, LanguageProps>(mapStateToProps)(
-    LanguageProvider
-)
+export default connect<LanguageConnectedProps, any, LanguageProps>(
+    mapStateToProps
+)(LanguageProvider)

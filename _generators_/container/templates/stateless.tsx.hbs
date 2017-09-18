@@ -13,7 +13,7 @@ import Navigator from './{{ name }}.nav'
 {{#if wantMessages}}
 import messages from './messages'
 {{/if}}
-import { {{ pascal name }}Props, ConnectedProps, {{ pascal name }}ActionCreators } from './types'
+import { {{ pascal name }}Props, {{ pascal name }}ConnectedProps, {{ pascal name }}ActionCreators } from './types'
 
 const {{ pascal name }}: StatelessComponent<{{ pascal name }}Props> = ({
 
@@ -26,7 +26,7 @@ const {{ pascal name }}: StatelessComponent<{{ pascal name }}Props> = ({
 )
 
 const mapStateToProps: MapStateToProps<
-    ConnectedProps,
+    {{ pascal name }}ConnectedProps,
     {{ pascal name }}Props
 > = (state: AppState) => ({})
 
