@@ -10,7 +10,7 @@ import Navigator from './{{ name }}.nav'
 {{#if wantMessages}}
 import messages from './messages'
 {{/if}}
-import { {{ pascal name }}Props, {{ pascal name }}State, ConnectedProps, {{ pascal name }}ActionCreators } from './types'
+import { {{ pascal name }}Props, {{ pascal name }}State, {{ pascal name }}ConnectedProps, {{ pascal name }}ActionCreators } from './types'
 
 export class {{ pascal name }} extends Component<{{ pascal name }}Props, {{ pascal name }}State> {
 
@@ -26,7 +26,7 @@ export class {{ pascal name }} extends Component<{{ pascal name }}Props, {{ pasc
 }
 
 const mapStateToProps: MapStateToProps<
-    ConnectedProps,
+    {{ pascal name }}ConnectedProps,
     {{ pascal name }}Props
 > = (state: AppState) => ({})
 
@@ -35,7 +35,7 @@ const mapDispatchToProps: MapDispatchToProps<
     {{ pascal name }}Props
 > = (dispatch: Dispatch<ReduxAction>) => bindActionCreators({}, dispatch)
 
-export default connect<ConnectedProps, {{ pascal name }}ActionCreators, {{ pascal name }}Props>(
+export default connect<{{ pascal name }}ConnectedProps, {{ pascal name }}ActionCreators, {{ pascal name }}Props>(
     mapStateToProps,
     mapDispatchToProps
 )({{ pascal name }})
