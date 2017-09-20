@@ -2,10 +2,11 @@ import { Epic } from 'redux-observable'
 import { Observable } from 'rxjs'
 
 import config from 'config'
-import { AppState, ReduxAction } from '../types'
+import { AppState, ReduxAction, EpicDependancies } from '../types'
 import * as {{ name }}Actions from './actions'
 
-const {{ name }}Epic: Epic<ReduxAction, AppState> = (action$) => {
+
+const {{ name }}Epic: Epic<ReduxAction, AppState, EpicDependancies> = (action$, store, {{#if api}}{ {{name}}Api }{{/if}}) => {
     return action$.ofType('SOMETHING')
 }
 

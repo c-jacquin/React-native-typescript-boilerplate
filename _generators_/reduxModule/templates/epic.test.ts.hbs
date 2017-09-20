@@ -1,10 +1,17 @@
 import configureMockStore from 'redux-mock-store'
 import { createEpicMiddleware } from 'redux-observable'
+
+import { dependencies } from 'store/epicDependencies'
 import * as {{ name }}Action from '../actions'
 import {{ name }}Epic from '../epic'
 
 describe('{{ name }} epic', () => {
-    const epicMiddleware = createEpicMiddleware({{ name }}Epic)
+    
+    const epicMiddleware = createEpicMiddleware<
+            ReduxAction,
+            AppState,
+            EpicDependancies
+        >({{ name }}Epic, { dependencies })
     const mockStore = configureMockStore([epicMiddleware])
 
     let store = mockStore()
