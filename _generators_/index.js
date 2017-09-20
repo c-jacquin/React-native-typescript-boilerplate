@@ -1,4 +1,4 @@
-const fs = require('fs')
+const fs = require('fs-extra')
 const componentGenerator = require('./component')
 const containerGenerator = require('./container')
 const reduxModuleGenerator = require('./reduxModule')
@@ -13,9 +13,9 @@ module.exports = (plop) => {
     plop.setGenerator('page', pageGenerator)
     plop.setGenerator('language', languageGenerator)
 
-    plop.addHelper('directory', (comp) => {
+    plop.addHelper('directory', async (comp) => {
         try {
-            fs.accessSync(`src/containers/${comp}`, fs.F_OK)
+            await fs.access(`src/containers/${comp}`)
             return `containers/${comp}`
         } catch (e) {
             return `components/${comp}`

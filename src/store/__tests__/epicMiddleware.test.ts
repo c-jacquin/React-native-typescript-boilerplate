@@ -15,7 +15,11 @@ describe('epic middleware', () => {
 
     describe('epic depenencies', () => {
         it('should have the correct properties', () => {
-            expect(Object.keys(dependencies)).toEqual(['languageApi'])
+            const depKey = [
+                'languageApi',
+                // Insert api here
+            ]
+            expect(Object.keys(dependencies)).toEqual(depKey)
         })
     })
 })
