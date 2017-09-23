@@ -32,6 +32,7 @@
   "dependencies": {
     "autobind-decorator": "^2.1.0",
     "expo": "20.1.3",
+    "glamorous-native": "^1.1.2",
     "intl": "^1.2.5",
     "prop-types": "^15.5.10",
     "react": "16.0.0-rc.2",
@@ -138,6 +139,9 @@
       ".(js|jsx)": "<rootDir>/node_modules/babel-jest",
       ".(ts|tsx)": "<rootDir>/node_modules/ts-jest/preprocessor.js"
     },
+    "transformIgnorePatterns": [
+      "node_modules/(?!(jest-)?|glamorous-native)"
+    ],
     "testResultsProcessor": "./node_modules/jest-html-reporter"
   },
   "jest-html-reporter": {
