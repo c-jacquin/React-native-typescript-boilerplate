@@ -17,13 +17,14 @@
         "moduleResolution": "node",
         "baseUrl": "src",
         "typeRoots": [
-            "./src/typings"
+            "typings"
         ],
         "allowSyntheticDefaultImports": true,
         "experimentalDecorators": true
     },
     "include": [
-        "src/**/*"
+        "src/**/*",
+        "typings/**/*.d.ts"        
     ],
     "exclude": [
         "build",

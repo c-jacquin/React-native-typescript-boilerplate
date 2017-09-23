@@ -1,9 +1,10 @@
 import React, { PureComponent } from 'react'
-import { StatusBar, ScrollView, Text, View } from 'react-native'
+import PropTypes from 'prop-types'
+import { StatusBar, ScrollView, Text } from 'react-native'
+import { View } from 'glamorous-native'
+import { addNavigationHelpers } from 'react-navigation'
 import { connect, MapDispatchToProps, MapStateToProps } from 'react-redux'
 import { bindActionCreators, Dispatch } from 'redux'
-import { addNavigationHelpers } from 'react-navigation'
-import PropTypes from 'prop-types'
 
 import { AppState, ReduxAction } from 'store/types'
 import { getLocale } from 'store/language'
@@ -16,7 +17,6 @@ import {
     RootProps,
     RootState,
 } from './types'
-import styles from './styles'
 
 export class Root extends PureComponent<RootProps, RootState> {
     static contextTypes = {
@@ -31,7 +31,7 @@ export class Root extends PureComponent<RootProps, RootState> {
 
     render() {
         return (
-            <View style={styles.root}>
+            <View flex={1}>
                 <StatusBar hidden={true} />
                 <Navigator
                     navigation={addNavigationHelpers({
@@ -44,10 +44,9 @@ export class Root extends PureComponent<RootProps, RootState> {
     }
 }
 
-export const mapStateToProps: MapStateToProps<
-    RootConnectedProps,
-    RootProps | null
-> = (state: AppState) => ({
+export const mapStateToProps: MapStateToProps<RootConnectedProps, RootProps> = (
+    state: AppState
+) => ({
     nav: selectNavigation(state),
 })
 const mapDispatchToProps: MapDispatchToProps<RootActionCreators, RootProps> = (

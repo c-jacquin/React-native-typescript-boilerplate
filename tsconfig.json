@@ -17,19 +17,21 @@
         "moduleResolution": "node",
         "baseUrl": "src",
         "typeRoots": [
-            "./src/typings",
-            "_scripts_/docs/typings"
+            "typings",
+            "node_modules"
         ],
         "allowSyntheticDefaultImports": true,
         "experimentalDecorators": true
     },
     "include": [
-        "src/**/*"
+        "src/**/*",
+        "typings/**/*.d.ts"
     ],
     "exclude": [
         "build",
         "docs",
         "_scripts_",
-        "node_modules"
+        "node_modules",
+        "_generators_"
     ]
 }
