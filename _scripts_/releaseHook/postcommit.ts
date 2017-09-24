@@ -6,12 +6,11 @@
     const MainPage = require('./lib/docs/components/MainPage')
     const changelogPath = `${process.cwd()}/CHANGELOG.md`
 
-    let changelog = await fs.readFile(changelogPath, { encoding: 'utf-8' })
-
     try {
-        await exec('npm test -- --coverage')
-        await exec('npm run build')
-        await exec('npm run docs')
+        let changelog = await fs.readFile(changelogPath, { encoding: 'utf-8' })
+        await exec('npm start test.coverage')
+        await exec('npm start build')
+        await exec('npm start docs')
 
         await versionDoc(pkg.version)
         await updateExpoVersion(pkg.version)
