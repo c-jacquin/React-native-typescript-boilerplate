@@ -1,5 +1,6 @@
 import { Action } from 'redux'
 import { Observable } from 'rxjs'
+import { RxFetch } from 'store/_api_/RxFetch'
 import { LanguageState, LanguageApi } from 'store/language'
 import { NavigationState } from 'store/navigation'
 // Import types here
@@ -21,6 +22,7 @@ export interface AppState {
 }
 
 export interface EpicDependancies {
+    fetch: (input: RequestInfo, init: RequestInit) => Observable<any | null>
     languageApi: LanguageApi
     // Insert api here
 }

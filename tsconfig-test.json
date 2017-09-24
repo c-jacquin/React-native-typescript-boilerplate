@@ -8,7 +8,7 @@
         "outDir": "./build",
         "rootDir": "./src",
         "removeComments": false,
-        "lib":["dom","es2017"],
+        "lib":["es2017"],
         "strict": true,
         "noImplicitAny": true,
         "strictNullChecks": true,
@@ -23,8 +23,7 @@
         "experimentalDecorators": true
     },
     "include": [
-        "src/**/*",
-        "typings/**/*.d.ts"        
+        "src/**/*"
     ],
     "exclude": [
         "build",
