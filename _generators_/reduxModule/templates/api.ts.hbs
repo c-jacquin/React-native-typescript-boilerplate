@@ -1,6 +1,7 @@
 import { Observable } from 'rxjs'
+{{#if http}}import { RxFetch } from 'store/_api_/RxFetch'{{/if}}
 
-export class {{ pascal name }}Api {
+export class {{ pascal name }}Api {{#if http}}extends RxFetch {{/if}}{
 
 }
 
