@@ -1,7 +1,9 @@
-module.exports = {
+const { argv } = require('yargs')
+
+const jestConfig = {
     globals: {
         'ts-jest': {
-            tsConfigFile: 'tsconfig-test.json'
+            tsConfigFile: '_config_/tsconfig-test.json'
         }
     },
     collectCoverageFrom: [
@@ -35,6 +37,11 @@ module.exports = {
     },
     transformIgnorePatterns: [
         'node_modules/(?!(jest-)?|glamorous-native)'
-    ],
-    testResultsProcessor: './node_modules/jest-html-reporter'
+    ]
 }
+
+if (argv.coverage) {
+    jestConfig.testResultsProcessor = './node_modules/jest-html-reporter'
+}
+
+module.exports = jestConfig

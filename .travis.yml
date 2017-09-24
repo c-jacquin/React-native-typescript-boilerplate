@@ -10,5 +10,4 @@ install:
   - npm i
 
 script:
-  - npm test -- --coverage
-  - npm run build
+  - npm start validate
