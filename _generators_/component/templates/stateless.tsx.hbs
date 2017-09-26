@@ -2,17 +2,15 @@ import React, { StatelessComponent } from 'react'
 {{#if wantMessages}}
 import { FormattedMessage } from 'react-intl'
 {{/if}}
-import { View } from 'react-native'
+import { View } from 'glamorous-native'
 
 {{#if wantMessages}}
 import messages from './messages'
 {{/if}}
-import { I{{ properCase name }}Props } from './types'
+import { {{ pascal name }}Props } from './types'
 
-const {{ properCase name }}: StatelessComponent<I{{ properCase name }}Props> = ({
-
-}) => (
+const {{ pascal name }}: StatelessComponent<{{ pascal name }}Props> = () => (
     <View/>
 )
 
-export default {{ properCase name }}
+export default {{ pascal name }}

@@ -36,15 +36,18 @@ module.exports = {
 
         switch (data.type) {
             case 'ES6 Class': {
+                data.isClass = true                
                 componentTemplate = './component/templates/index.tsx.hbs'
                 break
             }
             case 'Stateless Function': {
+                data.isClass = false                
                 componentTemplate = './component/templates/stateless.tsx.hbs'
                 break
             }
             default: {
-                componentTemplate = './component/templates/es6.tsx.hbs'
+                data.isClass = false                
+                componentTemplate = './component/templates/index.tsx.hbs'
             }
         }
 

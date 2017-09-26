@@ -1,15 +1,15 @@
-import React, { Component, PropTypes } from 'react'
+import React, { PureComponent, PropTypes } from 'react'
 {{#if wantMessages}}
 import { FormattedMessage } from 'react-intl'
 {{/if}}
-import { View } from 'react-native'
+import { View } from 'glamorous-native'
 
 {{#if wantMessages}}
 import messages from './messages'
 {{/if}}
-import { {{ properCase name }}Props, {{ properCase name }}State } from './types'
+import { {{ pascal name }}Props, {{ pascal name }}State } from './types'
 
-class {{ properCase name }} extends Component<{{ properCase name }}Props, {{ properCase name }}State> {
+class {{ pascal name }} extends PureComponent<{{ pascal name }}Props, {{ pascal name }}State> {
 
     render() {
         return (
@@ -18,4 +18,4 @@ class {{ properCase name }} extends Component<{{ properCase name }}Props, {{ pro
     }
 }
 
-export default {{ properCase name }}
+export default {{ pascal name }}
