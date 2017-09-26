@@ -50,7 +50,7 @@ module.exports = {
             description: 'create a new tag depending on the last commits and update changelog accordingly, create a tag, generate documentation, commit and push',
             script: 'standard-version --no-verify',
         },
-        firstRelease: {
+        first: {
             description: 'first release usualy 0.0.0',
             script: 'standard-version --no-verify --first-release',
         },
