@@ -1,7 +1,5 @@
-export interface {{ properCase name }}Props {
+export interface {{ pascal name }}Props {
 
 }
-
-export interface {{ properCase name }}State {
-
-}
+{{#if isClass}}
+export interface {{ pascal name }}State {}{{/if}}
