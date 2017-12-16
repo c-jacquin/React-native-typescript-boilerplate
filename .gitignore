@@ -30,7 +30,7 @@ project.xcworkspace
 build/
 .idea
 .gradle
-.vsCode
+.vscode
 local.properties
 *.iml
 
