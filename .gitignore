@@ -29,7 +29,7 @@ project.xcworkspace
 #
 .idea
 .gradle
-.vsCode
+.vscode
 local.properties
 
 # node.js
