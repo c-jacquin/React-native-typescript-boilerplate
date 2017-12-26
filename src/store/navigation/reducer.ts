@@ -1,6 +1,6 @@
 import { Reducer } from 'redux'
 import Navigator from 'pages'
-import { NavigationState, NavigationAction } from './types'
+import { NavigationState } from './types'
 
 export const initialState: NavigationState = Navigator.router.getStateForAction(
     Navigator.router.getActionForPathAndParams('Home'),
@@ -9,7 +9,7 @@ export const initialState: NavigationState = Navigator.router.getStateForAction(
 
 const navigationReducer: Reducer<NavigationState> = (
     state = initialState,
-    action: NavigationAction
+    action
 ) => {
     return Navigator.router.getStateForAction(action, state)
 }
