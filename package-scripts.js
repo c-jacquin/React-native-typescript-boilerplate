@@ -57,11 +57,7 @@ module.exports = {
         postcommit: {
             description: 'generate documentation and amend standard version commit',
             script: 'ts-node --project _scripts_/ _scripts_/releaseHook/postcommit'
-        },
-        posttag: {
-            description: 'push the new release on the remote',
-            script: 'ts-node --project _scripts_/ _scripts_/releaseHook/posttag'
-        },
+        }
     },
     build: {
         default: {
