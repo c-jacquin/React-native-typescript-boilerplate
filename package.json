@@ -101,14 +101,13 @@
   },
   "lint-staged": {
     "src/**/*(*.ts|*.tsx)": [
-      "prettier",
+      "prettier --write",
       "git add -A"
     ]
   },
   "standard-version": {
     "scripts": {
-      "postcommit": "nps release.postcommit",
-      "posttag": "nps release.posttag"
+      "postcommit": "nps release.postcommit"
     }
   }
 }
