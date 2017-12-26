@@ -100,7 +100,7 @@
   },
   "lint-staged": {
     "src/**/*(*.ts|*.tsx)": [
-      "nps prettier",
+      "prettier",
       "git add -A"
     ]
   },

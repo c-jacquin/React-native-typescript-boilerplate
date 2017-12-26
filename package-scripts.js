@@ -35,11 +35,11 @@ module.exports = {
     },    
     lint: {
         description: 'lint the code with tslint',
-        script: 'tslint -c _config_/tslint.json "src/**/*.ts"',
+        script: 'tslint "src/**/*.ts"',
     },
     prettier: {
         description: 'format the code using prettier',
-        script: 'prettier --write --config _config_/prettier.config.js \"src/**/*(*.ts|*.tsx)\"',
+        script: 'prettier --write --config prettier.config.js \"src/**/*(*.ts|*.tsx)\"',
     },
     validate: {
         description: 'lint the code, run the test and build',
