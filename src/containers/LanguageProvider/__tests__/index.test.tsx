@@ -5,12 +5,14 @@ import initialState from 'store/_helpers_/initialState'
 
 describe('Language Provider', () => {
     it('should renders correctly', () => {
-        const tree = renderer.create(
-            <LanguageProvider messages={{}}>
-                <div>test</div>
-            </LanguageProvider>
-        )
-        expect(tree).toBeDefined()
+        const tree = renderer
+            .create(
+                <LanguageProvider messages={{}}>
+                    <div>test</div>
+                </LanguageProvider>
+            )
+            .toJSON()
+        expect(tree).toMatchSnapshot()
     })
 
     describe('mapStateToProps function', () => {

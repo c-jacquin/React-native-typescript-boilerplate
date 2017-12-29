@@ -19,13 +19,18 @@ describe('Home component', () => {
     })
 
     it('should renders correctly', () => {
-        const tree = renderer.create(
-            <Provider store={store}>
-                <IntlProvider locale={'en'} messages={translationMessages.en}>
-                    <Home />
-                </IntlProvider>
-            </Provider>
-        )
-        expect(tree).toBeDefined()
+        const tree = renderer
+            .create(
+                <Provider store={store}>
+                    <IntlProvider
+                        locale={'en'}
+                        messages={translationMessages.en}
+                    >
+                        <Home />
+                    </IntlProvider>
+                </Provider>
+            )
+            .toJSON()
+        expect(tree).toMatchSnapshot()
     })
 })

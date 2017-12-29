@@ -7,11 +7,13 @@ import FormattedTime from '../FormattedTime'
 
 describe('FormattedTime', () => {
     it('should renders correctly', () => {
-        const tree = renderer.create(
-            <IntlProvider locale="en">
-                <FormattedTime style={{}} value={Date.now()} />
-            </IntlProvider>
-        )
-        expect(tree).toBeDefined()
+        const tree = renderer
+            .create(
+                <IntlProvider locale="en">
+                    <FormattedTime style={{}} value={1500} />
+                </IntlProvider>
+            )
+            .toJSON()
+        expect(tree).toMatchSnapshot()
     })
 })

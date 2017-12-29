@@ -7,17 +7,22 @@ import FormattedMessage from '../FormattedMessage'
 
 describe('FormattedMessage', () => {
     it('should renders correctly', () => {
-        const tree = renderer.create(
-            <IntlProvider locale="en" messages={{ bar: 'foo' }}>
-                <FormattedMessage style={{}} id={'bar'} />
-            </IntlProvider>
-        )
-        expect(tree).toBeDefined()
+        const tree = renderer
+            .create(
+                <IntlProvider locale="en" messages={{ en: { bar: 'foo' } }}>
+                    <FormattedMessage style={{}} id={'bar'} />
+                </IntlProvider>
+            )
+            .toJSON()
+        expect(tree).toMatchSnapshot()
     })
 
     it('should render correctly with an element as value', () => {
         const tree = renderer.create(
-            <IntlProvider locale="en" messages={{ bar: <Text>Test</Text> }}>
+            <IntlProvider
+                locale="en"
+                messages={{ en: { bar: <Text>Test</Text> } }}
+            >
                 <FormattedMessage style={{}} id={'bar'} />
             </IntlProvider>
         )

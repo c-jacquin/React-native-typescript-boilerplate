@@ -6,11 +6,13 @@ import FormattedNumber from '../FormattedNumber'
 
 describe('FormattedNumber', () => {
     it('should renders correctly', () => {
-        const tree = renderer.create(
-            <IntlProvider locale="en">
-                <FormattedNumber style={{}} value={'foo'} />
-            </IntlProvider>
-        )
-        expect(tree).toBeDefined()
+        const tree = renderer
+            .create(
+                <IntlProvider locale="en">
+                    <FormattedNumber style={{}} value={'foo'} />
+                </IntlProvider>
+            )
+            .toJSON()
+        expect(tree).toMatchSnapshot()
     })
 })

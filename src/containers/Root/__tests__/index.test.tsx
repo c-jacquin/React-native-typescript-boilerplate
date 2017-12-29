@@ -26,32 +26,36 @@ describe('Root component', () => {
     }
     const spy = jest.spyOn(mockProps, 'getLocale')
 
-    const tree = renderer.create(
-        <Provider store={store}>
-            <IntlProvider locale={'en'} messages={translationMessages.en}>
-                <Root {...mockProps} />
-            </IntlProvider>
-        </Provider>
-    )
+    const tree = renderer
+        .create(
+            <Provider store={store}>
+                <IntlProvider locale={'en'} messages={translationMessages.en}>
+                    <Root {...mockProps} />
+                </IntlProvider>
+            </Provider>
+        )
+        .toJSON()
 
-    const simpleTree = renderer.create(
-        <Provider store={store}>
-            <IntlProvider locale={'en'} messages={translationMessages.en}>
-                <Root nav={mockProps.nav} />
-            </IntlProvider>
-        </Provider>
-    )
+    const simpleTree = renderer
+        .create(
+            <Provider store={store}>
+                <IntlProvider locale={'en'} messages={translationMessages.en}>
+                    <Root nav={mockProps.nav} />
+                </IntlProvider>
+            </Provider>
+        )
+        .toJSON()
 
     beforeEach(() => {
         store = mockStore({})
     })
 
     it('should renders correctly', () => {
-        expect(tree).toBeDefined()
+        expect(tree).toMatchSnapshot()
     })
 
     it('should renders correctly without getLocale prop', () => {
-        expect(simpleTree).toBeDefined()
+        expect(simpleTree).toMatchSnapshot()
     })
 
     it('should call getLocale prop', () => {
