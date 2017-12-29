@@ -13,7 +13,7 @@ const jestConfig = {
         '!src/**/types.ts',
         '!**/node_modules/**'
     ],
-    coverageDirectory: 'coverage',
+    coverageDirectory: '.temp',
     moduleDirectories: [
         'node_modules',
         'src'
