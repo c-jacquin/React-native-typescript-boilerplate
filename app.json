@@ -4,7 +4,7 @@
     "description": "A react native typescript expo boilerplate",
     "slug": "react-native-ts-boilerplate",
     "privacy": "public",
-    "sdkVersion": "20.0.0",
+    "sdkVersion": "24.0.0",
     "version": "0.0.0",
     "orientation": "portrait",
     "primaryColor": "#cccccc",

@@ -1,8 +1,8 @@
-jest.mock('../../_translations_/en.json', () => ({
+jest.mock('../../_env_/translations/en.json', () => ({
     test: 'test EN',
     testBis: 'testbis EN',
 }))
-jest.mock('../../_translations_/fr.json', () => ({
+jest.mock('../../_env_/translations/fr.json', () => ({
     test: 'test FR',
     testBis: undefined,
 }))

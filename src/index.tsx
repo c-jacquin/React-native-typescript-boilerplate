@@ -13,7 +13,7 @@ import { theme } from './theme'
 
 const store = configureStore()
 
-export class App extends Component<any, any> {
+export class App extends React.Component<{}, {}> {
     render() {
         return (
             <Provider store={store}>

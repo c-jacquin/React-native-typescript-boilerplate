@@ -3,7 +3,7 @@ const { argv } = require('yargs')
 const jestConfig = {
     globals: {
         'ts-jest': {
-            tsConfigFile: '_config_/tsconfig-test.json'
+            tsConfigFile: 'scripts/tsconfig-test.json'
         }
     },
     collectCoverageFrom: [
@@ -13,7 +13,7 @@ const jestConfig = {
         '!src/**/types.ts',
         '!**/node_modules/**'
     ],
-    coverageDirectory: '.temp',
+    coverageDirectory: 'coverage',
     moduleDirectories: [
         'node_modules',
         'src'
@@ -25,7 +25,7 @@ const jestConfig = {
     ],
     preset: 'jest-expo-ts',
     setupFiles: [
-        './_scripts_/testHook/test-setup.ts'
+        './scripts/testHook/test-setup.js'
     ],
     testPathIgnorePatterns: [
         '<rootDir>/build/',
@@ -38,10 +38,6 @@ const jestConfig = {
     transformIgnorePatterns: [
         'node_modules/(?!(jest-)?|glamorous-native)'
     ]
-}
-
-if (argv.coverage) {
-    jestConfig.testResultsProcessor = './node_modules/jest-html-reporter'
 }
 
 module.exports = jestConfig
