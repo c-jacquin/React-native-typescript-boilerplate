@@ -16,7 +16,6 @@ describe('epic middleware', () => {
     describe('epic depenencies', () => {
         it('should have the correct properties', () => {
             const depKey = [
-                'fetch',
                 'languageApi',
                 // Insert api here
             ]
