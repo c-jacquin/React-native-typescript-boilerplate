@@ -1,7 +1,5 @@
 XMLHttpRequest = require('xhr2')
 
-console.error = () => {}
-
 jest.mock('Linking', () => {
 
   const getInitialURL = jest.fn()

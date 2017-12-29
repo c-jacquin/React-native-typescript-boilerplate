@@ -7,14 +7,17 @@ module.exports = {
   scripts: {
     default: {
         description: 'transpile typescript and watch for change',
-        script: series.nps(
-            'build.prepare',
-            'build.watch'
-        ),
+        script: concurrent({
+            typescript: series.nps(
+                'build.prepare',
+                'build.watch'
+            ),
+            expo: 'exp start'
+        })
     },
     generate: {
         description: 'code generator using plop (containers, components, redux module ...)',
-        script: 'plop --plopfile _generators_/index.js',
+        script: 'plop --plopfile scripts/generators/index.js',
     },
     commit: {
         description: 'commit using conventionnal changelog',
@@ -24,22 +27,17 @@ module.exports = {
         description: 'clean useless temporary directories',
         script: concurrent({
             cleanTemp: 'rimraf .temp -r',
-            cleanTestReport: 'rimraf docs/test-report -r',
-            cleanCoverge: 'rimraf docs/lcov-report -r',
-            clenBuild: 'rimraf build -r'
+            cleanCoverge: 'rimraf coverage -r',
+            cleanBuild: 'rimraf build -r'
         }),
-    },
-    docs: {
-        description: 'generate documentation using typedoc (automaticly done on each release)',
-        script: 'typedoc --options _config_/typedoc.json --out docs/doc src/index.ts',
-    },    
+    },   
     lint: {
         description: 'lint the code with tslint',
         script: 'tslint "src/**/*.ts"',
     },
     prettier: {
         description: 'format the code using prettier',
-        script: 'prettier --write --config prettier.config.js \"src/**/*(*.ts|*.tsx)\"',
+        script: 'prettier --write prettier.config.js \"src/**/*(*.ts|*.tsx)\"',
     },
     validate: {
         description: 'lint the code, run the test and build',
@@ -53,10 +51,6 @@ module.exports = {
         first: {
             description: 'first release usualy 0.0.0',
             script: 'standard-version --no-verify --first-release',
-        },
-        postcommit: {
-            description: 'generate documentation and amend standard version commit',
-            script: 'ts-node --project _scripts_/ _scripts_/releaseHook/postcommit'
         }
     },
     build: {
@@ -80,7 +74,10 @@ module.exports = {
         },
         production: {
             description: 'build for production',
-            script: 'NODE_ENV=production tsc',
+            script: series(
+                'NODE_ENV=production tsc',
+                'exp build'
+            )
         },
     },
     test: {
@@ -96,7 +93,7 @@ module.exports = {
             description: 'run test with istanbul test coverage',
             script: series(
                 'NODE_ENV=test jest --coverage',
-                'ts-node --project _scripts_/ _scripts_/testHook/remap-coverage',
+                'node scripts/testHook/remap-coverage',
                 'rimraf .temp -r'
             ),
         },

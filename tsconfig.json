@@ -12,12 +12,14 @@
         "strict": true,
         "noImplicitAny": true,
         "strictNullChecks": true,
+        "strictFunctionTypes": false,
         "noImplicitThis": true,
         "alwaysStrict": true,
         "moduleResolution": "node",
         "baseUrl": "src",
         "typeRoots": [
-            "typings"        ],
+            "typings",
+        ],
         "allowSyntheticDefaultImports": true,
         "experimentalDecorators": true
     },

@@ -16,7 +16,7 @@ const getNavigatorsList = (dir = `${process.cwd()}/src/pages`) => {
     return [
         {
             name: 'Main',
-            path: '../src/pages/index.ts',
+            path: '../../src/pages/index.ts',
         },
         ...walk(dir)
             .filter((path) => path.includes('nav'))
@@ -25,7 +25,7 @@ const getNavigatorsList = (dir = `${process.cwd()}/src/pages`) => {
 
                 return {
                     name: splitedPath[splitedPath.length - 2],
-                    path: `../src${path.split('src')[1]}`,
+                    path: `../../src${path.split('src')[1]}`,
                 }
             })
     ]

@@ -44,23 +44,27 @@ export class Root extends PureComponent<RootProps, RootState> {
     }
 }
 
-export const mapStateToProps: MapStateToProps<RootConnectedProps, RootProps> = (
-    state: AppState
-) => ({
+export const mapStateToProps: MapStateToProps<
+    RootConnectedProps,
+    RootProps,
+    AppState
+> = state => ({
     nav: selectNavigation(state),
 })
-const mapDispatchToProps: MapDispatchToProps<RootActionCreators, RootProps> = (
-    dispatch: Dispatch<ReduxAction>
-) => {
-    return bindActionCreators(
+const mapDispatchToProps: MapDispatchToProps<
+    RootActionCreators,
+    RootProps
+> = dispatch =>
+    bindActionCreators(
         {
             getLocale,
         },
         dispatch
     )
-}
 
-export default connect<RootConnectedProps, RootActionCreators, RootProps>(
-    mapStateToProps,
-    mapDispatchToProps
-)(Root)
+export default connect<
+    RootConnectedProps,
+    RootActionCreators,
+    RootProps,
+    AppState
+>(mapStateToProps, mapDispatchToProps)(Root)

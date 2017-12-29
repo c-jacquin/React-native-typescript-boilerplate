@@ -29,11 +29,12 @@ export const LanguageProvider: StatelessComponent<LanguageProps> = ({
 
 export const mapStateToProps: MapStateToProps<
     LanguageConnectedProps,
-    LanguageProps
+    LanguageProps,
+    AppState
 > = state => ({
     locale: languageStore.selectLocale(state),
 })
 
-export default connect<LanguageConnectedProps, any, LanguageProps>(
+export default connect<LanguageConnectedProps, any, LanguageProps, AppState>(
     mapStateToProps
 )(LanguageProvider)

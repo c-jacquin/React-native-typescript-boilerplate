@@ -28,15 +28,19 @@ export class Home extends Component<HomeProps, HomeState> {
     }
 }
 
-const mapStateToProps: MapStateToProps<HomeConnectedProps, HomeProps> = (
-    state: AppState
-) => ({})
+const mapStateToProps: MapStateToProps<
+    HomeConnectedProps,
+    HomeProps,
+    AppState
+> = state => ({})
 
 const mapDispatchToProps: MapDispatchToProps<HomeActionCreators, HomeProps> = (
     dispatch: Dispatch<ReduxAction>
 ) => bindActionCreators({}, dispatch)
 
-export default connect<HomeConnectedProps, HomeActionCreators, HomeProps>(
-    mapStateToProps,
-    mapDispatchToProps
-)(Home)
+export default connect<
+    HomeConnectedProps,
+    HomeActionCreators,
+    HomeProps,
+    AppState
+>(mapStateToProps, mapDispatchToProps)(Home)
