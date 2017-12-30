@@ -12,14 +12,8 @@ module.exports = {
     }, {
         type: 'comfirm',
         name: 'api',
-        message: 'Do you need an api service (dao) ?',
+        message: 'Do you need an api service injectd into the epic ?',
         default: 'yes'
-    }, {
-        type: 'confirm',
-        name: 'http',
-        message: 'does this serive need to make http call ?',
-        default: 'yes',
-        when: ({ api }) => api
     }],
     actions: (data) => {
         let actions = [{
