@@ -12,5 +12,3 @@ export class LanguageApi {
         )
     }
 }
-
-export default new LanguageApi()
