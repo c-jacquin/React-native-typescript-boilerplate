@@ -76,7 +76,7 @@ module.exports = {
             description: 'build for production',
             script: series(
                 'NODE_ENV=production tsc',
-                'exp build'
+                'exp build:android'
             )
         },
     },
