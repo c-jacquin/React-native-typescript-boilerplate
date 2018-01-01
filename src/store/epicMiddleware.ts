@@ -1,15 +1,15 @@
 import { combineEpics, Epic, createEpicMiddleware } from 'redux-observable'
 
 import { AppState, ReduxAction, EpicDependancies } from './types'
-import languageEpic from 'store/language/epic'
 import pushNotificationEpic from './pushNotification/epic'
+import bootEpic from './boot/epic'
 // Import epic here
 
 import { dependencies } from './epicDependencies'
 
 const epics = [
-    languageEpic,
     pushNotificationEpic,
+    bootEpic,
     // Insert epic here
 ]
 

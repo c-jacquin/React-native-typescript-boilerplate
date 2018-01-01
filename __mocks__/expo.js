@@ -16,6 +16,18 @@ export class Constants {
     static isDevice = true
 }
 
+export class Asset {
+    static loadAsync() {
+        return Promise.resolve()
+    }
+}
+
+export class Font {
+    static loadAsync() {
+        return Promise.resolve()
+    }
+}
+
 export default {
     registerRootComponent() {}
 }

@@ -1,15 +1,14 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
-import { StatusBar, ScrollView, Text } from 'react-native'
-import { Notifications } from 'expo'
+import { StatusBar, ScrollView, Text, Platform } from 'react-native'
+import { Notifications, AppLoading } from 'expo'
 import { View } from 'glamorous-native'
 import { addNavigationHelpers } from 'react-navigation'
 import { connect, MapDispatchToProps, MapStateToProps } from 'react-redux'
 import { bindActionCreators, Dispatch } from 'redux'
 
 import { AppState, ReduxAction } from 'store/types'
-import { getLocale } from 'store/language'
-import { registerPush } from 'store/pushNotification'
+import { bootstrap, isAppReady } from 'store/boot'
 import { selectNavigation } from 'store/navigation'
 import Navigator from 'pages'
 
@@ -26,27 +25,32 @@ export class Root extends PureComponent<RootProps, RootState> {
     }
 
     componentWillMount() {
-        if (this.props.getLocale) {
-            this.props.getLocale()
-        }
-
-        if (this.props.registerPush) {
-            this.props.registerPush()
+        if (this.props.bootstrap) {
+            this.props.bootstrap()
         }
     }
 
     render() {
-        return (
-            <View flex={1}>
-                <StatusBar hidden={true} />
-                <Navigator
-                    navigation={addNavigationHelpers({
-                        dispatch: this.context.store.dispatch,
-                        state: this.props.nav,
-                    })}
-                />
-            </View>
-        )
+        const { appReady, nav } = this.props
+
+        if (appReady) {
+            return (
+                <View flex={1}>
+                    {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
+                    {Platform.OS === 'android' && (
+                        <View height={24} backgroundColor="rgba(0,0,0,0.2)" />
+                    )}
+                    <Navigator
+                        navigation={addNavigationHelpers({
+                            dispatch: this.context.store.dispatch,
+                            state: nav,
+                        })}
+                    />
+                </View>
+            )
+        } else {
+            return <AppLoading />
+        }
     }
 }
 
@@ -55,6 +59,7 @@ export const mapStateToProps: MapStateToProps<
     RootProps,
     AppState
 > = state => ({
+    appReady: isAppReady(state),
     nav: selectNavigation(state),
 })
 const mapDispatchToProps: MapDispatchToProps<
@@ -63,8 +68,7 @@ const mapDispatchToProps: MapDispatchToProps<
 > = dispatch =>
     bindActionCreators(
         {
-            getLocale,
-            registerPush,
+            bootstrap,
         },
         dispatch
     )
