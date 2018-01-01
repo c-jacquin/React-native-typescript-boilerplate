@@ -1,14 +1,15 @@
-jest.mock('../../_env_/translations/en.json', () => ({
+jest.mock('../../i18n/en.json', () => ({
     test: 'test EN',
     testBis: 'testbis EN',
 }))
-jest.mock('../../_env_/translations/fr.json', () => ({
+
+jest.mock('../../i18n/fr.json', () => ({
     test: 'test FR',
     testBis: undefined,
 }))
 
-import { translationMessages, formatTranslationMessages } from 'i18n'
-import config from 'config'
+import { translationMessages, formatTranslationMessages } from '../i18n'
+import config from '../config'
 
 describe('translation messages', () => {
     it('should have the supportd languages as property', () => {

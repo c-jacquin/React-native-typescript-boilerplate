@@ -6,9 +6,9 @@ import { IntlProvider } from 'react-intl'
 import * as renderer from 'react-test-renderer'
 import configureStore from 'redux-mock-store'
 
-import Home from 'pages/Home'
+import Home from '../index'
 
-import { translationMessages } from 'i18n'
+import { translationMessages } from '../../../i18n'
 
 const mockStore = configureStore()
 

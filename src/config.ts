@@ -1,5 +1,5 @@
-import devEnv from '../_env_/development.json'
-import prodEnv from '../_env_/production.json'
+import devEnv from '../env/development.json'
+import prodEnv from '../env/production.json'
 
 export interface Env {
     ENV: string
@@ -9,6 +9,7 @@ export interface Env {
         DEFAULT_LOCALE: string
         SUPPORTED_LOCALES: string[]
     }
+    PUSH_ENDPOINT: string
 }
 
 let config: Env = {

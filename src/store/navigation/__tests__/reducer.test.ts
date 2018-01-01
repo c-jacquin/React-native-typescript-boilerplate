@@ -1,5 +1,5 @@
 import navigationReducer from '../reducer'
-import appState from 'store/_helpers_/initialState'
+import appState from '../../initialState'
 
 describe('navigation reducer', () => {
     it('should return the initial state', () => {

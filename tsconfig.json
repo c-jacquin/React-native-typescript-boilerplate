@@ -3,7 +3,7 @@
         "target": "es2015",
         "module": "es2015",
         "allowJs": true,
-        "jsx": "react-native",
+        "jsx": "react",
         "sourceMap": true,
         "outDir": "./build",
         "rootDir": "./src",
@@ -29,6 +29,6 @@
     ],
     "exclude": [
         "src/**/__mocks__/*",
-        "src/**/__tests__/*"
+        "src/**/__tests__/*",
     ]
 }

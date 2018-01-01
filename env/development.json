@@ -5,5 +5,6 @@
     "LANGUAGE": {
         "DEFAULT_LOCALE": "en",
         "SUPPORTED_LOCALES": ["en", "fr"]
-    }
+    },
+    "PUSH_ENDPOINT": "https://expo-push-server.herokuapp.com/tokens"
 }

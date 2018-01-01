@@ -1,4 +1,4 @@
-import { Observable } from 'rxjs'
+import { Observable } from 'rxjs/Observable'
 
 export class LanguageApi {
     formatLocale(locale: string): string {
@@ -9,5 +9,3 @@ export class LanguageApi {
         return Observable.of('en')
     }
 }
-
-export default new LanguageApi()
