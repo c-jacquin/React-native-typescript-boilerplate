@@ -1,5 +1,5 @@
 import { selectLanguage, selectLocale } from '../selectors'
-import appState from 'store/_helpers_/initialState'
+import appState from '../../initialState'
 
 describe('language selectors', () => {
     it('should return the language state', () => {

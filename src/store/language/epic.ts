@@ -1,32 +1,31 @@
 import { Epic, ActionsObservable } from 'redux-observable'
 
-import { Observable } from 'rxjs'
+import { map, mergeMap, catchError } from 'rxjs/operators'
+import { of as observableOf } from 'rxjs/observable/of'
 
 import config from 'config'
-import { AppState, ReduxAction, EpicDependancies } from '../types'
+import { MyEpic } from '../types'
 import * as languageActions from './actions'
 
-const getLocaleEpic: Epic<ReduxAction, AppState, EpicDependancies> = (
-    action$,
-    store,
-    { languageApi }
-) => {
-    return action$.ofType(languageActions.GET_LOCALE_PENDING).mergeMap(() => {
-        return languageApi
-            .getLanguage()
-            .map((locale: string) => {
-                const formattedLocale = config.LANGUAGE.SUPPORTED_LOCALES.includes(
-                    locale
-                )
-                    ? locale
-                    : config.LANGUAGE.DEFAULT_LOCALE
+const getLocaleEpic: MyEpic = (action$, store, { languageApi }) => {
+    return action$.ofType(languageActions.GET_LOCALE_PENDING).pipe(
+        mergeMap(() => {
+            return languageApi.getLanguage().pipe(
+                map(locale => {
+                    const formattedLocale = config.LANGUAGE.SUPPORTED_LOCALES.includes(
+                        locale
+                    )
+                        ? locale
+                        : config.LANGUAGE.DEFAULT_LOCALE
 
-                return languageActions.getLocaleSuccess(formattedLocale)
-            })
-            .catch((err: Error) =>
-                Observable.of(languageActions.getLocaleFailed(err))
+                    return languageActions.getLocaleSuccess(formattedLocale)
+                }),
+                catchError(err =>
+                    observableOf(languageActions.getLocaleFailed(err))
+                )
             )
-    })
+        })
+    )
 }
 
 export default getLocaleEpic

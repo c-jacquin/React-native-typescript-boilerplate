@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { StatusBar, ScrollView, Text } from 'react-native'
+import { Notifications } from 'expo'
 import { View } from 'glamorous-native'
 import { addNavigationHelpers } from 'react-navigation'
 import { connect, MapDispatchToProps, MapStateToProps } from 'react-redux'
@@ -8,6 +9,7 @@ import { bindActionCreators, Dispatch } from 'redux'
 
 import { AppState, ReduxAction } from 'store/types'
 import { getLocale } from 'store/language'
+import { registerPush } from 'store/pushNotification'
 import { selectNavigation } from 'store/navigation'
 import Navigator from 'pages'
 
@@ -26,6 +28,10 @@ export class Root extends PureComponent<RootProps, RootState> {
     componentWillMount() {
         if (this.props.getLocale) {
             this.props.getLocale()
+        }
+
+        if (this.props.registerPush) {
+            this.props.registerPush()
         }
     }
 
@@ -58,6 +64,7 @@ const mapDispatchToProps: MapDispatchToProps<
     bindActionCreators(
         {
             getLocale,
+            registerPush,
         },
         dispatch
     )

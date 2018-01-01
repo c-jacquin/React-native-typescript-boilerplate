@@ -1,7 +1,12 @@
 import { Action } from 'redux'
-import { Observable } from 'rxjs'
+import { Observable } from 'rxjs/Observable'
+import { Epic } from 'redux-observable'
 import { LanguageState, LanguageApi } from 'store/language'
 import { NavigationState } from 'store/navigation'
+import {
+    PushNotificationState,
+    PushNotificationApi,
+} from 'store/pushNotification'
 // Import types here
 
 export interface ReduxAction extends Action {
@@ -17,10 +22,14 @@ export interface ErrorReduxAction extends Action {
 export interface AppState {
     language: LanguageState
     navigation: NavigationState
+    pushNotification: PushNotificationState
     // Insert types here
 }
 
 export interface EpicDependancies {
     languageApi: LanguageApi
+    pushNotificationApi: PushNotificationApi
     // Insert api here
 }
+
+export type MyEpic = Epic<ReduxAction, AppState, EpicDependancies>

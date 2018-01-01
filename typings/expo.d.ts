@@ -1278,6 +1278,7 @@ declare module 'expo' {
   
       type LocalNotificationId = string | number
   
+      function getExpoPushTokenAsync(): Promise<string>
       function addListener(listener: (notification: Notification) => any): EventSubscription
       function getExponentPushTokenAsync(): Promise<string>
       function presentLocalNotificationAsync(localNotification: LocalNotification): Promise<LocalNotificationId>

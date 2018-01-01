@@ -3,24 +3,28 @@ import configureMockStore, { MockStore } from 'redux-mock-store'
 import { Store } from 'redux'
 import { createEpicMiddleware, EpicMiddleware } from 'redux-observable'
 import * as languageAction from '../actions'
-import languageApi from '../api'
+import { LanguageApi } from '../__mocks__/LanguageApi'
 import getLocaleEpic from '../epic'
-import { dependencies } from 'store/epicDependencies'
-import { AppState, ReduxAction, EpicDependancies } from 'store/types'
-import config from 'config'
-
-jest.mock('store/language/api')
+import { dependencies } from '../../epicDependencies'
+import { AppState, ReduxAction, EpicDependancies } from '../../types'
+import config from '../../../config'
 
 describe('language epic', () => {
     let epicMiddleware: EpicMiddleware<ReduxAction, AppState, EpicDependancies>
     let store: MockStore<any>
+    const languageApi = new LanguageApi()
 
     beforeEach(() => {
         epicMiddleware = createEpicMiddleware<
             ReduxAction,
             AppState,
             EpicDependancies
-        >(getLocaleEpic, { dependencies })
+        >(getLocaleEpic, {
+            dependencies: {
+                ...dependencies,
+                languageApi,
+            },
+        })
         const mockStore = configureMockStore([epicMiddleware])
         store = mockStore()
     })
@@ -47,19 +51,18 @@ describe('language epic', () => {
 
     describe('when local is not supported', () => {
         beforeEach(() => {
-            epicMiddleware = createEpicMiddleware<
-                ReduxAction,
-                AppState,
-                any
-            >(getLocaleEpic, {
-                dependencies: {
-                    languageApi: {
-                        getLanguage() {
-                            return Observable.of('test')
+            epicMiddleware = createEpicMiddleware<ReduxAction, AppState, any>(
+                getLocaleEpic,
+                {
+                    dependencies: {
+                        languageApi: {
+                            getLanguage() {
+                                return Observable.of('test')
+                            },
                         },
                     },
-                },
-            })
+                }
+            )
             const mockStore = configureMockStore([epicMiddleware])
             store = mockStore()
         })

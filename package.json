@@ -22,6 +22,7 @@
     "prop-types": "^15.6.0",
     "react": "16.2.0",
     "react-intl": "^2.4.0",
+    "react-intl-native-ts": "^1.0.2",
     "react-native": "https://github.com/expo/react-native/archive/sdk-24.0.0.tar.gz",
     "react-navigation": "^1.0.0-beta.22",
     "react-redux": "^5.0.6",
@@ -91,10 +92,5 @@
       "prettier --write",
       "git add -A"
     ]
-  },
-  "standard-version": {
-    "scripts": {
-      "postcommit": "nps release.postcommit"
-    }
   }
 }

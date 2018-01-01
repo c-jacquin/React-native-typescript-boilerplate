@@ -7,6 +7,7 @@ describe('config', () => {
             'APP_NAME',
             'STORE_KEY',
             'LANGUAGE',
+            'PUSH_ENDPOINT',
         ])
     })
 })

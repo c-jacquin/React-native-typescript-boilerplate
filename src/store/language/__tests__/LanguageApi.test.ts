@@ -1,7 +1,9 @@
-import languageApi from '../api'
+import { LanguageApi } from '../LanguageApi'
 import { Util } from 'expo'
 
 describe('languages api', () => {
+    const languageApi = new LanguageApi()
+
     it('should properly format the locale', () => {
         expect(languageApi.formatLocale('EN_en')).toBe('en')
     })

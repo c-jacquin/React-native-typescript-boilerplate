@@ -1,6 +1,6 @@
 import epicMiddleware, { rootEpic } from '../epicMiddleware'
 import { dependencies } from '../epicDependencies'
-import appState from 'store/_helpers_/initialState'
+import appState from '../initialState'
 
 describe('epic middleware', () => {
     it('should be defined', () => {
@@ -17,6 +17,7 @@ describe('epic middleware', () => {
         it('should have the correct properties', () => {
             const depKey = [
                 'languageApi',
+                'pushNotificationApi',
                 // Insert api here
             ]
             expect(Object.keys(dependencies)).toEqual(depKey)

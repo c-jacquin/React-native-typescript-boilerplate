@@ -1,11 +1,6 @@
 const { argv } = require('yargs')
 
 const jestConfig = {
-    globals: {
-        'ts-jest': {
-            tsConfigFile: 'scripts/tsconfig-test.json'
-        }
-    },
     collectCoverageFrom: [
         'src/**/*.{ts,tsx}',
         '!src/**/*.test.{ts, tsx}',

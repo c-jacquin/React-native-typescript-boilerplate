@@ -9,14 +9,7 @@ exports[`Home component should renders correctly 1`] = `
       ellipsizeMode="tail"
       style={undefined}
     >
-      <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={undefined}
-      >
-        Hello World
-      </Text>
+      Hello World
     </Text>
   </View>
 </RCTScrollView>

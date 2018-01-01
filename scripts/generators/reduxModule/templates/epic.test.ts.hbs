@@ -1,7 +1,8 @@
 import configureMockStore from 'redux-mock-store'
 import { createEpicMiddleware } from 'redux-observable'
 
-import { dependencies } from 'store/epicDependencies'
+import { dependencies } from '../../epicDependencies'
+import { AppState, ReduxAction, EpicDependancies } from '../../types'
 import * as {{ name }}Action from '../actions'
 import {{ name }}Epic from '../epic'
 

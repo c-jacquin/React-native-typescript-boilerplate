@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import { ScrollView, Text } from 'react-native'
 import { connect, MapStateToProps, MapDispatchToProps } from 'react-redux'
 import { bindActionCreators, Dispatch } from 'redux'
+import { FormattedMessage } from 'react-intl-native-ts'
 
-import { FormattedMessage } from 'components/intl'
 import { AppState, ReduxAction } from 'store/types'
 
 import {

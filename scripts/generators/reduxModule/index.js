@@ -68,12 +68,12 @@ module.exports = {
             templateFile: './reduxModule/templates/appState.hbs',
         }, {
             type: 'modify',
-            path: '../../src/store/_helpers_/initialState.ts',
+            path: '../../src/store/initialState.ts',
             pattern: /\/\/ Import state here\n/g,
             templateFile: './reduxModule/templates/importState.hbs',
         }, {
             type: 'modify',
-            path: '../../src/store/_helpers_/initialState.ts',
+            path: '../../src/store/initialState.ts',
             pattern: /\/\/ Insert state here\n/g,
             templateFile: './reduxModule/templates/initialState.hbs',
         }, {
@@ -120,19 +120,19 @@ module.exports = {
                 ...actions,
                 {
                     type: 'add',
-                    path: '../../src/store/{{name}}/api.ts',
+                    path: '../../src/store/{{name}}/{{pascal name}}Api.ts',
                     templateFile: './reduxModule/templates/api.ts.hbs',
                     abortOnFail: true,
                 },
                 {
                     type: 'add',
-                    path: '../../src/store/{{name}}/__tests__/api.test.ts',
+                    path: '../../src/store/{{name}}/__tests__/{{pascal name}}Api.test.ts',
                     templateFile: './reduxModule/templates/api.test.ts.hbs',
                     abortOnFail: true,
                 },
                 {
                     type: 'add',
-                    path: '../../src/store/{{name}}/__mocks__/api.mock.ts',
+                    path: '../../src/store/{{name}}/__mocks__/{{pascal name}}Api.ts',
                     templateFile: './reduxModule/templates/apiMock.ts.hbs',
                     abortOnFail: true
                 },

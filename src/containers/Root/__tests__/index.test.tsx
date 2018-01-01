@@ -5,8 +5,8 @@ import renderer from 'react-test-renderer'
 import { Root, mapStateToProps } from '../index'
 
 import configureStore from 'redux-mock-store'
-import { translationMessages } from 'i18n'
-import initialState from 'store/_helpers_/initialState'
+import { translationMessages } from '../../../i18n'
+import initialState from '../../../store/initialState'
 
 const mockStore = configureStore()
 

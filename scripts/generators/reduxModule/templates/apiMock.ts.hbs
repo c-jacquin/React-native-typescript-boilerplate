@@ -1,8 +1,5 @@
-import { Observable } from 'rxjs'
-{{#if http}}import { RxFetch } from 'store/_api_/RxFetch'{{/if}}
+import { BehaviorSubject } from 'rxjs/BehaviorSubject'
 
-export class {{ pascal name }}Api {{#if http}}extends RxFetch {{/if}}{
+export class {{ pascal name }}Api {
 
 }
-
-export default new {{ pascal name }}Api()
