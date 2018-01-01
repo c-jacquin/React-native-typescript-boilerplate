@@ -1,15 +1,18 @@
 import { Util } from 'expo'
 import { fromPromise } from 'rxjs/observable/fromPromise'
-import { map } from 'rxjs/operators'
+
+import config from 'config'
 
 export class LanguageApi {
-    formatLocale(locale: string): string {
-        return locale.split('_')[1]
+    formatLocale(brutLocale: string): string {
+        const locale = brutLocale.split('_')[1]
+
+        return config.LANGUAGE.SUPPORTED_LOCALES.includes(locale)
+            ? locale
+            : config.LANGUAGE.DEFAULT_LOCALE
     }
 
     getLanguage() {
-        return fromPromise(Util.getCurrentLocaleAsync()).pipe(
-            map(this.formatLocale)
-        )
+        return fromPromise(Util.getCurrentLocaleAsync().then(this.formatLocale))
     }
 }

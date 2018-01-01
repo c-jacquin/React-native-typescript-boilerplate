@@ -1,4 +1,4 @@
-import { Observable } from 'rxjs/Observable'
+import { BehaviorSubject } from 'rxjs/BehaviorSubject'
 
 export class LanguageApi {
     formatLocale(locale: string): string {
@@ -6,6 +6,6 @@ export class LanguageApi {
     }
 
     getLanguage() {
-        return Observable.of('en')
+        return new BehaviorSubject('en')
     }
 }
