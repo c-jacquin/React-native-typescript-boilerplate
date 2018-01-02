@@ -10,7 +10,7 @@ export class PushNotificationApi {
     subscription: any
 
     getToken(): Observable<string> {
-        return fromPromise(Notifications.getExponentPushTokenAsync())
+        return fromPromise(Notifications.getExpoPushTokenAsync())
     }
 
     register(): Observable<Response> {
