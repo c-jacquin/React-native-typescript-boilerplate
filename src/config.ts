@@ -1,5 +1,9 @@
+import { Dimensions } from 'react-native'
+
 import devEnv from '../env/development.json'
 import prodEnv from '../env/production.json'
+
+const { width, height } = Dimensions.get('window')
 
 export interface Env {
     ENV: string
@@ -20,6 +24,11 @@ if (process.env.NODE_ENV === 'production') {
     config = {
         ...config,
         ...prodEnv,
+        WINDOW: {
+            WIDTH: width,
+            HEIGHT: height,
+        },
+        IS_SMALL: width < 375,
     }
 }
 
