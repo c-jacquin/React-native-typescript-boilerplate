@@ -1,3 +1,6 @@
+import React from 'react'
+import { View } from "react-native"
+
 export class Notifications {
     static getExponentPushTokenAsync() {
         return Promise.resolve('')
@@ -26,6 +29,10 @@ export class Font {
     static loadAsync() {
         return Promise.resolve()
     }
+}
+
+export const AppLoading = () => {
+    return <View />
 }
 
 export default {

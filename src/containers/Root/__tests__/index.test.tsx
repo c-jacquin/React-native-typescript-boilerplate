@@ -13,7 +13,7 @@ const mockStore = configureStore()
 describe('Root component', () => {
     let store = mockStore({})
     const mockProps = {
-        getLocale: () => ({ type: 'TEST' }),
+        bootstrap: () => ({ type: 'TEST' }),
         nav: {
             index: 0,
             routes: [
@@ -24,7 +24,7 @@ describe('Root component', () => {
             ],
         },
     }
-    const spy = jest.spyOn(mockProps, 'getLocale')
+    const spy = jest.spyOn(mockProps, 'bootstrap')
 
     const tree = renderer
         .create(
@@ -66,6 +66,7 @@ describe('Root component', () => {
         it('should return the navigation state in an object', () => {
             expect(mapStateToProps(initialState, null)).toEqual({
                 nav: initialState.navigation,
+                appReady: true,
             })
         })
     })
