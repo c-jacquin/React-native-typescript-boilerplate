@@ -6,13 +6,18 @@ module.exports = {
         message: 'What should it be called?',
     }, {
         type: 'confirm',
+        name: 'persist',
+        message: 'Do you need this state to be persisted ?',
+        default: 'no'        
+    },{
+        type: 'confirm',
         name: 'epic',
         message: 'Do you need an epic middleware (redux-observable) ?',
         default: 'yes'        
     }, {
         type: 'comfirm',
         name: 'api',
-        message: 'Do you need an api service injectd into the epic ?',
+        message: 'Do you need an api service injected into the epic ?',
         default: 'yes'
     }],
     actions: (data) => {
@@ -85,7 +90,7 @@ module.exports = {
             type: 'modify',
             path: '../../src/store/rootReducer.ts',
             pattern: /\/\/ Insert reducer here\n/g,
-            templateFile: './reduxModule/templates/rootReducer.hbs',
+            templateFile: data.persist ? './reduxModule/templates/rootReducerPersist.hbs' : './reduxModule/templates/rootReducer.hbs',
         }]
 
         if (data.epic) {
