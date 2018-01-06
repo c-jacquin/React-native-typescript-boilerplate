@@ -35,4 +35,8 @@ export interface EpicDependancies {
     // Insert api here
 }
 
-export type MyEpic = Epic<ReduxAction, AppState, EpicDependancies>
+export type MyEpic = Epic<
+    ReduxAction | ErrorReduxAction,
+    AppState,
+    EpicDependancies
+>
