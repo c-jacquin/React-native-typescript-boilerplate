@@ -1,5 +1,5 @@
-{{ name }}: persistReducer({{ name }}Reducer, {
+{{ name }}: persistReducer({
         key: '{{ name }}',
         storage,
-    }),
+    }, {{ name }}Reducer),
     // Insert reducer here
